@@ -18,6 +18,6 @@ module.exports = {
     collate: 'utf8_general_ci', 
     timestamps: false,
     // Genera claves foraneas de este tipo persona_id en vez de userId
-    undescored: true,
+    underscored: true,
   }
 }
