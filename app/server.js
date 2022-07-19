@@ -14,9 +14,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(require('./routes'));
 
 // Arrancamos el servidor
+// true dropea todo
 app.listen(PORT, function () {
     console.log(`La app ha arrancado en http://localhost:${PORT}`);
-    connection.sync({ force: true }).then(() => {
+    connection.sync({ force: false }).then(() => {
         console.log("Se ha establecido la conexión");
     })
 });

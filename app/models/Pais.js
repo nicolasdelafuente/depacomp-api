@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     tableName: "paises"
   });
 
-  pais.associate = function(models) {
+ /* pais.associate = function(models) {
     pais.hasMany(models.persona, {
       foreignKey: 'id',
     });
@@ -17,6 +17,6 @@ module.exports = (sequelize, DataTypes) => {
       as:'pais_',
     });
   };
-  
+  */
   return pais;
 };

@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     tableName: "personas"
   });
-
+/*
   persona.associate = function(models) {
 
   };
-
+*/
   return persona;
 };

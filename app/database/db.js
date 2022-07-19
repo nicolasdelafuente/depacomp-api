@@ -1,21 +1,28 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const Sequelize = require("sequelize");
+
 const config = require('../../config/database');
 const db = {};
 
-db.connection = new Sequelize(
+const sequelize = new Sequelize(
                       config.database,
                       config.username,
                       config.password,
                       config
                     );
 
-
+                    
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
 // Vinculación modelos a BD
-db.pais = require('../models/Pais')(db.connection, DataTypes);
-db.persona = require('../models/Persona')(db.connection, DataTypes);
+db.Pais = require('../models/Pais')(sequelize, Sequelize);
+db.Persona = require('../models/Persona')(sequelize, Sequelize);
 
-// Asociaciones de los modelos
-db.pais.associate(db)
-db.persona.associate(db)
+db.Pais.hasMany(db.Persona, {
+  foreignKey: "paisId",
+});
+db.Persona.belongsTo(db.Pais, {
+  foreignKey: "paisId",
+});
 
+db.connection = sequelize
 module.exports = db;
