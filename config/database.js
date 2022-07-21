@@ -16,7 +16,7 @@ module.exports = {
   define: {
     charset: 'utf8',
     collate: 'utf8_general_ci', 
-    timestamps: false,
+    // timestamps: false,
     // Genera claves foraneas de este tipo persona_id en vez de userId
     underscored: true,
   }

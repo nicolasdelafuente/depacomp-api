@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 // Importar controladores
-const PaisController = require('./controllers/paisesControllers');
-const PersonaController = require('./controllers/personasControllers');
+const PaisController = require('./controllers/PaisesControllers');
+const PersonaController = require('./controllers/PersonasControllers');
+const ProvinciaController = require('./controllers/ProvinciasControllers');
 
 // Home
 router.get('/', (_, res) => res.json({foo: "bar"}))
@@ -13,5 +14,8 @@ router.get('/paises', PaisController.all);
 
 // Personas
 router.get('/personas', PersonaController.all);
+
+// Provincias
+router.get('/provincias', ProvinciaController.all);
 
 module.exports = router;

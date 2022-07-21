@@ -1,22 +1,21 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  const pais = sequelize.define('pais', {
+  const Pais = sequelize.define('Pais', {
     nombre: DataTypes.STRING,
     nacionalidad: DataTypes.STRING,
     iso: DataTypes.STRING
   }, {
-    tableName: "paises"
+    tableName:"paises",
   });
 
- /* pais.associate = function(models) {
-    pais.hasMany(models.persona, {
-      foreignKey: 'id',
+  Pais.associate = function(models) {
+    
+    Pais.hasMany(models.Provincia, {
+      foreignKey: "pais_id",
     });
-    models.persona.belongsTo(pais, {
-      as:'pais_',
-    });
+
   };
-  */
-  return pais;
+
+  return Pais;
 };
