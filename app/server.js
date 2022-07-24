@@ -17,7 +17,7 @@ app.use(require('./routes'));
 // true dropea todo
 app.listen(PORT, function () {
     console.log(`La app ha arrancado en http://localhost:${PORT}`);
-    connection.sync({ force: false }).then(() => {
+    connection.sync({ force: true }).then(() => {
         console.log("Se ha establecido la conexión");
     })
 });

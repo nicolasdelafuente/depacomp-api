@@ -2,7 +2,6 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Entrevista = sequelize.define('Entrevista', {
-    nombre: DataTypes.STRING,
     observaciones: DataTypes.STRING,
     acciones: DataTypes.STRING
   }, {

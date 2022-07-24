@@ -11,9 +11,6 @@ module.exports = {
       nombre: {
         type: Sequelize.STRING
       },
-      motivo: {
-        type: Sequelize.STRING
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

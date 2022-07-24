@@ -2,7 +2,6 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Seguimiento = sequelize.define('Seguimiento', {
-    nombre: DataTypes.STRING,
     motivo: DataTypes.STRING
   }, {
     tableName:"seguimientos",
