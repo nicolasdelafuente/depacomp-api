@@ -2,7 +2,7 @@ const { Localidad } = require('../database/db');
 
 module.exports = {
 
-  async all(_, res) {
+  async get(_, res) {
     let localidades = await Localidad.findAll({
       attributes: [
         "id",

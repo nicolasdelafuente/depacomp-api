@@ -14,26 +14,32 @@ module.exports = (sequelize, DataTypes) => {
   Persona.associate = function(models) {
     
     Persona.belongsTo(models.Rol, {
+      as: "rol",
       foreignKey: "rol_id",
     });
 
     Persona.belongsTo(models.Genero, {
+      as: "genero",
       foreignKey: "genero_id",
     });
 
     Persona.belongsTo(models.Pais, {
+      as: "documento__tipo",
       foreignKey: "documento_tipo",
     });
 
     Persona.belongsTo(models.Localidad, {
+      as: "localidad",
       foreignKey: "localidad_id",
     });
 
     Persona.belongsTo(models.Provincia, {
+      as: "provincia",
       foreignKey: "provincia_id",
     });
 
     Persona.belongsTo(models.Pais, {
+      as: "pais",
       foreignKey: "pais_id",
     });
 

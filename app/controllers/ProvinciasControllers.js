@@ -2,7 +2,7 @@ const { Provincia } = require('../database/db');
 
 module.exports = {
 
-  async all(_, res) {
+  async get(_, res) {
     let provincias = await Provincia.findAll({
       attributes: [
         "id",
