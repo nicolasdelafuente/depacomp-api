@@ -2,25 +2,36 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
 
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+      let data = [
+        { nombre: 'Ausente',              color: 'rgba(242,153,74,0.7)', },
+        { nombre: 'Citado',               color: 'rgba(86,204,242,0.7)',  },
+        { nombre: 'Contactar',            color: 'rgba(242,201,76,0.7)', },
+        { nombre: 'En proceso',           color: 'rgba(39,174,96, 0.7)', },
+        { nombre: 'Espera de Respuesta',  color: 'rgba(235,87,87,0.7)', },
+        { nombre: 'Realizado',            color: 'rgba(47,128,237,0.7)', },
+        { nombre: 'Sin Estado',           color: 'rgba(189,189,189,0.7)', },
+      ];
+
+      return queryInterface.bulkInsert('estados', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
 
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+      return queryInterface.bulkDelete('estados', null, {});
+    
   }
 };
+
+
+/*
+
+INSERT INTO estados (estado_tipo, color) VALUES ('Ausente','rgba(242, 153, 74, 0.7)');
+INSERT INTO estados (estado_tipo, color) VALUES ('Citado', 'rgba(86,204,242,0.7)');
+INSERT INTO estados (estado_tipo, color) VALUES ('Contactar','rgba(242,201,76,0.7)');
+INSERT INTO estados (estado_tipo, color) VALUES ('En proceso','rgba(39, 174, 96, 0.7)');
+INSERT INTO estados (estado_tipo, color) VALUES ('Espera de Respuesta', 'rgba(235,87,87,0.7)');
+INSERT INTO estados (estado_tipo, color) VALUES ('Realizado','rgba(47, 128, 237, 0.7)');
+INSERT INTO estados (estado_tipo, color) VALUES ('Sin Estado','rgba(189,189,189,0.7)');
+
+*/
