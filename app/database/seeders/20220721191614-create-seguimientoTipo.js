@@ -4,17 +4,17 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
 
       let data = [
-        { nombre: 'Entrevista' },
-        { nombre: 'Contacto Por email-Telefono' },
-        { nombre: 'Entrevista con docentes' },
+        { nombre: 'Entrevista', created_at: new Date(), updated_at: new Date() },
+        { nombre: 'Contacto Por email-Telefono', created_at: new Date(), updated_at: new Date() },
+        { nombre: 'Entrevista con docentes', created_at: new Date(), updated_at: new Date() },
       ];
 
-      return queryInterface.bulkInsert('seguimientos_tipo', data ,{});
+      return queryInterface.bulkInsert('seguimientotipos', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('seguimientos_tipo', null, {});
+      return queryInterface.bulkDelete('seguimientotipos', null, {});
     
   }
 };

@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   const DocumentoTipo = sequelize.define('DocumentoTipo', {
     nombre: DataTypes.STRING
   }, {
-    tableName:"documentos_tipo",
+    tableName:"documentotipos",
   });
 
   DocumentoTipo.associate = function(models) {

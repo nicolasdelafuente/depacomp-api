@@ -4,17 +4,17 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
 
       let data = [
-        { nombre: 'DNI' },
-        { nombre: 'DU' },
-        { nombre: 'Pasaporte' },
+        { nombre: 'DNI', created_at: new Date(), updated_at: new Date() },
+        { nombre: 'DU', created_at: new Date(), updated_at: new Date() },
+        { nombre: 'Pasaporte', created_at: new Date(), updated_at: new Date() },
       ];
 
-      return queryInterface.bulkInsert('documentos_tipo', data ,{});
+      return queryInterface.bulkInsert('documentotipos', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('documentos_tipo', null, {});
+      return queryInterface.bulkDelete('documentotipos', null, {});
     
   }
 };

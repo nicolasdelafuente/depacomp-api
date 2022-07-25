@@ -31,7 +31,7 @@ const get = async (_, res) => {
           attributes: ["id", "nombre"]
         },
         {
-          association: "documento__tipo",
+          association: "documento__id",
           attributes: ["id", "nombre"]
         },
         {

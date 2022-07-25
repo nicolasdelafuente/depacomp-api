@@ -8,6 +8,8 @@ module.exports = {
           observaciones: "observaciones_1:",
           acciones: "acciones_2:",
           seguimiento_id: 1,
+          created_at: new Date(),
+          updated_at: new Date()
         }
       ];
 

@@ -11,11 +11,21 @@ module.exports = {
       nombre: {
         type: Sequelize.STRING
       },
-      createdAt: {
+      // Se agrega para que se pueda hacer la migracion desde npx (npx sequelize-cli db:seed:all)
+      instituto_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Institutos',
+          key: 'id',
+          as: 'instituto_id',
+        }
+      },
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }

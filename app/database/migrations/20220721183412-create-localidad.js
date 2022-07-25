@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Localidads', {
+    return queryInterface.createTable('Localidades', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,17 +11,27 @@ module.exports = {
       nombre: {
         type: Sequelize.STRING
       },
-      createdAt: {
+      // Se agrega para que se pueda hacer la migracion desde npx (npx sequelize-cli db:seed:all)
+      provincia_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Provincias',
+          key: 'id',
+          as: 'provincia_Id',
+        }
+      },
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Localidads');
+    return queryInterface.dropTable('Localidades');
   }
 };

@@ -23,9 +23,9 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "genero_id",
     });
 
-    Persona.belongsTo(models.Pais, {
-      as: "documento__tipo",
-      foreignKey: "documento_tipo",
+    Persona.belongsTo(models.DocumentoTipo, {
+      as: "documento__id",
+      foreignKey: "documento_id",
     });
 
     Persona.belongsTo(models.Localidad, {

@@ -16,6 +16,8 @@ module.exports = {
           //localidad_id: 1,
           //provincia_id: 2,
           //pais_id: 9,
+          created_at: new Date(),
+          updated_at: new Date()
         },
         {  
           nombre: "nombre_2",
@@ -23,12 +25,14 @@ module.exports = {
           email: "nombre_apellido_2@gmail.com",
           password: "1234",
           documento: "30000002",
-          rol_id: 2,
+          //rol_id: 2,
           genero_id: 2,
           documento_tipo_id: 1,
           localidad_id: 1,
           provincia_id: 2,
           pais_id: 9,
+          created_at: new Date(),
+          updated_at: new Date()
         },
         {  
           nombre: "nombre_3",
@@ -36,12 +40,14 @@ module.exports = {
           email: "nombre_apellido_3@gmail.com",
           password: "1234",
           documento: "30000003",
-          rol_id: 2,
+          //rol_id: 2,
           genero_id: 1,
           documento_tipo_id: 1,
           localidad_id: 1,
           provincia_id: 2,
           pais_id: 9,
+          created_at: new Date(),
+          updated_at: new Date()
         },
         {  
           nombre: "nombre_4",
@@ -49,12 +55,14 @@ module.exports = {
           email: "nombre_apellido_4@gmail.com",
           password: "1234",
           documento: "30000005",
-          rol_id: 3,
+          //rol_id: 3,
           genero_id: 2,
           documento_tipo_id: 1,
           localidad_id: 1,
           provincia_id: 2,
           pais_id: 9,
+          created_at: new Date(),
+          updated_at: new Date()
         },
         {  
           nombre: "nombre_5",
@@ -62,12 +70,14 @@ module.exports = {
           email: "nombre_apellido_5@gmail.com",
           password: "1234",
           documento: "30000005",
-          rol_id: 3,
+          //rol_id: 3,
           genero_id: 2,
           documento_tipo_id: 1,
           localidad_id: 1,
           provincia_id: 2,
           pais_id: 9,
+          created_at: new Date(),
+          updated_at: new Date()
         },
         {  
           nombre: "nombre_6",
@@ -75,12 +85,14 @@ module.exports = {
           email: "nombre_apellido_6@gmail.com",
           password: "1234",
           documento: "30000006",
-          rol_id: 3,
+          //rol_id: 3,
           genero_id: 2,
           documento_tipo_id: 1,
           localidad_id: 1,
           provincia_id: 2,
           pais_id: 9,
+          created_at: new Date(),
+          updated_at: new Date()
         },
       ];
 
