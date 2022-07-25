@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const { connection } = require('./database/db'); 
+const { connection } = require('./database/db');
+const routes = require('./routes');
 
 // Setting
 const PORT = process.env.PORT || 3000;
@@ -11,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Rutas
-app.use(require('./routes'));
+app.use("/depacomp-api",routes);
 
 // Arrancamos el servidor
 // true dropea todo
