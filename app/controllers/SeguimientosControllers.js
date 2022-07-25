@@ -16,7 +16,6 @@ const get = async (_, res) => {
     let data = await Seguimiento.findAll({
       attributes: [
         "id",
-        "nombre",
         "created_at",
         "updated_at"
       ],
@@ -37,7 +36,6 @@ const getById = async (req, res) => {
 
           attributes: [
             "id",
-            "nombre",
             "created_at",
             "updated_at"
           ],
