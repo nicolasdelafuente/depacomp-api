@@ -22,7 +22,7 @@ module.exports = {
           attributes: ["id", "nombre"]
         },
         {
-          association: "documento_tipo",
+          association: "documento__tipo",
           attributes: ["id", "nombre"]
         },
         {
