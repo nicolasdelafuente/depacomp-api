@@ -19,7 +19,11 @@ const SeguimientoController = require('./controllers/SeguimientosControllers');
 router.get('/', (_, res) => res.json({foo: "bar"}))
 
 // Carreras
+router.post('/carreras', CarreraController.create)
 router.get('/carreras', CarreraController.get);
+router.get('/carreras/:id', CarreraController.getById);
+router.put('/carreras/:id', CarreraController.update)
+router.delete('/carreras/:id', CarreraController.destroy)
 
 // Documentos Tipo
 router.get('/documentos_tipo', DocumentosTipoController.get);
