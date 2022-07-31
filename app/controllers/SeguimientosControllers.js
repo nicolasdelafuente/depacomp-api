@@ -80,11 +80,26 @@ const destroy = async (req, res) => {
   }
 };
 
+const getByOrientadorId = async (req, res) => {
+  try {
+      const { orientador_id } = req.params;
+      const data = await Seguimiento.findAll({
+          where: { orientador_id: orientador_id }
+      });
+      if (data) {
+          return res.status(200).json({ data });
+      }
+      return res.status(404).send({message: 'No existe Seguimiento con el orientador especificado'});
+  } catch (error) {
+      return res.status(500).send({ error: error.message });
+  }
+}
 
 module.exports = {
   create,
   get,
   getById,
   update,
-  destroy
+  destroy,
+  getByOrientadorId
 }

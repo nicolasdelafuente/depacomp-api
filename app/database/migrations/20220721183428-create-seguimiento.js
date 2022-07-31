@@ -12,6 +12,38 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING.BINARY
       },
+      orientador_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      // Se agrega para que se pueda hacer la migracion desde npx (npx sequelize-cli db:seed:all)
+      categoria_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Categorias',
+          key: 'id',
+          as: 'categoria_Id',
+        }
+      },
+      estado_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Estados',
+          key: 'id',
+          as: 'estado_Id',
+        }
+      },
+      seguimiento_tipo_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Seguimientotipos',
+          key: 'id',
+          as: 'seguimientotipo_id',
+        }
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

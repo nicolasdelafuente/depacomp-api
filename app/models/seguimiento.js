@@ -2,7 +2,8 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Seguimiento = sequelize.define('Seguimiento', {
-    motivo: DataTypes.STRING
+    motivo: DataTypes.STRING,
+    orientador_id: DataTypes.INTEGER
   }, {
     tableName:"seguimientos",
   });
@@ -13,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "seguimiento_tipo_id",
     });
 
-    Seguimiento.belongsTo(models.Categoria, {
+   /* Seguimiento.belongsTo(models.Categoria, {
       foreignKey: "categoria_id",
-    });
+    });*/
 
     Seguimiento.belongsTo(models.Estado, {
       foreignKey: "estado_id",
