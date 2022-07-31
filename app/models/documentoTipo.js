@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   DocumentoTipo.associate = function(models) {
     
     DocumentoTipo.hasMany(models.Persona, {
-      foreignKey: "documento_tipo_id",
+      foreignKey: "documento_id",
     });
 
   };
