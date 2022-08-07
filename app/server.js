@@ -2,10 +2,12 @@ const express = require('express');
 const app = express();
 const { connection } = require('./database/db');
 const routes = require('./routes');
+const cors = require('cors')
 
 // Setting
 const PORT = process.env.PORT || 4000;
 
+app.use(cors());
 // Middleware
 // Para poder rellenar el req.body
 app.use(express.json());
