@@ -42,13 +42,13 @@ module.exports = {
           as: 'genero_id',
         }
       },
-      documento_tipo_id: {
+      documento_id: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
           model: 'documentotipos',
           key: 'id',
-          as: 'documento_tipo_id',
+          as: 'documento_id',
         }
       },
       localidad_id: {

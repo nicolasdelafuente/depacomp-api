@@ -98,9 +98,11 @@ router.delete('/roles/:id', RolController.destroy);
 // Seguimientos
 router.post('/seguimientos', SeguimientoController.create);
 router.get('/seguimientos', SeguimientoController.get);
-router.get('/seguimientos/:id', SeguimientoController.getById);
+//router.get('/seguimientos/:id', SeguimientoController.getById);
+router.get('/seguimientos/:id', SeguimientoController.getBySeguimientoId);
 router.put('/seguimientos/:id', SeguimientoController.update);
 router.delete('/seguimientos/:id', SeguimientoController.destroy);
+router.get('/orientador/:orientador_id/seguimientos', SeguimientoController.getByOrientadorId);
 
 
 module.exports = router;

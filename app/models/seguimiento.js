@@ -2,7 +2,8 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Seguimiento = sequelize.define('Seguimiento', {
-    motivo: DataTypes.STRING
+    motivo: DataTypes.STRING,
+    orientador_id: DataTypes.INTEGER
   }, {
     tableName:"seguimientos",
   });
@@ -20,7 +21,12 @@ module.exports = (sequelize, DataTypes) => {
     Seguimiento.belongsTo(models.Estado, {
       foreignKey: "estado_id",
     });
+
+    Seguimiento.hasMany(models.Entrevista, {
+      foreignKey: "entrevista_id",
+    });
     
+
     Seguimiento.belongsToMany(models.Persona, {
       through: 'persona_seguimiento'
     });

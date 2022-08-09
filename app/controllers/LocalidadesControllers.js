@@ -33,14 +33,7 @@ const getById = async (req, res) => {
   try {
       const { id } = req.params;
       const data = await Localidad.findOne({
-          where: { id: id },
-
-          attributes: [
-            "id",
-            "nombre",
-            "created_at",
-            "updated_at"
-          ]
+          where: { id: id }
       });
       if (data) {
           return res.status(200).json({ data });
