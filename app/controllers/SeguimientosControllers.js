@@ -1,4 +1,30 @@
-const { Seguimiento } = require('../database/db');
+const { Seguimiento, Categoria, Estado, SeguimientoTipo, Persona, Entrevista } = require('../database/db');
+const attributes = [
+  "id",
+  /*"categoria_id",
+  "estado_id",
+  "seguimiento_tipo_id",
+  "orientador_id",*/
+  "motivo",
+  "created_at",
+  "updated_at"
+]
+
+const includes = [{
+    model: Categoria,
+    attributes: ["id", "nombre"]
+  },{
+    model: Estado,
+    attibutes: ["id", "nombre", "color"]
+  },{
+    model: SeguimientoTipo,
+    attributes: ["id", "nombre"]
+  },{
+    model: Persona,
+    attibutes: ["id", "nombre"]
+    //where : { rol_id : rol_id }
+  }]
+
 
 const create = async (req, res) => {
   try {
@@ -14,11 +40,8 @@ const create = async (req, res) => {
 const get = async (_, res) => {
   try {
     let data = await Seguimiento.findAll({
-      attributes: [
-        "id",
-        "created_at",
-        "updated_at"
-      ],
+      attributes: attributes,
+      include: includes,
     });
 
     return res.status(200).json({ data });
@@ -95,11 +118,29 @@ const getByOrientadorId = async (req, res) => {
   }
 }
 
+const getBySeguimientoId = async (req, res) => {
+  try {
+      const { id } = req.params;
+      const data = await Seguimiento.findOne({
+          where: { id: id },
+          attributes: attributes,
+          include: includes
+      });
+      if (data) {
+          return res.status(200).json({ data });
+      }
+      return res.status(404).send({message: 'No existe Seguimiento con el id especificado'});
+  } catch (error) {
+      return res.status(500).send({ error: error.message });
+  }
+}
+
 module.exports = {
   create,
   get,
   getById,
   update,
   destroy,
-  getByOrientadorId
+  getByOrientadorId,
+  getBySeguimientoId
 }

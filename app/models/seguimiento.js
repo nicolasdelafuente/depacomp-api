@@ -14,14 +14,19 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "seguimiento_tipo_id",
     });
 
-   /* Seguimiento.belongsTo(models.Categoria, {
+    Seguimiento.belongsTo(models.Categoria, {
       foreignKey: "categoria_id",
-    });*/
+    });
 
     Seguimiento.belongsTo(models.Estado, {
       foreignKey: "estado_id",
     });
+
+    Seguimiento.hasMany(models.Entrevista, {
+      foreignKey: "entrevista_id",
+    });
     
+
     Seguimiento.belongsToMany(models.Persona, {
       through: 'persona_seguimiento'
     });
