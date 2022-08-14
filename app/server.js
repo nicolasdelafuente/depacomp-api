@@ -2,12 +2,18 @@ const express = require('express');
 const app = express();
 const { connection } = require('./database/db');
 const routes = require('./routes');
+const cors = require('cors')
 
 // Setting
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
-// Middleware
-// Para poder rellenar el req.body
+app.use(cors());
+const whiteList = process.env.WHITELIST;
+
+app.use(cors({
+    "Access-Control-Allow-Origin": whiteList,
+    "optionsSuccessStatus": 200
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
