@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Rutas
-app.use("/depacomp-api",routes);
+app.use("/depacomp-api/v1",routes);
 
 // Arrancamos el servidor
 // true dropea todo
