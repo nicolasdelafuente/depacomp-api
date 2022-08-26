@@ -26,12 +26,20 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "entrevista_id",
     });
     
-
-    Seguimiento.belongsToMany(models.Persona, {
-      through: 'persona_seguimiento'
+    Seguimiento.belongsTo(models.Persona, {
+      as: "entrevistador_id",
+      foreignKey: "id",
     });
 
+    Seguimiento.belongsTo(models.Persona, {
+      as: "derivador_id",
+      foreignKey: "id",
+    });
 
+    Seguimiento.belongsTo(models.Persona, {
+      as: "entrevistado_id",
+      foreignKey: "id",
+    });
   };
 
   return Seguimiento;

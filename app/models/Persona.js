@@ -43,8 +43,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "pais_id",
     });
 
-    Persona.belongsToMany(models.Seguimiento, { through: 'persona_seguimiento' });
-
   };
 
   return Persona;

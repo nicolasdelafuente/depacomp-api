@@ -44,6 +44,33 @@ module.exports = {
           as: 'seguimientotipo_id',
         }
       },
+      entrevistador_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'personas',
+          key: 'id',
+          as: 'entrevistador_id',
+        }
+      },
+      derivador_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'personas',
+          key: 'id',
+          as: 'derivador_id',
+        }
+      },
+      entrevistado_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'personas',
+          key: 'id',
+          as: 'entrevistado_id',
+        }
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

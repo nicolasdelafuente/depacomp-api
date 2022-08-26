@@ -20,9 +20,14 @@ const includes = [{
     model: SeguimientoTipo,
     attributes: ["id", "nombre"]
   },{
-    model: Persona,
+    model: Persona, as: 'entrevistador_id',
     attibutes: ["id", "nombre"]
-    //where : { rol_id : rol_id }
+  },{
+    model: Persona, as: 'derivador_id',
+    attibutes: ["id", "nombre"]
+  },{
+    model: Persona, as: 'entrevistado_id',
+    attibutes: ["id", "nombre"]
   }]
 
 
