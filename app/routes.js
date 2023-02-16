@@ -111,6 +111,6 @@ router.get('/usuarios', UsuarioController.get);
 router.get('/usuarios/:id', UsuarioController.getById);
 router.put('/usuarios/:id', UsuarioController.update);
 router.delete('/usuarios/:id', UsuarioController.destroy);
-
+router.post('/usuarios/login', UsuarioController.comprobarPassword);
 
 module.exports = router;

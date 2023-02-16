@@ -90,6 +90,16 @@ const destroy = async (req, res) => {
   }
 };
 
+const comprobarPassword = async (req, res) => {
+  try {
+    const email = req.params.email
+    const password = req.params.email
+    
+  } catch (error) {
+    
+  }
+}
+
 
 module.exports = {
   create,
