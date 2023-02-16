@@ -24,6 +24,7 @@ db.Provincia = require('../models/provincia')(sequelize, Sequelize);
 db.Rol = require('../models/rol')(sequelize, Sequelize);
 db.Seguimiento = require('../models/seguimiento')(sequelize, Sequelize);
 db.SeguimientoTipo = require('../models/seguimientoTipo')(sequelize, Sequelize);
+db.Usuario = require('../models/usuario')(sequelize, Sequelize);
 
 
 
@@ -41,6 +42,7 @@ db.Provincia.associate(db);
 db.Rol.associate(db);
 db.Seguimiento.associate(db);
 db.SeguimientoTipo.associate(db);
+db.Usuario.associate(db);
 
 
 /*

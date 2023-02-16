@@ -14,6 +14,7 @@ const PersonaController = require('./controllers/PersonasControllers');
 const ProvinciaController = require('./controllers/ProvinciasControllers');
 const RolController = require('./controllers/RolesControllers');
 const SeguimientoController = require('./controllers/SeguimientosControllers');
+const UsuarioController = require('./controllers/UsuariosControllers');
 
 // Home
 router.get('/', (_, res) => res.json({foo: "bar"}))
@@ -103,6 +104,13 @@ router.get('/seguimientos/:id', SeguimientoController.getBySeguimientoId);
 router.put('/seguimientos/:id', SeguimientoController.update);
 router.delete('/seguimientos/:id', SeguimientoController.destroy);
 router.get('/orientador/:orientador_id/seguimientos', SeguimientoController.getByOrientadorId);
+
+// Usuarios
+router.post('/usuarios', UsuarioController.create);
+router.get('/usuarios', UsuarioController.get);
+router.get('/usuarios/:id', UsuarioController.getById);
+router.put('/usuarios/:id', UsuarioController.update);
+router.delete('/usuarios/:id', UsuarioController.destroy);
 
 
 module.exports = router;
