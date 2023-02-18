@@ -2,22 +2,29 @@ const express = require('express');
 const router = express.Router();
 
 // Importar controladores
-const CarreraController = require('./controllers/CarrerasControllers');
-const DocumentosTipoController = require('./controllers/DocumentosTipoControllers');
-const EntrevistaController = require('./controllers/EntrevistasControllers');
-const EstadoController = require('./controllers/EstadosControllers');
-const GeneroController = require('./controllers/GenerosControllers');
-const InstitutoController = require('./controllers/InstitutosControllers');
-const LocalidadController = require('./controllers/LocalidadesControllers');
-const PaisController = require('./controllers/PaisesControllers');
-const PersonaController = require('./controllers/PersonasControllers');
-const ProvinciaController = require('./controllers/ProvinciasControllers');
-const RolController = require('./controllers/RolesControllers');
-const SeguimientoController = require('./controllers/SeguimientosControllers');
-const UsuarioController = require('./controllers/UsuariosControllers');
+const AuthController            = require('./controllers/AuthControllers');
+const CarreraController         = require('./controllers/CarrerasControllers');
+const DocumentosTipoController  = require('./controllers/DocumentosTipoControllers');
+const EntrevistaController      = require('./controllers/EntrevistasControllers');
+const EstadoController          = require('./controllers/EstadosControllers');
+const GeneroController          = require('./controllers/GenerosControllers');
+const InstitutoController       = require('./controllers/InstitutosControllers');
+const LocalidadController       = require('./controllers/LocalidadesControllers');
+const PaisController            = require('./controllers/PaisesControllers');
+const PersonaController         = require('./controllers/PersonasControllers');
+const ProvinciaController       = require('./controllers/ProvinciasControllers');
+const RolController             = require('./controllers/RolesControllers');
+const SeguimientoController     = require('./controllers/SeguimientosControllers');
+const UsuarioController         = require('./controllers/UsuariosControllers');
 
 // Home
 router.get('/', (_, res) => res.json({foo: "bar"}))
+
+// Login
+router.post('/signin', AuthController.signIn);
+
+// Registro
+router.post('/signup', AuthController.signUp);
 
 // Carreras
 router.post('/carreras', CarreraController.create);
@@ -111,6 +118,5 @@ router.get('/usuarios', UsuarioController.get);
 router.get('/usuarios/:id', UsuarioController.getById);
 router.put('/usuarios/:id', UsuarioController.update);
 router.delete('/usuarios/:id', UsuarioController.destroy);
-router.post('/usuarios/login', UsuarioController.comprobarPassword);
 
 module.exports = router;

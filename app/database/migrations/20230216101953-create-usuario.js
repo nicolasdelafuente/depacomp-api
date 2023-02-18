@@ -11,6 +11,15 @@ module.exports = {
       nombre: {
         type: Sequelize.STRING,
         allowNull: false,
+        validate: {
+          isAlpha: {
+            msg: "El nombre solo puede contener letras."
+          },
+          length: {
+            args: [2, 32],
+            msg: "El nombre tiene que tener de 2 a 32 carácteres."
+          } 
+        }
       },
       password: {
         type: Sequelize.STRING,
@@ -19,7 +28,12 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true
+        unique: true,
+        validate: {
+          isEmail: {
+            msg: "El email tiene que ser un correo válido"
+          }
+        }
       },
       token: {
         type: Sequelize.STRING

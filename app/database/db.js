@@ -7,7 +7,6 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
 
                     
 db.Sequelize = Sequelize;
-db.sequelize = sequelize;
 // Vinculación modelos a BD
 
 db.Carrera = require('../models/carrera')(sequelize, Sequelize);
