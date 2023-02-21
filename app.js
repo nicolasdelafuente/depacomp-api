@@ -6,12 +6,13 @@ const { connection } = require('./src/app/database/db');
 const routes = require('./src/app/routes');
 const cors = require('cors')
 
-// Setting
-const PORT          = process.env.PORT || 4000;
+const { swaggerDocs } = require('./src/app/routes/swagger')
 
+const PORT          = process.env.PORT || 4000;
 const ROUTE         = process.env.Route || '/depacomp-api';
-const ROUTEVERSION  = process.env.ROUTEVERSION || 'v1';
+const ROUTEVERSION  = process.env.ROUTEVERSION || '/v1';
 const WHITELIST     = process.env.WHITELIST || ['http://localhost:3000'];
+
 
 app.use(cors({
     "Access-Control-Allow-Origin": WHITELIST,
@@ -21,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Rutas
-app.use(`${ROUTE}/${ROUTEVERSION}`, routes);
+app.use(`${ROUTE}${ROUTEVERSION}`, routes);
 
 // Arranque Servidor
 app.listen(PORT, function () {
@@ -30,5 +31,6 @@ app.listen(PORT, function () {
     // TRUE dropea todo
     connection.sync({ force: false }).then(() => {
         console.log("Se ha establecido la conexión");
+        swaggerDocs(app, PORT);
     })
 });
