@@ -1,11 +1,14 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
-const { connection } = require('./database/db');
-const routes = require('./routes');
+const { connection } = require('./src/app/database/db');
+const routes = require('./src/app/routes');
 const cors = require('cors')
 
 // Setting
 const PORT          = process.env.PORT || 4000;
+
 const ROUTE         = process.env.Route || '/depacomp-api';
 const ROUTEVERSION  = process.env.ROUTEVERSION || 'v1';
 const WHITELIST     = process.env.WHITELIST || ['http://localhost:3000'];
