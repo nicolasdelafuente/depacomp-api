@@ -9,10 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nombre: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       // Se agrega para que se pueda hacer la migracion desde npx (npx sequelize-cli db:seed:all)
       pais_Id: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {

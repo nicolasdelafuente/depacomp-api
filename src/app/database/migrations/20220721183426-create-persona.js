@@ -9,18 +9,23 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nombre: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       apellido: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       email: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       password: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       documento: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       // Se agrega para que se pueda hacer la migracion desde npx (npx sequelize-cli db:seed:all)

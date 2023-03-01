@@ -10,17 +10,15 @@ const ROUTEVERSION  = process.env.ROUTEVERSION || '/v1';
 const options = {
     definition: {
         openapi: '3.0.0',
-        into: {
+        info: {
             title: `Depacomp API ${ROUTEVERSION}`,
             version: '1.0.0'
         },
-        /*
         servers: [
             {
-                url:"http://localhost:4000"
+                url:"http://localhost:4000/depacomp-api/v1"
             }
         ]
-        */
     },
     apis: [`${path.join(__dirname, "./v1/*.js")}`],
     //apis: [`${path}/carreras.routes.js`,]

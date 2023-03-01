@@ -9,6 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       observaciones: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       acciones: {

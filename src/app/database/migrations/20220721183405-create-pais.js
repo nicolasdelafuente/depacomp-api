@@ -9,12 +9,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       nombre: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       nacionalidad: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       iso: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       created_at: {
