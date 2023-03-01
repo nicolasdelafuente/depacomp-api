@@ -13,6 +13,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       color: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       created_at: {

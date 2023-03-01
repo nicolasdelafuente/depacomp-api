@@ -18,6 +18,7 @@ module.exports = {
       },
       // Se agrega para que se pueda hacer la migracion desde npx (npx sequelize-cli db:seed:all)
       categoria_id: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
@@ -27,6 +28,7 @@ module.exports = {
         }
       },
       estado_id: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
@@ -36,6 +38,7 @@ module.exports = {
         }
       },
       seguimiento_tipo_id: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
@@ -45,6 +48,7 @@ module.exports = {
         }
       },
       entrevistador_id: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
@@ -54,6 +58,7 @@ module.exports = {
         }
       },
       derivador_id: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
@@ -63,6 +68,7 @@ module.exports = {
         }
       },
       entrevistado_id: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
