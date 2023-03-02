@@ -5,7 +5,6 @@ const path = require('path');
 
 const ROUTE         = process.env.ROUTE;
 const ROUTEVERSION  = process.env.ROUTEVERSION || '/v1';
-//const path = `src/app/routes${ROUTEVERSION}`;
 
 const options = {
     definition: {
@@ -21,7 +20,6 @@ const options = {
         ]
     },
     apis: [`${path.join(__dirname, "./v1/*.js")}`],
-    //apis: [`${path}/carreras.routes.js`,]
 };
 
 

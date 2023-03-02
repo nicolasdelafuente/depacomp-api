@@ -17,6 +17,7 @@ const DocumentosTipoController  = require('../../controllers/DocumentosTipoContr
  *                      example: 1
  *                  nombre: 
  *                      type: string
+ *                      format: binary
  *                      example: DNI 
  *                  created_at:
  *                      type: string
@@ -31,6 +32,7 @@ const DocumentosTipoController  = require('../../controllers/DocumentosTipoContr
  *              properties:
  *                  nombre: 
  *                      type: string
+ *                      format: binary
  *                      example: DNI 
  */
 
@@ -56,7 +58,7 @@ const DocumentosTipoController  = require('../../controllers/DocumentosTipoContr
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/Documentos Tipo Modificacion'
+ *                          $ref: '#/components/schemas/Documentos Tipo'
  *          '405':
  *              description: Invalid input
  */
@@ -83,10 +85,14 @@ router.post('/', DocumentosTipoController.create);
  *                  data:
  *                      type: array 
  *                      items: 
- *                          $ref: "#/components/schemas/Documentos Tipo"
+ *                          $ref: '#/components/schemas/Documentos Tipo'
  *      responses:
  *          '200':
- *              description: Se econtraron todos los Tipos de Documentos
+ *              description: Tipo de documento agregado con exito
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/Documentos Tipo'
  */
 
 router.get('/', DocumentosTipoController.get);
@@ -94,7 +100,7 @@ router.get('/', DocumentosTipoController.get);
 /**
  * @swagger
  *  
- * /documentos_tipo/{docId}:
+ * /documentos_tipo/{Id}:
  *  get:
  *     tags:
  *       - Documentos Tipo
@@ -110,26 +116,23 @@ router.get('/', DocumentosTipoController.get);
  *             type: integer
  *             format: int32
  *     responses:
- *         200:
- *          description: Se encontro el Tipo de Documento solicitado
- *          content:
- *          application/json:
- *              schema:
- *                  $ref: '#/components/schemas/Documentos Tipo'
- *          application/xml:
- *              schema:
- *                  $ref: '#/components/schemas/Documentos Tipo'
- *         400:
- *          description: ID suministrado invalido
- *         404:
- *          description: No existe el Tipo de Documento del id especificado
+ *          '200':
+ *              description: Se encontro el Tipo de Documento por ID solicitado
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/Documentos Tipo'
+ *          '400':
+ *              description: ID suministrado invalido
+ *          '404':
+ *              description: No existe el Tipo de Documento del id especificado
  */
 
 router.get('/:id', DocumentosTipoController.getById);
 
 /**
  * @swagger
- * /documentos_tipo/{docId}:
+ * /documentos_tipo/{Id}:
  *  put:
  *      tags:
  *          - Documentos Tipo
@@ -171,7 +174,7 @@ router.put('/:id', DocumentosTipoController.update);
 /**
  * @swagger
  *  
- * /documentos_tipo/{docId}:
+ * /documentos_tipo/{Id}:
  *  delete:
  *      tags:
  *          - Documentos Tipo
@@ -195,10 +198,6 @@ router.put('/:id', DocumentosTipoController.update);
  *      responses:
  *          '204':
  *              description: El Tipo de Documento fue eliminado correctamente
- *              content:
- *                  application/json:
- *                      schema:
- *                          $ref: '#/components/schemas/Documentos Tipo'
  *          '400':
  *              description: Tipo de Documento incorrecto
  */

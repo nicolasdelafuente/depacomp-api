@@ -17,15 +17,16 @@ const CarreraController = require('../../controllers/CarrerasControllers');
  *                      example: 1
  *                  nombre:
  *                      type: string
+ *                      format: binary
  *                      example: Licenciatura en Informatica 
- *                  Institutos:
- *                      $ref: '#/components/schemas/Institutos2'
  *                  created_at:
  *                      type: string
  *                      example: 2023-02-21 23:47:20
  *                  updated_at: 
  *                      type: string
  *                      example: 2023-02-21 23:47:20
+ *                  Institutos:
+ *                      $ref: '#/components/schemas/Institutos2'
  */
 
 /**
@@ -48,6 +49,7 @@ const CarreraController = require('../../controllers/CarrerasControllers');
  *                          example: 1
  *                      nombre:
  *                          type: string
+ *                          format: binary
  *                          example: Licenciatura en Informatica 
  *                      instituto_id:
  *                          type: integer
@@ -138,8 +140,81 @@ router.post('/', CarreraController.create);
  */
 
 router.get('/', CarreraController.get);
+
+/**
+ * @swagger
+ * /carreras/{Id}:
+ *  get:
+ *     tags:
+ *       - Carrera
+ *     summary: Buscar Carrera por ID
+ *     description: Buscar Carrera
+ *     operationId: getById
+ *     parameters:
+ *       - name: Id
+ *         in: path
+ *         description: ID de Carrera a devolver
+ *         required: true
+ *         schema:
+ *             type: integer
+ *             format: int32
+ *     responses:
+ *          '200':
+ *              description: Se listo la carrera por ID
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              status:
+ *                                  type: string
+ *                                  example: OK
+ *                              data:
+ *                                  type: array 
+ *                                  items: 
+ *                                      $ref: "#/components/schemas/Carreras"
+ *          '404':
+ *              description: No se encontro la carrera por ID
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              status:
+ *                                  type: string
+ *                                  example: NOT FOUND
+ *                              data:
+ *                                  type: object
+ *                                  properties:
+ *                                      error:
+ *                                          type: string 
+ *                                          example: "No se encontro"
+ *          '500':
+ *              description: FAILED
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              status:
+ *                                  type: string
+ *                                  example: FAILED
+ *                              data:
+ *                                  type: object
+ *                                  properties:
+ *                                      error:
+ *                                          type: string 
+ *                                          example: "FAILED"
+ */
+
 router.get('/:id', CarreraController.getById);
+
+
+
 router.put('/:id', CarreraController.update);
+
+
+
 router.delete('/:id', CarreraController.destroy);
 
 module.exports = router;
