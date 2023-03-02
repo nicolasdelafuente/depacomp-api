@@ -10,7 +10,8 @@ module.exports = {
       },
       nombre: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true
       },
       // Se agrega para que se pueda hacer la migracion desde npx (npx sequelize-cli db:seed:all)
       pais_Id: {
