@@ -26,15 +26,16 @@ const CarreraController = require('../../controllers/CarrerasControllers');
  *                      type: string
  *                      example: 2023-02-21 23:47:20
  *                  Institutos:
- *                      $ref: '#/components/schemas/Institutos2'
+ *                      $ref: '#/components/schemas/Institutos'
  */
 
+// Hay que ver como se agrega con el schema bien hecho
 /**
  * @swagger
  * /carreras:
  *  post:
  *      tags:
- *          - Carrera
+ *          - Carreras
  *      summary: Agregar una nueva carrera
  *      description: Agregar una nueva carrera
  *      operationId: create
@@ -43,18 +44,16 @@ const CarreraController = require('../../controllers/CarrerasControllers');
  *          content:
  *              application/json:
  *                  schema:
- *                      id:
- *                          type: integer
- *                          format: int64
- *                          example: 1
- *                      nombre:
- *                          type: string
- *                          format: binary
- *                          example: Licenciatura en Informatica 
- *                      instituto_id:
- *                          type: integer
- *                          format: int64
- *                          example: 1
+ *                      type: object 
+ *                      properties:
+ *                          nombre:
+ *                              type: string
+ *                              format: binary
+ *                              example: Licenciatura en Informatica
+ *                          instituto_id:
+ *                              type: integer
+ *                              format: int64
+ *                              example: 1
  *          required: true
  *      responses:
  *          '200':
@@ -74,7 +73,7 @@ router.post('/', CarreraController.create);
  * /carreras:
  *  get:
  *      tags:
- *        - Carrera
+ *        - Carreras
  *      summary: Lista todas las Carreras existentes
  *      description: Lista todas las Carreras existentes
  *      operationId: get
@@ -146,7 +145,7 @@ router.get('/', CarreraController.get);
  * /carreras/{Id}:
  *  get:
  *     tags:
- *       - Carrera
+ *       - Carreras
  *     summary: Buscar Carrera por ID
  *     description: Buscar Carrera
  *     operationId: getById
@@ -209,11 +208,86 @@ router.get('/', CarreraController.get);
 
 router.get('/:id', CarreraController.getById);
 
-
+/**
+ * @swagger
+ * /carreras/{Id}:
+ *  put:
+ *      tags:
+ *          - Carreras
+ *      summary: Update de una Carrera existente
+ *      description: Actualizacion de una Carrera por Id
+ *      operationId: update
+ *      parameters:
+ *        - name: Id
+ *          in: path
+ *          description: ID de una Carrera para ser modficado
+ *          required: true
+ *          schema:
+ *              type: integer
+ *              format: int64
+ *      requestBody:
+ *          description: Actualizacion de una Carrera por id
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object 
+ *                      properties:
+ *                          nombre:
+ *                              type: string
+ *                              format: binary
+ *                              example: Licenciatura en Informatica
+ *                          instituto_id:
+ *                              type: integer
+ *                              format: int64
+ *                              example: 1
+ *          required: true
+ *      responses:
+ *          '200':
+ *              description: Se actualizo la Carrera existente
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/Carreras'
+ *          '400':
+ *              description: El ID sumistrado es incorrecto
+ *          '404':
+ *              description: La Carrera no existe
+ *          '405':
+ *              description: Validation exception
+ */
 
 router.put('/:id', CarreraController.update);
 
-
+/**
+ * @swagger
+ *  
+ * /carreras/{Id}:
+ *  delete:
+ *      tags:
+ *          - Carreras
+ *      summary: Elimina una Carrera por el id
+ *      description: Borra la Carrera segun el id enviado
+ *      operationId: destroy
+ *      parameters:
+ *        - name: api_key
+ *          in: header
+ *          description: ''
+ *          required: false
+ *          schema:
+ *              type: string
+ *        - name: Id
+ *          in: path
+ *          description: ID de la Carrera para ser borrado
+ *          required: true
+ *          schema:
+ *              type: integer
+ *              format: int64
+ *      responses:
+ *          '204':
+ *              description: La Carrera fue eliminada correctamente
+ *          '400':
+ *              description: LA Carrera es incorrecta
+ */
 
 router.delete('/:id', CarreraController.destroy);
 

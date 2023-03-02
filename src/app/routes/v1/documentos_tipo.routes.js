@@ -25,15 +25,6 @@ const DocumentosTipoController  = require('../../controllers/DocumentosTipoContr
  *                  updated_at: 
  *                      type: string
  *                      example: 2023-02-21 23:47:20
- *          Documentos Tipo Modificacion:
- *              required:
- *                  - nombre
- *              type: object
- *              properties:
- *                  nombre: 
- *                      type: string
- *                      format: binary
- *                      example: DNI 
  */
 
 /**
@@ -46,11 +37,16 @@ const DocumentosTipoController  = require('../../controllers/DocumentosTipoContr
  *      description: Agregar un nuevo Tipo de Documento
  *      operationId: create
  *      requestBody:
- *          description: Agregar un nuevo Tipo de Documento
+ *          description: Agregar una nueva Tipo de Documento
  *          content:
  *              application/json:
  *                  schema:
- *                      $ref: '#/components/schemas/Documentos Tipo Modificacion'
+ *                      type: object 
+ *                      properties:
+ *                          nombre:
+ *                              type: string
+ *                              format: binary
+ *                              example: DNI
  *          required: true
  *      responses:
  *          '200':
@@ -108,7 +104,7 @@ router.get('/', DocumentosTipoController.get);
  *     description: Buscar Tipo de Documento
  *     operationId: getById
  *     parameters:
- *       - name: docId
+ *       - name: Id
  *         in: path
  *         description: ID de Tipo de Documento a devolver
  *         required: true
@@ -140,7 +136,7 @@ router.get('/:id', DocumentosTipoController.getById);
  *      description: Actualizacion de un Tipo de Documento por Id
  *      operationId: update
  *      parameters:
- *        - name: docId
+ *        - name: Id
  *          in: path
  *          description: ID de Tipo de Documento para ser modficado
  *          required: true
@@ -152,7 +148,12 @@ router.get('/:id', DocumentosTipoController.getById);
  *          content:
  *              application/json:
  *                  schema:
- *                      $ref: '#/components/schemas/Documentos Tipo Modificacion'
+ *                      type: object 
+ *                      properties:
+ *                          nombre:
+ *                              type: string
+ *                              format: binary
+ *                              example: DNI
  *          required: true
  *      responses:
  *          '200':
@@ -160,7 +161,7 @@ router.get('/:id', DocumentosTipoController.getById);
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/Documentos Tipo Modificacion'
+ *                          $ref: '#/components/schemas/Documentos Tipo'
  *          '400':
  *              description: El ID sumistrado es incorrecto
  *          '404':
@@ -188,7 +189,7 @@ router.put('/:id', DocumentosTipoController.update);
  *          required: false
  *          schema:
  *              type: string
- *        - name: docId
+ *        - name: Id
  *          in: path
  *          description: ID de Tipo de Documento para ser borrado
  *          required: true

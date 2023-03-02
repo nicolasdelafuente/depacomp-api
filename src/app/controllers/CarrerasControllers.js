@@ -50,7 +50,7 @@ const getById = async (req, res) => {
     
           include: {
             association: "instituto",
-            attributes: ["id", "nombre"]
+            attributes: ["id", "nombre","created_at","updated_at"]
           },  
 
       });
