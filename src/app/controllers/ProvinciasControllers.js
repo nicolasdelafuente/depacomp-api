@@ -23,7 +23,7 @@ const get = async (_, res) => {
       
       include: {
         association: "pais",
-        attributes: ["id", "nombre"]
+        attributes: ["id", "nombre","created_at","updated_at"]
       }
     });
 
