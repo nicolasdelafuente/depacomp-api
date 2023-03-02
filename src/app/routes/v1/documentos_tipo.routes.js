@@ -37,7 +37,7 @@ const DocumentosTipoController  = require('../../controllers/DocumentosTipoContr
  *      description: Agregar un nuevo Tipo de Documento
  *      operationId: create
  *      requestBody:
- *          description: Agregar una nueva Tipo de Documento
+ *          description: Agregar un nuevo Tipo de Documento
  *          content:
  *              application/json:
  *                  schema:
