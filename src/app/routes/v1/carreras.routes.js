@@ -260,7 +260,6 @@ router.put('/:id', CarreraController.update);
 
 /**
  * @swagger
- *  
  * /carreras/{Id}:
  *  delete:
  *      tags:

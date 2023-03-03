@@ -135,7 +135,6 @@ router.get('/', DocumentosTipoController.get);
 
 /**
  * @swagger
- *  
  * /documentos_tipo/{Id}:
  *  get:
  *     tags:
@@ -214,7 +213,6 @@ router.put('/:id', DocumentosTipoController.update);
 
 /**
  * @swagger
- *  
  * /documentos_tipo/{Id}:
  *  delete:
  *      tags:

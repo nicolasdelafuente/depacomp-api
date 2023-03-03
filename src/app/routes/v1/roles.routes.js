@@ -59,7 +59,6 @@ const RolController = require('../../controllers/RolesControllers');
  *              description: Invalid input
  */
 
-
 router.post('/', RolController.create);
 
 /**
@@ -250,7 +249,6 @@ router.put('/:id', RolController.update);
 
 /**
  * @swagger
- *  
  * /roles/{Id}:
  *  delete:
  *      tags:

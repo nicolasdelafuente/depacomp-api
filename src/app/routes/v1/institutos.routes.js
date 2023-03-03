@@ -132,7 +132,6 @@ router.get('/', InstitutoController.get);
 
 /**
  * @swagger
- *  
  * /institutos/{Id}:
  *  get:
  *     tags:
@@ -211,7 +210,6 @@ router.put('/:id', InstitutoController.update);
 
 /**
  * @swagger
- *  
  * /institutos/{Id}:
  *  delete:
  *      tags:
