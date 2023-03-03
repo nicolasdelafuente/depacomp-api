@@ -286,7 +286,7 @@ router.put('/:id', CarreraController.update);
  *          '204':
  *              description: La Carrera fue eliminada correctamente
  *          '400':
- *              description: LA Carrera es incorrecta
+ *              description: La Carrera es incorrecta
  */
 
 router.delete('/:id', CarreraController.destroy);

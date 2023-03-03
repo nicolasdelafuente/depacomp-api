@@ -84,11 +84,51 @@ router.post('/', DocumentosTipoController.create);
  *                          $ref: '#/components/schemas/Documentos Tipo'
  *      responses:
  *          '200':
- *              description: Tipo de documento agregado con exito
+ *              description: Se listaron todos los Tipos de Documentos con exito
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/Documentos Tipo'
+ *                          type: object
+ *                          properties:
+ *                              status:
+ *                                  type: string
+ *                                  example: OK
+ *                              data:
+ *                                  type: array 
+ *                                  items: 
+ *                                      $ref: "#/components/schemas/Documentos Tipo"
+ *          '404':
+ *              description: No se encontraron
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              status:
+ *                                  type: string
+ *                                  example: NOT FOUND
+ *                              data:
+ *                                  type: object
+ *                                  properties:
+ *                                      error:
+ *                                          type: string 
+ *                                          example: "No se encontraron"
+ *          '500':
+ *              description: FAILED
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              status:
+ *                                  type: string
+ *                                  example: FAILED
+ *                              data:
+ *                                  type: object
+ *                                  properties:
+ *                                      error:
+ *                                          type: string 
+ *                                          example: "FAILED"
  */
 
 router.get('/', DocumentosTipoController.get);
