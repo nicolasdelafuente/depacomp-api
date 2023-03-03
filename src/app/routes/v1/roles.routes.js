@@ -257,12 +257,6 @@ router.put('/:id', RolController.update);
  *      description: Borra el Rol segun el id enviado
  *      operationId: destroy
  *      parameters:
- *        - name: api_key
- *          in: header
- *          description: ''
- *          required: false
- *          schema:
- *              type: string
  *        - name: Id
  *          in: path
  *          description: ID del Rol para ser borrado

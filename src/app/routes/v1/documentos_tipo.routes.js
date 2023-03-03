@@ -221,12 +221,6 @@ router.put('/:id', DocumentosTipoController.update);
  *      description: Borra el Tipo de Documento
  *      operationId: destroy
  *      parameters:
- *        - name: api_key
- *          in: header
- *          description: ''
- *          required: false
- *          schema:
- *              type: string
  *        - name: Id
  *          in: path
  *          description: ID de Tipo de Documento para ser borrado

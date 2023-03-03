@@ -268,12 +268,6 @@ router.put('/:id', CarreraController.update);
  *      description: Borra la Carrera segun el id enviado
  *      operationId: destroy
  *      parameters:
- *        - name: api_key
- *          in: header
- *          description: ''
- *          required: false
- *          schema:
- *              type: string
  *        - name: Id
  *          in: path
  *          description: ID de la Carrera para ser borrado

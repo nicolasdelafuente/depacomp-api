@@ -218,12 +218,6 @@ router.put('/:id', InstitutoController.update);
  *      description: Borra el Instituto
  *      operationId: destroy
  *      parameters:
- *        - name: api_key
- *          in: header
- *          description: ''
- *          required: false
- *          schema:
- *              type: string
  *        - name: Id
  *          in: path
  *          description: ID del Instituto para ser borrado

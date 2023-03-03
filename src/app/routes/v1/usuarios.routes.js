@@ -49,6 +49,8 @@ const UsuarioController = require('../../controllers/UsuariosControllers');
  * @swagger
  * /usuarios:
  *  post:
+ *      security:
+ *          - bearerAuth: []
  *      tags:
  *          - Usuarios
  *      summary: Agregar un nuevo Usuario
@@ -83,10 +85,6 @@ const UsuarioController = require('../../controllers/UsuariosControllers');
  *                          $ref: '#/components/schemas/Usuarios'
  *          '405':
  *              description: Invalid input
- *      security:
- *          - depacomp_auth:
- *              - write:usuarios
- *              - read:usuarios
  */
 
 router.post('/', UsuarioController.create);
@@ -295,12 +293,6 @@ router.put('/:id', UsuarioController.update);
  *      description: Borra el Usuario segun el id enviado
  *      operationId: destroy
  *      parameters:
- *        - name: api_key
- *          in: header
- *          description: ''
- *          required: false
- *          schema:
- *              type: string
  *        - name: Id
  *          in: path
  *          description: ID del Usuario para ser borrado

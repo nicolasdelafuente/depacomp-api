@@ -17,7 +17,22 @@ const options = {
             {
                 url:"http://localhost:4000/depacomp-api/v1"
             }
-        ]
+        ],
+        //Para que aparezca en Swagger el Authorize con las opciones
+        basePath: '/',
+        components: {
+            securitySchemes: {
+                bearerAuth: {
+                    type: 'http',
+                    scheme: 'bearer',
+                    bearerFormat: 'JWT',
+                }
+            }
+        }
+        // hay que ponerlo o sacarlo para que se activen en todas las APIs
+        //security: [{
+        //    bearerAuth: []
+        //}]
     },
     apis: [`${path.join(__dirname, "./v1/*.js")}`],
 };
@@ -26,13 +41,15 @@ const options = {
 const swaggerSpec = swaggerJSDoc(options);
 
 const swaggerDocs = (app, port) => {
+    //Ruta de la documentacion
     app.use(`${ROUTE}/docs`, swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    //Ruta de la documentacion en formato JSON
     app.get(`${ROUTE}/docs.json`, (req,res) => {
         res.setHeader('Content-Type', 'application/json');
         res.send(swaggerSpec);
     });
 
-    console.log(`Version 1 Docs at http://localhost:${port}${ROUTE}/docs`);
+    console.log(`LA version 1 de los documentos esta en: http://localhost:${port}${ROUTE}/docs`);
 };
 
 module.exports = { swaggerDocs }
