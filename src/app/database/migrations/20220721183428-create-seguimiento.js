@@ -10,10 +10,10 @@ module.exports = {
       },
       motivo: {
         allowNull: false,
-        type: Sequelize.STRING.BINARY
+        type: Sequelize.TEXT
       },
       orientador_id: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER
       },
       // Se agrega para que se pueda hacer la migracion desde npx (npx sequelize-cli db:seed:all)
@@ -26,7 +26,7 @@ module.exports = {
           key: 'id',
           as: 'categoria_Id',
         }
-      },
+      }, 
       estado_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
@@ -42,7 +42,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
-          model: 'Seguimientotipos',
+          model: 'SeguimientoTipos',
           key: 'id',
           as: 'seguimientotipo_id',
         }
@@ -52,7 +52,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
-          model: 'personas',
+          model: 'Personas',
           key: 'id',
           as: 'entrevistador_id',
         }
@@ -62,7 +62,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
-          model: 'personas',
+          model: 'Personas',
           key: 'id',
           as: 'derivador_id',
         }
@@ -72,7 +72,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
-          model: 'personas',
+          model: 'Personas',
           key: 'id',
           as: 'entrevistado_id',
         }

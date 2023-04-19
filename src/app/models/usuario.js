@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     token: DataTypes.STRING,
     confirmado: DataTypes.BOOLEAN
   }, {
-    tableName:"usuarios",
+    tableName:"Usuarios",
   });
   Usuario.associate = function(models) {
     // associations can be defined here

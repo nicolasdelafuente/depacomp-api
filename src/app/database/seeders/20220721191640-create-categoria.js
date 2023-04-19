@@ -12,12 +12,12 @@ module.exports = {
         { nombre: 'Re-Orientación Vocacional', created_at: new Date(), updated_at: new Date() },
       ];
 
-      return queryInterface.bulkInsert('categorias', data ,{});
+      return queryInterface.bulkInsert('Categorias', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('categorias', null, {});
+      return queryInterface.bulkDelete('Categorias', null, {});
     
   }
 };

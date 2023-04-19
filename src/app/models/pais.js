@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     nacionalidad: DataTypes.STRING,
     iso: DataTypes.STRING
   }, {
-    tableName:"paises",
+    tableName:"Paises",
   });
 
   Pais.associate = function(models) {

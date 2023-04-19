@@ -13,12 +13,12 @@ module.exports = {
         { nombre: 'Sin Estado',           color: 'rgba(189,189,189,0.7)', created_at: new Date(), updated_at: new Date() },
       ];
 
-      return queryInterface.bulkInsert('estados', data ,{});
+      return queryInterface.bulkInsert('Estados', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('estados', null, {});
+      return queryInterface.bulkDelete('Estados', null, {});
     
   }
 };

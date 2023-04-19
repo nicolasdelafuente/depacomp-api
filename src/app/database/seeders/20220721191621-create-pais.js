@@ -206,12 +206,12 @@ module.exports = {
         { nombre: 'Zambia', nacionalidad: 'Zambiana', iso: 'ZMB', created_at: new Date(), updated_at: new Date() },
         { nombre: 'Zimbabue', nacionalidad: 'Zimbabuense', iso: 'ZWE', created_at: new Date(), updated_at: new Date() },
       ]
-      return queryInterface.bulkInsert('paises', data ,{});
+      return queryInterface.bulkInsert('Paises', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('paises', null, {});
+      return queryInterface.bulkDelete('Paises', null, {});
     
   }
 };

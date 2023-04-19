@@ -10,12 +10,12 @@ module.exports = {
         { nombre: 'Instituto de Tecnología e Ingenieria', created_at: new Date(), updated_at: new Date() },
       ];
 
-      return queryInterface.bulkInsert('institutos', data ,{});
+      return queryInterface.bulkInsert('Institutos', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('institutos', null, {});
+      return queryInterface.bulkDelete('Institutos', null, {});
     
   }
 };

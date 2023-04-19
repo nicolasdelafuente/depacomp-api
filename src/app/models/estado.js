@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     nombre: DataTypes.STRING,
     color: DataTypes.STRING
   }, {
-    tableName:"estados",
+    tableName:"Estados",
   });
   Estado.associate = function(models) {
     

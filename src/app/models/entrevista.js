@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     observaciones: DataTypes.STRING,
     acciones: DataTypes.STRING
   }, {
-    tableName:"entrevistas",
+    tableName:"Entrevistas",
   });
 
   Entrevista.associate = function(models) {

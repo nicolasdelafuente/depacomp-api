@@ -96,12 +96,12 @@ module.exports = {
         },
       ];
 
-      return queryInterface.bulkInsert('personas', data ,{});
+      return queryInterface.bulkInsert('Personas', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('personas', null, {});
+      return queryInterface.bulkDelete('Personas', null, {});
     
   }
 };

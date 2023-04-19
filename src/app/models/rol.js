@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   const Rol = sequelize.define('Rol', {
     nombre: DataTypes.STRING
   }, {
-    tableName:"roles",
+    tableName:"Roles",
   });
 
   Rol.associate = function(models) {

@@ -2388,12 +2388,12 @@ module.exports = {
         { nombre: 'Yerba Buena (S;', provincia_id: 25, created_at: new Date(), updated_at: new Date() },
       ];
 
-      return queryInterface.bulkInsert('localidades', data ,{});
+      return queryInterface.bulkInsert('Localidades', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('localidades', null, {});
+      return queryInterface.bulkDelete('Localidades', null, {});
     
   }
 };

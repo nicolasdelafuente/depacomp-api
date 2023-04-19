@@ -34,12 +34,12 @@ module.exports = {
         }
       ];
 
-      return queryInterface.bulkInsert('entrevistas', data ,{});
+      return queryInterface.bulkInsert('Entrevistas', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('entrevistas', null, {});
+      return queryInterface.bulkDelete('Entrevistas', null, {});
     
   }
 };

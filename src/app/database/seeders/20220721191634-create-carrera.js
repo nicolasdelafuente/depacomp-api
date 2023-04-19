@@ -41,12 +41,12 @@ module.exports = {
         { nombre: 'Tecnicatura Universitaria en Mantenimiento Industrial', instituto_id: 4, created_at: new Date(), updated_at: new Date() },
       ];
 
-      return queryInterface.bulkInsert('carreras', data ,{});
+      return queryInterface.bulkInsert('Carreras', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('carreras', null, {});
+      return queryInterface.bulkDelete('Carreras', null, {});
     
   }
 };

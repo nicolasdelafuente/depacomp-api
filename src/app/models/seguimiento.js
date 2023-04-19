@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     motivo: DataTypes.STRING,
     orientador_id: DataTypes.INTEGER
   }, {
-    tableName:"seguimientos",
+    tableName:"Seguimientos",
   });
 
   Seguimiento.associate = function(models) {
@@ -27,17 +27,17 @@ module.exports = (sequelize, DataTypes) => {
     });
     
     Seguimiento.belongsTo(models.Persona, {
-      as: "entrevistador_id",
+      as: "Entrevistador_id",
       foreignKey: "id",
     });
 
     Seguimiento.belongsTo(models.Persona, {
-      as: "derivador_id",
+      as: "Derivador_id",
       foreignKey: "id",
     });
 
     Seguimiento.belongsTo(models.Persona, {
-      as: "entrevistado_id",
+      as: "Entrevistado_id",
       foreignKey: "id",
     });
   };

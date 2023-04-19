@@ -9,12 +9,12 @@ module.exports = {
         { nombre: 'Entrevista con docentes', created_at: new Date(), updated_at: new Date() },
       ];
 
-      return queryInterface.bulkInsert('seguimientotipos', data ,{});
+      return queryInterface.bulkInsert('SeguimientoTipos', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('seguimientotipos', null, {});
+      return queryInterface.bulkDelete('SeguimientoTipos', null, {});
     
   }
 };

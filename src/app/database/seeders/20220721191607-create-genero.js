@@ -9,12 +9,12 @@ module.exports = {
         { nombre: 'Ninguno', created_at: new Date(), updated_at: new Date() },
       ];
 
-      return queryInterface.bulkInsert('generos', data ,{});
+      return queryInterface.bulkInsert('Generos', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('generos', null, {});
+      return queryInterface.bulkDelete('Generos', null, {});
     
   }
 };

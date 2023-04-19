@@ -29,7 +29,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       // Se agrega para que se pueda hacer la migracion desde npx (npx sequelize-cli db:seed:all)
-      rol_id: {
+     rol_id: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
@@ -37,34 +37,34 @@ module.exports = {
           key: 'id',
           as: 'rol_id',
         }
-      },
+      }, 
       genero_id: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
-          model: 'generos',
+          model: 'Generos',
           key: 'id',
           as: 'genero_id',
         }
-      },
+      }, 
       documento_id: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
-          model: 'documentotipos',
+          model: 'DocumentoTipos',
           key: 'id',
           as: 'documento_id',
         }
-      },
+      }, 
       localidad_id: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
-          model: 'localidades',
+          model: 'Localidades',
           key: 'id',
           as: 'localidad_id',
         }
-      },
+      }, 
       provincia_id: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
@@ -90,9 +90,9 @@ module.exports = {
       updated_at: {
         allowNull: false,
         type: Sequelize.DATE
-      }
-    });
-  },
+      } 
+    }); 
+  }, 
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Personas');
   }

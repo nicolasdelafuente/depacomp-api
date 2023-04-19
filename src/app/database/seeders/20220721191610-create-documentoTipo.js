@@ -9,12 +9,12 @@ module.exports = {
         { nombre: 'Pasaporte', created_at: new Date(), updated_at: new Date() },
       ];
 
-      return queryInterface.bulkInsert('documentotipos', data ,{});
+      return queryInterface.bulkInsert('DocumentoTipos', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('documentotipos', null, {});
+      return queryInterface.bulkDelete('DocumentoTipos', null, {});
     
   }
 };

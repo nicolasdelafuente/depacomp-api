@@ -4,13 +4,13 @@ module.exports = (sequelize, DataTypes) => {
   const Carrera = sequelize.define('Carrera', {
     nombre: DataTypes.STRING
   }, {
-    tableName:"carreras",
+    tableName:"Carreras",
   });
 
   Carrera.associate = function(models) {
     
     Carrera.belongsTo(models.Instituto, {
-      as:"instituto",
+      as:"Instituto",
       foreignKey: "instituto_id",
     });
 

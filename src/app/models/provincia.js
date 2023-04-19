@@ -4,13 +4,13 @@ module.exports = (sequelize, DataTypes) => {
   const Provincia = sequelize.define('Provincia', {
     nombre: DataTypes.STRING
   }, {
-    tableName:"provincias",
+    tableName:"Provincias",
   });
 
   Provincia.associate = function(models) {
     
     Provincia.belongsTo(models.Pais, {
-      as: "pais",
+      as: "Pais",
       foreignKey: "pais_id",
     });
 

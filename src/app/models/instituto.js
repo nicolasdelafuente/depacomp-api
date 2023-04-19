@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   const Instituto = sequelize.define('Instituto', {
     nombre: DataTypes.STRING
   }, {
-    tableName:"institutos",
+    tableName:"Institutos",
   });
 
   Instituto.associate = function(models) {

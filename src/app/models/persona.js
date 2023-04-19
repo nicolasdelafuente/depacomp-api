@@ -8,38 +8,38 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     documento: DataTypes.STRING
   }, {
-    tableName:"personas",
+    tableName:"Personas",
   });
 
   Persona.associate = function(models) {
     
     Persona.belongsTo(models.Rol, {
-      as: "rol",
+      as: "Rol",
       foreignKey: "rol_id",
     });
 
     Persona.belongsTo(models.Genero, {
-      as: "genero",
+      as: "Genero",
       foreignKey: "genero_id",
     });
 
     Persona.belongsTo(models.DocumentoTipo, {
-      as: "documento__id",
+      as: "Documento__id",
       foreignKey: "documento_id",
     });
 
     Persona.belongsTo(models.Localidad, {
-      as: "localidad",
+      as: "Localidad",
       foreignKey: "localidad_id",
     });
 
     Persona.belongsTo(models.Provincia, {
-      as: "provincia",
+      as: "Provincia",
       foreignKey: "provincia_id",
     });
 
     Persona.belongsTo(models.Pais, {
-      as: "pais",
+      as: "Pais",
       foreignKey: "pais_id",
     });
 

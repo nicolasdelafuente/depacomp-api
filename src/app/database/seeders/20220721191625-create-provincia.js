@@ -31,12 +31,12 @@ module.exports = {
         { nombre: 'Tucumán', pais_id: 9, created_at: new Date(), updated_at: new Date() },
       ];
 
-      return queryInterface.bulkInsert('provincias', data ,{});
+      return queryInterface.bulkInsert('Provincias', data ,{});
   },
 
   down: (queryInterface, Sequelize) => {
 
-      return queryInterface.bulkDelete('provincias', null, {});
+      return queryInterface.bulkDelete('Provincias', null, {});
     
   }
 };
