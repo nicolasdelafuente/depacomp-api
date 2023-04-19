@@ -5,6 +5,7 @@ const path = require('path');
 
 const ROUTE         = process.env.ROUTE;
 const ROUTEVERSION  = process.env.ROUTEVERSION || '/v1';
+const PORT          = process.env.PORT || 4000;
 
 const options = {
     definition: {
@@ -15,7 +16,7 @@ const options = {
         },
         servers: [
             {
-                url:"http://localhost:4000/depacomp-api/v1"
+                url:`http://localhost:${PORT}/depacomp-api/v1`
             }
         ],
         //Para que aparezca en Swagger el Authorize con las opciones
