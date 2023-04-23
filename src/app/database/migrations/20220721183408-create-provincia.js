@@ -14,14 +14,14 @@ module.exports = {
         unique: true
       },
       // Se agrega para que se pueda hacer la migracion desde npx (npx sequelize-cli db:seed:all)
-      pais_Id: {
+      pais_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
           model: 'Paises',
           key: 'id',
-          as: 'pais_Id',
+          as: 'pais_id',
         }
       },
       created_at: {

@@ -8,10 +8,10 @@ const cors = require('cors')
 
 const { swaggerDocs } = require('./src/app/routes/swagger')
 
-const PORT          = process.env.PORT || 4000;
-const ROUTE         = process.env.Route || '/depacomp-api';
-const ROUTEVERSION  = process.env.ROUTEVERSION || '/v1';
-const WHITELIST     = process.env.WHITELIST || ['http://localhost:3000'];
+const PORT      = process.env.PORT || 4000;
+const ROUTE     = process.env.Route || '/depacomp-api';
+const VERSION   = process.env.VERSION || '/v1';
+const WHITELIST = process.env.WHITELIST || ['http://localhost:3000'];
 
 
 app.use(cors({
@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Rutas
-app.use(`${ROUTE}${ROUTEVERSION}`, routes);
+app.use(`${ROUTE}${VERSION}`, routes);
 
 // Arranque Servidor
 app.listen(PORT, function () {
