@@ -5,7 +5,7 @@ const path = require('path');
 
 const ROUTE    = process.env.ROUTE || '/depacomp-api';
 const VERSION  = process.env.VERSION || '/v1';
-const PORT     = 4000;
+const PORT     = process.env.PORT || 4000;
 
 
 const options = {
