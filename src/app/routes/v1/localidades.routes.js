@@ -1,6 +1,7 @@
+const path = require('../../../paths');
 const express = require('express');
 const router = express.Router();
-const LocalidadController = require('../../controllers/LocalidadesControllers');
+const LocalidadController = require(`${path.CONTROLLERS}/LocalidadesControllers`);
 
 router.post('/', LocalidadController.create);
 router.get('/', LocalidadController.get);

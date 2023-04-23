@@ -1,6 +1,7 @@
+const path = require('../../../paths');
 const express = require('express');
 const router = express.Router();
-const GeneroController = require('../../controllers/GenerosControllers');
+const GeneroController = require(`${path.CONTROLLERS}/GenerosControllers`);
 
 router.post('/', GeneroController.create);
 router.get('/', GeneroController.get);

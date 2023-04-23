@@ -1,6 +1,7 @@
+const path = require('../../../paths');
 const express = require('express');
 const router = express.Router();
-const RolController = require('../../controllers/RolesControllers');
+const RolController = require(`${path.CONTROLLERS}/RolesControllers`);
 
 /**Schemas
  * @swagger
