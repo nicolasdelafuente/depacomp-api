@@ -1,7 +1,8 @@
-const { Usuario } = require('../database/db');
+const path = require('../../paths');
+const { Usuario } = require(`${path.DATABASE}/db`);
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const authConfig = require('../../config/auth');
+const authConfig = require(`${path.CONFIG}/auth`);
 
 module.exports = {
 

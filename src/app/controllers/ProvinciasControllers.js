@@ -1,4 +1,5 @@
-const { Provincia } = require('../database/db');
+const path = require('../../paths');
+const { Provincia } = require(`${path.DATABASE}/db`);
 
 const create = async (req, res) => {
   try {

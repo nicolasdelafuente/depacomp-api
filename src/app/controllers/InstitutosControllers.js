@@ -1,4 +1,5 @@
-const { Instituto } = require('../database/db');
+const path = require('../../paths');
+const { Instituto } = require(`${path.DATABASE}/db`);
 
 const create = async (req, res) => {
   try {

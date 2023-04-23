@@ -1,5 +1,5 @@
-const { Carrera } = require('../database/db');
-
+const path = require('../../paths');
+const { Carrera } = require(`${path.DATABASE}/db`);
 
 const create = async (req, res) => {
   try {
