@@ -3,20 +3,21 @@ const swaggerUi = require('swagger-ui-express');
 //para usar todas las rutas para swagger
 const path = require('path');
 
-const ROUTE         = process.env.ROUTE;
-const ROUTEVERSION  = process.env.ROUTEVERSION || '/v1';
-const PORT          = process.env.PORT || 4000;
+const ROUTE    = process.env.ROUTE || '/depacomp-api';
+const VERSION  = process.env.VERSION || '/v1';
+const PORT     = 4000;
+
 
 const options = {
     definition: {
         openapi: '3.0.0',
         info: {
-            title: `Depacomp API ${ROUTEVERSION}`,
+            title: `Depacomp API ${ROUTE}${VERSION}`,
             version: '1.0.0'
         },
         servers: [
             {
-                url:`http://localhost:${PORT}/depacomp-api/v1`
+                url:`http://localhost:${PORT}/${ROUTE}${VERSION}`
             }
         ],
         //Para que aparezca en Swagger el Authorize con las opciones
@@ -35,7 +36,7 @@ const options = {
         //    bearerAuth: []
         //}]
     },
-    apis: [`${path.join(__dirname, "./v1/*.js")}`],
+    apis: [`${path.join(__dirname, `./${VERSION}/*.js`)}`],
 };
 
 
@@ -50,7 +51,7 @@ const swaggerDocs = (app, port) => {
         res.send(swaggerSpec);
     });
 
-    console.log(`LA version 1 de los documentos esta en: http://localhost:${port}${ROUTE}/docs`);
+    console.log(`${VERSION} de los documentos esta en: http://localhost:${port}${ROUTE}/docs`);
 };
 
 module.exports = { swaggerDocs }
