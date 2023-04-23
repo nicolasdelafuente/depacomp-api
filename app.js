@@ -3,11 +3,11 @@ const path = require('./src/paths');
 
 const express = require('express');
 const app = express();
-const { connection } = require('./src/app/database/db');
-const routes = require('./src/app/routes');
+const { connection } = require(`${path.APP}/database/db`);
+const routes = require(`${path.APP}/routes`);
 const cors = require('cors')
 
-const { swaggerDocs } = require('./src/app/routes/swagger')
+const { swaggerDocs } = require(`${path.APP}/routes/swagger`)
 
 const PORT      = process.env.PORT || 4000;
 const ROUTE     = process.env.Route || '/depacomp-api';
