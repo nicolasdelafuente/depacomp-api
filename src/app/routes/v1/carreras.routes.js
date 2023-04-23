@@ -1,6 +1,7 @@
+const path = require('../../../paths');
 const express = require('express');
 const router = express.Router();
-const CarreraController = require('../../controllers/CarrerasControllers');
+const CarreraController = require(`${path.CONTROLLERS}/CarrerasControllers`);
 
 /**Schemas
  * @swagger

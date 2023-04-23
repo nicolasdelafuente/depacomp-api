@@ -1,4 +1,4 @@
-const path = require('../../../paths');
+const path = require('../../paths');
 
 const fs = require('fs');
 const folderPath = '../models';

@@ -1,4 +1,5 @@
-const { Persona } = require('../database/db');
+const path = require('../../paths');
+const { Persona } = require(`${path.DATABASE}/db`);
 
 const create = async (req, res) => {
   try {

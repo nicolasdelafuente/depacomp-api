@@ -1,6 +1,7 @@
+const path = require('../../../paths');
 const express = require('express');
 const router = express.Router();
-const EntrevistaController = require('../../controllers/EntrevistasControllers');
+const EntrevistaController = require(`${path.CONTROLLERS}/EntrevistasControllers`);
 
 router.post('/', EntrevistaController.create);
 router.get('/', EntrevistaController.get);

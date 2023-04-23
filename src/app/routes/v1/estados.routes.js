@@ -1,6 +1,7 @@
+const path = require('../../../paths');
 const express = require('express');
 const router = express.Router();
-const EstadoController = require('../../controllers/EstadosControllers.js');
+const EstadoController = require(`${path.CONTROLLERS}/EstadosControllers.js`);
 
 router.post('/', EstadoController.create);
 router.get('/', EstadoController.get);

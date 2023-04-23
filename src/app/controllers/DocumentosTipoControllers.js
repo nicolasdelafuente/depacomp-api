@@ -1,4 +1,5 @@
-const { DocumentoTipo } = require('../database/db');
+const path = require('../../paths');
+const { DocumentoTipo } = require(`${path.DATABASE}/db`);
 
 const create = async (req, res) => {
   try {

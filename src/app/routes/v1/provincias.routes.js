@@ -1,6 +1,7 @@
+const path = require('../../../paths');
 const express = require('express');
 const router = express.Router();
-const ProvinciaController = require('../../controllers/ProvinciasControllers');
+const ProvinciaController = require(`${path.CONTROLLERS}/ProvinciasControllers`);
 
 router.post('/', ProvinciaController.create);
 router.get('/', ProvinciaController.get);
