@@ -17,7 +17,7 @@ const options = {
         },
         servers: [
             {
-                url:`http://localhost:${PORT}/${ROUTE}${VERSION}`
+                url:`http://localhost:${PORT}${ROUTE}${VERSION}`
             }
         ],
         //Para que aparezca en Swagger el Authorize con las opciones
