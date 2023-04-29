@@ -1,31 +1,28 @@
 const Sequelize = require("sequelize");
-
+const path = require('../../paths');
 const config = require('../../config/database');
 const db = {};
 
 const sequelize = new Sequelize(config.database, config.username, config.password, config);
 
-                    
 db.Sequelize = Sequelize;
+
 // Vinculación modelos a BD
-
-db.Carrera = require('../models/carrera')(sequelize, Sequelize);
-db.Categoria = require('../models/categoria')(sequelize, Sequelize);
-db.DocumentoTipo = require('../models/documentoTipo')(sequelize, Sequelize);
-db.Entrevista = require('../models/entrevista')(sequelize, Sequelize);
-db.Estado = require('../models/estado')(sequelize, Sequelize);
-db.Genero = require('../models/genero')(sequelize, Sequelize);
-db.Instituto = require('../models/instituto')(sequelize, Sequelize);
-db.Localidad = require('../models/localidad')(sequelize, Sequelize);
-db.Pais = require('../models/pais')(sequelize, Sequelize);
-db.Persona = require('../models/persona')(sequelize, Sequelize);
-db.Provincia = require('../models/provincia')(sequelize, Sequelize);
-db.Rol = require('../models/rol')(sequelize, Sequelize);
-db.Seguimiento = require('../models/seguimiento')(sequelize, Sequelize);
-db.SeguimientoTipo = require('../models/seguimientoTipo')(sequelize, Sequelize);
-db.Usuario = require('../models/usuario')(sequelize, Sequelize);
-
-
+db.Carrera = require(`${path.MODELS}/carrera`)(sequelize, Sequelize);
+db.Categoria = require(`${path.MODELS}/categoria`)(sequelize, Sequelize);
+db.DocumentoTipo = require(`${path.MODELS}/documentoTipo`)(sequelize, Sequelize);
+db.Entrevista = require(`${path.MODELS}/entrevista`)(sequelize, Sequelize);
+db.Estado = require(`${path.MODELS}/estado`)(sequelize, Sequelize);
+db.Genero = require(`${path.MODELS}/genero`)(sequelize, Sequelize);
+db.Instituto = require(`${path.MODELS}/instituto`)(sequelize, Sequelize);
+db.Localidad = require(`${path.MODELS}/localidad`)(sequelize, Sequelize);
+db.Pais = require(`${path.MODELS}/pais`)(sequelize, Sequelize);
+db.Persona = require(`${path.MODELS}/persona`)(sequelize, Sequelize);
+db.Provincia = require(`${path.MODELS}/provincia`)(sequelize, Sequelize);
+db.Rol = require(`${path.MODELS}/rol`)(sequelize, Sequelize);
+db.Seguimiento = require(`${path.MODELS}/seguimiento`)(sequelize, Sequelize);
+db.SeguimientoTipo = require(`${path.MODELS}/seguimientoTipo`)(sequelize, Sequelize);
+db.Usuario = require(`${path.MODELS}/usuario`)(sequelize, Sequelize);
 
 db.Carrera.associate(db);
 db.Categoria.associate(db);
@@ -42,18 +39,6 @@ db.Rol.associate(db);
 db.Seguimiento.associate(db);
 db.SeguimientoTipo.associate(db);
 db.Usuario.associate(db);
-
-
-/*
-db.Pais.hasMany(db.Persona, {
-  foreignKey: "pais_Id",
-});
-db.Persona.belongsTo(db.Pais, {
-  foreignKey: "pais_Id",
-});
-*/
-
-
 
 db.connection = sequelize
 module.exports = db;
