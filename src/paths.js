@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  APP: path.join(__dirname, 'app'),
+  APP: path.join(__dirname, 'app.js'),
   CONTROLLERS: path.join(__dirname, 'app', 'controllers'),
   DATABASE: path.join(__dirname, 'app', 'database'),
   MODELS: path.join(__dirname, 'app', 'models'),

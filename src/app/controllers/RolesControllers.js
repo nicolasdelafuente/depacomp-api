@@ -20,12 +20,12 @@ const get = async (_, res) => {
         "nombre",
         "created_at",
         "updated_at"
-      ] 
+      ]
     });
 
     return res.status(200).json({ data });
-    
-  } catch (error) {      
+
+  } catch (error) {
     return res.status(500).json({ error: error.message })
   }
 }

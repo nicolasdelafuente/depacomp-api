@@ -12,18 +12,18 @@ const RolController = require(`${path.CONTROLLERS}/RolesControllers`);
  *                  - nombre
  *              type: object
  *              properties:
- *                  id: 
+ *                  id:
  *                      type: integer
  *                      format: int64
  *                      example: 1
- *                  nombre: 
+ *                  nombre:
  *                      type: string
  *                      format: binary
- *                      example: Administrador 
+ *                      example: Administrador
  *                  created_at:
  *                      type: string
  *                      example: 2023-02-21 23:47:20
- *                  updated_at: 
+ *                  updated_at:
  *                      type: string
  *                      example: 2023-02-21 23:47:20
  */
@@ -42,7 +42,7 @@ const RolController = require(`${path.CONTROLLERS}/RolesControllers`);
  *          content:
  *              application/json:
  *                  schema:
- *                      type: object 
+ *                      type: object
  *                      properties:
  *                          nombre:
  *                              type: string
@@ -80,8 +80,8 @@ router.post('/', RolController.create);
  *                      type: string
  *                      example: OK
  *                  data:
- *                      type: array 
- *                      items: 
+ *                      type: array
+ *                      items:
  *                          $ref: "#/components/schemas/Roles"
  *      responses:
  *          '200':
@@ -95,8 +95,8 @@ router.post('/', RolController.create);
  *                                  type: string
  *                                  example: OK
  *                              data:
- *                                  type: array 
- *                                  items: 
+ *                                  type: array
+ *                                  items:
  *                                      $ref: "#/components/schemas/Roles"
  *          '404':
  *              description: No se encontraron
@@ -112,7 +112,7 @@ router.post('/', RolController.create);
  *                                  type: object
  *                                  properties:
  *                                      error:
- *                                          type: string 
+ *                                          type: string
  *                                          example: "No se encontraron"
  *          '500':
  *              description: FAILED
@@ -128,7 +128,7 @@ router.post('/', RolController.create);
  *                                  type: object
  *                                  properties:
  *                                      error:
- *                                          type: string 
+ *                                          type: string
  *                                          example: "FAILED"
  */
 
@@ -163,8 +163,8 @@ router.get('/', RolController.get);
  *                                  type: string
  *                                  example: OK
  *                              data:
- *                                  type: array 
- *                                  items: 
+ *                                  type: array
+ *                                  items:
  *                                      $ref: "#/components/schemas/Roles"
  *          '404':
  *              description: No se encontro el Rol por ID
@@ -180,7 +180,7 @@ router.get('/', RolController.get);
  *                                  type: object
  *                                  properties:
  *                                      error:
- *                                          type: string 
+ *                                          type: string
  *                                          example: "No se encontro"
  *          '500':
  *              description: FAILED
@@ -196,7 +196,7 @@ router.get('/', RolController.get);
  *                                  type: object
  *                                  properties:
  *                                      error:
- *                                          type: string 
+ *                                          type: string
  *                                          example: "FAILED"
  */
 
@@ -224,7 +224,7 @@ router.get('/:id', RolController.getById);
  *          content:
  *              application/json:
  *                  schema:
- *                      type: object 
+ *                      type: object
  *                      properties:
  *                          nombre:
  *                              type: string

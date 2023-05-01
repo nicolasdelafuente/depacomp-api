@@ -3,11 +3,11 @@ const path = require('./src/paths');
 
 const express = require('express');
 const app = express();
-const { connection } = require(`${path.APP}/database/db`);
-const routes = require(`${path.APP}/routes`);
+const { connection } = require(`${path.DATABASE}/db`);
+const routes = require(`${path.ROUTES}`);
 const cors = require('cors')
 
-const { swaggerDocs } = require(`${path.APP}/routes/swagger`)
+const { swaggerDocs } = require(`${path.ROUTES}/swagger`)
 
 const PORT      = process.env.PORT || 4000;
 const ROUTE     = process.env.Route || '/depacomp-api';
@@ -26,12 +26,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(`${ROUTE}${VERSION}`, routes);
 
 // Arranque Servidor
-app.listen(PORT, function () {
+const server = app.listen(PORT, function () {
     console.log(`La app ha arrancado en http://localhost:${PORT}`);
-    
+
     // TRUE dropea todo
     connection.sync({ force: false }).then(() => {
         console.log("Se ha establecido la conexión");
         swaggerDocs(app, PORT);
     })
 });
+
+
+module.exports = server;
