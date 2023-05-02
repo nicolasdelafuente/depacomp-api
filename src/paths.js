@@ -7,5 +7,5 @@ module.exports = {
   DATABASE:     path.join(__dirname, 'app', 'database'),
   MODELS:       path.join(__dirname, 'app', 'models'),
   ROUTES:       path.join(__dirname, 'app', 'routes'),
-  CONFIG:       path.join(__dirname, 'config')
+  CONFIG:       path.join(__dirname, 'config'),
 };
