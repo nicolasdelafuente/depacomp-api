@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const path = require('../../paths');
-const config = require('../../config/database');
+const config = require(`${path.CONFIG}/database`);
 const db = {};
 
 const sequelize = new Sequelize(config.database, config.username, config.password, config);
