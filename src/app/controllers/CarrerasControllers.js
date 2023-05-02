@@ -23,7 +23,7 @@ const get = async (_, res) => {
       ],
 
       include: {
-        association: "instituto",
+        association: "Instituto",
         attributes: ["id", "nombre"]
       },  
     });
@@ -49,7 +49,7 @@ const getById = async (req, res) => {
           ],
     
           include: {
-            association: "instituto",
+            association: "Instituto",
             attributes: ["id", "nombre","created_at","updated_at"]
           },  
 
