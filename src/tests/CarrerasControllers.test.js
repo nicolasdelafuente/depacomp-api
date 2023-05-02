@@ -1,10 +1,10 @@
 const path = require('../paths')
 const BaseControllerTest = require(`${path.TESTS}/baseControllerTest.js`);
-const controllerName = "Generos"
-const singularName = "Genero"
+const controllerName = "Carreras"
+const singularName = "Carrera"
 
 describe(`${controllerName} Controller`, () => {
-  const route = '/depacomp-api/v1/generos';
+  const route = '/depacomp-api/v1/carreras';
   const rol = {
     nombre: 'Test Rol',
   };

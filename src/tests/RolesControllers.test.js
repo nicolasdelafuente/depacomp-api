@@ -1,67 +1,39 @@
-const request = require('supertest');
-const server = require('../../app');
+const path = require('../paths')
+const BaseControllerTest = require(`${path.TESTS}/baseControllerTest.js`);
+const controllerName = "Roles"
+const singularName = "Rol"
 
-describe('Roles Controller', () => {
+describe(`${controllerName} Controller`, () => {
+  const route = '/depacomp-api/v1/roles';
   const rol = {
     nombre: 'Test Rol',
   };
 
-  afterAll((done) => {
-    server.close(done);
+  const rolTest = new BaseControllerTest(route);
+
+  afterEach(async () => {
+    await rolTest.closeServer();
   });
 
-  let rolId;
-
-  test('should create a new Rol', async () => {
-    const response = await request(server)
-      .post('/depacomp-api/v1/roles')
-      .send(rol)
-      .expect(201);
-
-    expect(response.body.data.nombre).toBe(rol.nombre);
-    expect(response.body.data.id).toBeTruthy();
-
-    rolId = response.body.data.id;
+  test(`should create a new ${singularName}`, async () => {
+    await rolTest.createEntity(rol);
   });
 
-  test('should get a list of Rol', async () => {
-    const response = await request(server)
-      .get('/depacomp-api/v1/roles')
-      .expect(200);
-
-    expect(response.body.data).toBeDefined();
-    expect(response.body.data.length).toBeGreaterThan(0);
+  test(`should get a list of ${singularName}`, async () => {
+    await rolTest.getList();
   });
 
-  test('should get a single Rol', async () => {
-    const response = await request(server)
-      .get(`/depacomp-api/v1/roles/${rolId}`)
-      .expect(200);
-
-    expect(response.body.data).toBeDefined();
-    expect(response.body.data.id).toBe(rolId);
-    expect(response.body.data.nombre).toBe(rol.nombre);
+  test(`should get a single ${singularName}`, async () => {
+    await rolTest.getSingle();
   });
 
-  test('should update a Rol', async () => {
-    const newNombre = 'Test Rol Updated';
+  test(`should update a ${singularName}`, async () => {
+    const newNombre = `Test ${singularName} Updated`;
 
-    const response = await request(server)
-      .put(`/depacomp-api/v1/roles/${rolId}`)
-      .send({ nombre: newNombre })
-      .expect(200);
-
-    expect(response.body.data).toBeDefined();
-    expect(response.body.data.id).toBe(rolId);
-    expect(response.body.data.nombre).toBe(newNombre);
+    await rolTest.updateEntity({ nombre: newNombre });
   });
 
-  test('should delete a Rol', async () => {
-    const response = await request(server)
-      .delete(`/depacomp-api/v1/roles/${rolId}`)
-      .expect(204);
-
-    expect(response.body).toEqual({});
+  test(`should delete a ${singularName}`, async () => {
+    await rolTest.deleteEntity();
   });
-
 });
