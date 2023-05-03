@@ -1,39 +1,15 @@
-const path = require('../paths')
+require('dotenv').config();
+
+const path = require('../paths');
 const BaseControllerTest = require(`${path.TESTS}/baseControllerTest.js`);
-const controllerName = "Generos"
-const singularName = "Genero"
 
-describe(`${controllerName} Controller`, () => {
-  const route = '/depacomp-api/v1/generos';
-  const rol = {
-    nombre: 'Test Rol',
-  };
+const ROUTE     = process.env.Route || '/depacomp-api';
+const VERSION   = process.env.VERSION || '/v1';
 
-  const rolTest = new BaseControllerTest(route);
+const route = `${ROUTE}${VERSION}/generos`;
+const controllerName = 'Generos';
+const singularName = 'Genero';
 
-  afterEach(async () => {
-    await rolTest.closeServer();
-  });
 
-  test(`should create a new ${singularName}`, async () => {
-    await rolTest.createEntity(rol);
-  });
-
-  test(`should get a list of ${singularName}`, async () => {
-    await rolTest.getList();
-  });
-
-  test(`should get a single ${singularName}`, async () => {
-    await rolTest.getSingle();
-  });
-
-  test(`should update a ${singularName}`, async () => {
-    const newNombre = `Test ${singularName} Updated`;
-
-    await rolTest.updateEntity({ nombre: newNombre });
-  });
-
-  test(`should delete a ${singularName}`, async () => {
-    await rolTest.deleteEntity();
-  });
-});
+const generoControllerTest = new BaseControllerTest(route);
+generoControllerTest.runTests(controllerName, singularName, 'nombre');

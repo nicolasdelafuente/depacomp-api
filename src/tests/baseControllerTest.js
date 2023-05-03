@@ -11,7 +11,6 @@ class BaseControllerTest {
     await server.close();
   }
 
-
   async createEntity(entity) {
     const response = await request(server)
       .post(this.route)
@@ -60,7 +59,37 @@ class BaseControllerTest {
 
     expect(response.body).toEqual({});
   }
-}
 
+  async runTests(controllerName, singularName, attribute) {
+    describe(`${controllerName} Controller`, () => {
+      const entity = { [attribute]: `Test ${singularName}` };
+
+      afterEach(async () => {
+        await this.closeServer();
+      });
+
+      test(`should create a new ${singularName}`, async () => {
+        await this.createEntity(entity);
+      });
+
+      test(`should get a list of ${singularName}`, async () => {
+        await this.getList();
+      });
+
+      test(`should get a single ${singularName}`, async () => {
+        await this.getSingle();
+      });
+
+      test(`should update a ${singularName}`, async () => {
+        const newEntity = { [attribute]: `Test ${singularName} Updated` };
+        await this.updateEntity(newEntity);
+      });
+
+      test(`should delete a ${singularName}`, async () => {
+        await this.deleteEntity();
+      });
+    });
+  }
+}
 
 module.exports = BaseControllerTest;
