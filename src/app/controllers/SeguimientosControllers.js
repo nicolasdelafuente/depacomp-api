@@ -2,10 +2,10 @@ const path = require('../../paths');
 const { Seguimiento, Categoria, Estado, SeguimientoTipo, Persona, Entrevista } = require(`${path.DATABASE}/db`);
 const attributes = [
   "id",
-  /*"categoria_id",
+  "categoria_id",
   "estado_id",
   "seguimiento_tipo_id",
-  "orientador_id",*/
+  "orientador_id",
   "motivo",
   "created_at",
   "updated_at"
@@ -21,13 +21,13 @@ const includes = [{
     model: SeguimientoTipo,
     attributes: ["id", "nombre"]
   },{
-    model: Persona, as: 'entrevistador_id',
+    model: Persona, as: 'entrevistador',
     attibutes: ["id", "nombre"]
   },{
-    model: Persona, as: 'derivador_id',
+    model: Persona, as: 'derivador',
     attibutes: ["id", "nombre"]
   },{
-    model: Persona, as: 'entrevistado_id',
+    model: Persona, as: 'entrevistado',
     attibutes: ["id", "nombre"]
   }]
 
@@ -51,8 +51,8 @@ const get = async (_, res) => {
     });
 
     return res.status(200).json({ data });
-    
-  } catch (error) {      
+
+  } catch (error) {
     return res.status(500).json({ error: error.message })
   }
 }

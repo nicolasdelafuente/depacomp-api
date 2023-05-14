@@ -12,35 +12,35 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Persona.associate = function(models) {
-    
+
     Persona.belongsTo(models.Rol, {
       as: "Rol",
-      foreignKey: "rol_id",
+      foreignKey: "id",
     });
 
     Persona.belongsTo(models.Genero, {
       as: "Genero",
-      foreignKey: "genero_id",
+      foreignKey: "id",
     });
 
     Persona.belongsTo(models.DocumentoTipo, {
-      as: "Documento__id",
-      foreignKey: "documento_id",
+      as: "DocumentoTipo",
+      foreignKey: "id",
     });
 
     Persona.belongsTo(models.Localidad, {
       as: "Localidad",
-      foreignKey: "localidad_id",
+      foreignKey: "id",
     });
 
     Persona.belongsTo(models.Provincia, {
       as: "Provincia",
-      foreignKey: "provincia_id",
+      foreignKey: "id",
     });
 
     Persona.belongsTo(models.Pais, {
       as: "Pais",
-      foreignKey: "pais_id",
+      foreignKey: "id",
     });
 
   };

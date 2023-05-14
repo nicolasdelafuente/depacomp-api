@@ -1,5 +1,49 @@
 const path = require('../../paths');
-const { Persona } = require(`${path.DATABASE}/db`);
+const { Persona, Genero, DocumentoTipo, Rol, Pais, Provincia, Localidad} = require(`${path.DATABASE}/db`);
+
+const attributes = [
+    "id",
+    "nombre",
+    "apellido",
+    "email",
+    "password",
+    "documento",
+    "created_at",
+    "updated_at"
+];
+
+const includes = [
+  {
+    model: Genero,
+    as: "Genero",
+    attributes: ["id", "nombre"]
+  },
+  {
+    model: DocumentoTipo,
+    as: "DocumentoTipo",
+    attributes: ["id", "nombre"]
+  },
+  {
+    model: Rol,
+    as: "Rol",
+    attributes: ["id", "nombre"]
+  },
+  {
+    model: Pais,
+    as: "Pais",
+    attributes: ["id", "nombre"]
+  },
+  {
+    model: Provincia,
+    as: "Provincia",
+    attributes: ["id", "nombre"]
+  },
+  {
+    model: Localidad,
+    as: "Localidad",
+    attributes: ["id", "nombre"]
+  },
+]
 
 const create = async (req, res) => {
   try {
@@ -15,48 +59,13 @@ const create = async (req, res) => {
 const get = async (_, res) => {
   try {
     let data = await Persona.findAll({
-      attributes: [
-        "id",
-        "nombre",
-        "apellido",
-        "email",
-        "password",
-        "documento",
-        "created_at",
-        "updated_at"
-      ],
-
-      include: [
-        {
-          association: "genero",
-          attributes: ["id", "nombre"]
-        },
-        {
-          association: "documento__id",
-          attributes: ["id", "nombre"]
-        },
-        {
-          association: "rol",
-          attributes: ["id", "nombre"]
-        },
-        {
-          association: "pais",
-          attributes: ["id", "nombre"]
-        },
-        {
-          association: "provincia",
-          attributes: ["id", "nombre"]
-        },
-        {
-          association: "localidad",
-          attributes: ["id", "nombre"]
-        },
-      ]
+      attributes: attributes,
+      include: includes
     });
 
     return res.status(200).json({ data });
-    
-  } catch (error) {      
+
+  } catch (error) {
     return res.status(500).json({ error: error.message })
   }
 }
@@ -67,43 +76,8 @@ const getById = async (req, res) => {
       const data = await Persona.findOne({
           where: { id: id },
 
-          attributes: [
-            "id",
-            "nombre",
-            "apellido",
-            "email",
-            "password",
-            "documento",
-            "created_at",
-            "updated_at"
-          ],
-    
-          include: [
-            {
-              association: "genero",
-              attributes: ["id", "nombre"]
-            },
-            {
-              association: "documento__id",
-              attributes: ["id", "nombre"]
-            },
-            {
-              association: "rol",
-              attributes: ["id", "nombre"]
-            },
-            {
-              association: "pais",
-              attributes: ["id", "nombre"]
-            },
-            {
-              association: "provincia",
-              attributes: ["id", "nombre"]
-            },
-            {
-              association: "localidad",
-              attributes: ["id", "nombre"]
-            },
-          ]
+          attributes: attributes,
+          include:  includes
         });
 
       if (data) {

@@ -25,19 +25,19 @@ module.exports = (sequelize, DataTypes) => {
     Seguimiento.hasMany(models.Entrevista, {
       foreignKey: "entrevista_id",
     });
-    
+
     Seguimiento.belongsTo(models.Persona, {
-      as: "Entrevistador_id",
+      as: "entrevistador",
       foreignKey: "id",
     });
 
     Seguimiento.belongsTo(models.Persona, {
-      as: "Derivador_id",
+      as: "derivador",
       foreignKey: "id",
     });
 
     Seguimiento.belongsTo(models.Persona, {
-      as: "Entrevistado_id",
+      as: "entrevistado",
       foreignKey: "id",
     });
   };
