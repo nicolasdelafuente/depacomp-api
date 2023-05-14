@@ -44,14 +44,14 @@ const swaggerSpec = swaggerJSDoc(options);
 
 const swaggerDocs = (app, port) => {
     //Ruta de la documentacion
-    app.use(`${ROUTE}/docs`, swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    app.use(`${ROUTE}${VERSION}/docs`, swaggerUi.serve, swaggerUi.setup(swaggerSpec));
     //Ruta de la documentacion en formato JSON
-    app.get(`${ROUTE}/docs.json`, (req,res) => {
+    app.get(`${ROUTE}${VERSION}/docs.json`, (req,res) => {
         res.setHeader('Content-Type', 'application/json');
         res.send(swaggerSpec);
     });
 
-    console.log(`${VERSION} de los documentos esta en: http://localhost:${port}${ROUTE}/docs`);
+    console.log(`${VERSION} de los documentos esta en: http://localhost:${port}${ROUTE}${VERSION}/docs`);
 };
 
 module.exports = { swaggerDocs }
