@@ -1,5 +1,5 @@
 const path = require('../../paths');
-const { Carrera } = require(`${path.DATABASE}/db`);
+const { Carrera, Instituto } = require(`${path.DATABASE}/db`);
 
 const create = async (req, res) => {
   try {
@@ -63,6 +63,33 @@ const getById = async (req, res) => {
   }
 }
 
+//Crear endpoint que me devuelva todas las carreras por el id de instituto puesto
+const getByInstituto = async (req, res) => {
+  try {
+    const { id } = req.params; // Obtener el ID del instituto de los parámetros de la solicitud
+
+    let data = await Carrera.findAll({
+      attributes: [
+        "id",
+        "nombre"
+      ],
+      include: {
+        model: Instituto,
+        as:"Instituto",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo Instituto  
+      },  
+    });
+
+    return res.status(200).json({ data });
+    
+  } catch (error) {      
+    return res.status(500).json({ error: error.message })
+  }
+}
+
 const update = async (req, res) => {
   try {
       const { id } = req.params;
@@ -99,6 +126,7 @@ module.exports = {
   create,
   get,
   getById,
+  getByInstituto,
   update,
   destroy
 }

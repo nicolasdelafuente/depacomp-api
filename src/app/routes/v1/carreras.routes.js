@@ -209,6 +209,8 @@ router.get('/', CarreraController.get);
 
 router.get('/:id', CarreraController.getById);
 
+router.get('/institutos/:id', CarreraController.getByInstituto);
+
 /**
  * @swagger
  * /carreras/{Id}:
