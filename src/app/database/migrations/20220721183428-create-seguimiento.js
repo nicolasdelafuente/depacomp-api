@@ -26,7 +26,7 @@ module.exports = {
           key: 'id',
           as: 'categoria_Id',
         }
-      }, 
+      },
       estado_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
@@ -58,7 +58,7 @@ module.exports = {
         }
       },
       derivador_id: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
