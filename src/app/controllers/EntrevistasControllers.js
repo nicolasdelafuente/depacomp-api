@@ -19,6 +19,8 @@ const get = async (_, res) => {
         "id",
         "observaciones",
         "acciones",
+        "seguimiento_id",
+        //"entrevistador_id",
         "created_at",
         "updated_at"
       ]
@@ -41,6 +43,8 @@ const getById = async (req, res) => {
             "id",
             "observaciones",
             "acciones",
+            "seguimiento_id",
+            //"entrevistador_id",
             "created_at",
             "updated_at"
           ]

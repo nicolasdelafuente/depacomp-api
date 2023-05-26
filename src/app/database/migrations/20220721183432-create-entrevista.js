@@ -26,6 +26,16 @@ module.exports = {
           as: 'seguimiento_id',
         }
       },
+      //entrevistador_id: {
+      //  allowNull: true,
+      //  type: Sequelize.INTEGER,
+      //  onDelete: 'CASCADE',
+      //  references: {
+      //    model: 'Personas',
+      //    key: 'id',
+      //    as: 'entrevistador_id',
+      //  }
+      //},
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

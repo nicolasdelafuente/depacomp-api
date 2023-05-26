@@ -12,10 +12,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
-      orientador_id: {
-        allowNull: true,
-        type: Sequelize.INTEGER
-      },
       // Se agrega para que se pueda hacer la migracion desde npx (npx sequelize-cli db:seed:all)
       categoria_id: {
         allowNull: false,
@@ -47,15 +43,9 @@ module.exports = {
           as: 'seguimientotipo_id',
         }
       },
-      entrevistador_id: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Personas',
-          key: 'id',
-          as: 'entrevistador_id',
-        }
+      orientador_id: {
+        allowNull: true,
+        type: Sequelize.INTEGER
       },
       derivador_id: {
         allowNull: true,

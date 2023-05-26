@@ -12,16 +12,16 @@ const attributes = [
 ]
 
 const includes = [{
-    model: Categoria,
+    model: Categoria, as: 'categoria',
     attributes: ["id", "nombre"]
   },{
-    model: Estado,
+    model: Estado, as: 'estado',
     attibutes: ["id", "nombre", "color"]
   },{
-    model: SeguimientoTipo,
+    model: SeguimientoTipo, as: 'seguimientoTipo',
     attributes: ["id", "nombre"]
   },{
-    model: Persona, as: 'entrevistador',
+    model: Persona, as: 'orientador',
     attibutes: ["id", "nombre"]
   },{
     model: Persona, as: 'derivador',
