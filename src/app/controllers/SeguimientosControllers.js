@@ -2,10 +2,6 @@ const path = require('../../paths');
 const { Seguimiento, Categoria, Estado, SeguimientoTipo, Persona, Entrevista } = require(`${path.DATABASE}/db`);
 const attributes = [
   "id",
-  "categoria_id",
-  "estado_id",
-  "seguimiento_tipo_id",
-  "orientador_id",
   "motivo",
   "created_at",
   "updated_at"
