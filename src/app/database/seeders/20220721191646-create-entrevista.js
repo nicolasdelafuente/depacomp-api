@@ -8,7 +8,7 @@ module.exports = {
           observaciones: "observaciones_1:",
           acciones: "acciones_1:",
           seguimiento_id: 1,
-          //entrevistador_id: 1,
+          entrevistador_id: 1,
           created_at: new Date(),
           updated_at: new Date()
         },
@@ -16,7 +16,7 @@ module.exports = {
           observaciones: "observaciones_2:",
           acciones: "acciones_2:",
           seguimiento_id: 2,
-          //entrevistador_id: 2,
+          entrevistador_id: 2,
           created_at: new Date(),
           updated_at: new Date()
         },
@@ -24,7 +24,7 @@ module.exports = {
           observaciones: "observaciones_3:",
           acciones: "acciones_3:",
           seguimiento_id: 2,
-          //entrevistador_id: 2,
+          entrevistador_id: 2,
           created_at: new Date(),
           updated_at: new Date()
         },
@@ -32,7 +32,7 @@ module.exports = {
           observaciones: "observaciones_4:",
           acciones: "acciones_4:",
           seguimiento_id: 2,
-          //entrevistador_id: 2,
+          entrevistador_id: 2,
           created_at: new Date(),
           updated_at: new Date()
         }

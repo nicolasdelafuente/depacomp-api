@@ -1,5 +1,5 @@
 const path = require('../../paths');
-const { Entrevista } = require(`${path.DATABASE}/db`);
+const { Entrevista, Persona } = require(`${path.DATABASE}/db`);
 
 const create = async (req, res) => {
   try {
@@ -20,7 +20,7 @@ const get = async (_, res) => {
         "observaciones",
         "acciones",
         "seguimiento_id",
-        //"entrevistador_id",
+        "entrevistador_id",
         "created_at",
         "updated_at"
       ]
@@ -44,10 +44,27 @@ const getById = async (req, res) => {
             "observaciones",
             "acciones",
             "seguimiento_id",
-            //"entrevistador_id",
+            "entrevistador_id",
             "created_at",
             "updated_at"
-          ]
+          ],
+          //Tratando de que ande
+          //attibutes: [
+          //    "id",
+          //    "observaciones",
+          //    "acciones",
+          //    "seguimiento_id",
+          //    "created_at",
+          //    "updated_at"
+          //],
+          //include: {
+          //  model: Persona,
+          //  as:"entrevistador",
+            //where: {
+            //  id: id,
+            //},
+          //  attributes: ["id", "nombre"], // Excluir los atributos del modelo Instituto  
+          //},
       });
       if (data) {
           return res.status(200).json({ data });

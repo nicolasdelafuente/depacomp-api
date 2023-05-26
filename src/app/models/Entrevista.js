@@ -1,5 +1,7 @@
 'use strict';
 
+const Seguimiento = require("./Seguimiento");
+
 module.exports = (sequelize, DataTypes) => {
   const Entrevista = sequelize.define('Entrevista', {
     observaciones: DataTypes.STRING,
@@ -13,13 +15,13 @@ module.exports = (sequelize, DataTypes) => {
     Entrevista.belongsTo(models.Seguimiento, {
       foreignKey: "seguimiento_id",
     });
-
-    //Seguimiento.belongsTo(models.Persona, {
-    //  as: "entrevistador",
-    //  foreignKey: "id",
-    //});
-
   };
-
+  Seguimiento.associate = function(models) {
+    
+    Seguimiento.belongsTo(models.Persona, {
+      as: "entrevistador",
+      foreignKey: "id",
+    });
+  };
   return Entrevista;
 };
