@@ -37,18 +37,18 @@ module.exports = (sequelize, DataTypes) => {
     //});
 
     Seguimiento.belongsTo(models.Persona, {
-      as: "orientador",
-      foreignKey: "id",
+      as: "orientado",
+      foreignKey: "orientador_id",
     });
 
     Seguimiento.belongsTo(models.Persona, {
-      as: "derivador",
-      foreignKey: "id",
+      as: "derivado",
+      foreignKey: "derivador_id",
     });
 
     Seguimiento.belongsTo(models.Persona, {
-      as: "entrevistado",
-      foreignKey: "id",
+      as: "entrevistad",
+      foreignKey: "entrevistado_id",
     });
   };
 
