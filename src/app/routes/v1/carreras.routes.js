@@ -209,6 +209,72 @@ router.get('/', CarreraController.get);
 
 router.get('/:id', CarreraController.getById);
 
+/**
+ * @swagger
+ * /carreras/institutos/{Id}:
+ *  get:
+ *     tags:
+ *       - Carreras
+ *     summary: Buscar Carrera por ID de Institutos
+ *     description: Buscar Carreras
+ *     operationId: getByInstituto
+ *     parameters:
+ *       - name: Id
+ *         in: path
+ *         description: Carreras a devolver por ID de Instituto
+ *         required: true
+ *         schema:
+ *             type: integer
+ *             format: int32
+ *     responses:
+ *          '200':
+ *              description: Se listaron las carreras por ID de Instituto
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              status:
+ *                                  type: string
+ *                                  example: OK
+ *                              data:
+ *                                  type: array 
+ *                                  items: 
+ *                                      $ref: "#/components/schemas/Carreras"
+ *          '404':
+ *              description: No se encontraron las carreras por ID de Institutos
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              status:
+ *                                  type: string
+ *                                  example: NOT FOUND
+ *                              data:
+ *                                  type: object
+ *                                  properties:
+ *                                      error:
+ *                                          type: string 
+ *                                          example: "No se encontro"
+ *          '500':
+ *              description: FAILED
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              status:
+ *                                  type: string
+ *                                  example: FAILED
+ *                              data:
+ *                                  type: object
+ *                                  properties:
+ *                                      error:
+ *                                          type: string 
+ *                                          example: "FAILED"
+ */
+
 router.get('/institutos/:id', CarreraController.getByInstituto);
 
 /**
