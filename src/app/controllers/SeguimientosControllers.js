@@ -1,5 +1,6 @@
 const path = require('../../paths');
 const { Seguimiento, Categoria, Estado, SeguimientoTipo, Persona, Entrevista, Genero, DocumentoTipo } = require(`${path.DATABASE}/db`);
+
 const attributes = [
   "id",
   "motivo",
@@ -7,50 +8,49 @@ const attributes = [
   "updated_at"
 ]
 
-const includes = [{
+const includes = [
+  {
     model: Categoria, as: 'categoria',
     attributes: ["id", "nombre"]
-  },{
+  }, {
     model: Estado, as: 'estado',
     attributes: ["id", "nombre", "color"]
-  },{
+  }, {
     model: SeguimientoTipo, as: 'seguimientoTipo',
     attributes: ["id", "nombre"]
-  },{
+  }, {
     model: Persona, as: 'orientador',
     attributes: ["id", "nombre"]
-  },{
+  }, {
     model: Persona, as: 'derivador',
     attributes: ["id", "nombre"]
-  },{
+  }, {
     model: Persona, as: 'entrevistado',
     attributes: ["id", "nombre", "apellido"],
-    include: [{
-      model:Genero,
-      as: "Genero",
-      attributes: ["id", "nombre"]
-   },
-   {
-    model: DocumentoTipo,
-    as: "DocumentoTipo",
-    attributes: ["id", "nombre"]
- },
-
-
-
-  ]
-   
-  }]
+    include: [
+      {
+        model: Genero,
+        as: "Genero",
+        attributes: ["id", "nombre"]
+      },
+      {
+        model: DocumentoTipo,
+        as: "DocumentoTipo",
+        attributes: ["id", "nombre"]
+      },
+    ]
+  }
+];
 
 
 const create = async (req, res) => {
   try {
-      const data = await Seguimiento.create(req.body);
-      return res.status(201).json({
-          data,
-      });
+    const data = await Seguimiento.create(req.body);
+    return res.status(201).json({
+      data,
+    });
   } catch (error) {
-      return res.status(500).json({ error: error.message })
+    return res.status(500).json({ error: error.message })
   }
 }
 
@@ -70,82 +70,82 @@ const get = async (_, res) => {
 
 const getById = async (req, res) => {
   try {
-      const { id } = req.params;
-      const data = await Seguimiento.findOne({
-          where: { id: id },
+    const { id } = req.params;
+    const data = await Seguimiento.findOne({
+      where: { id: id },
 
-          attributes: attributes,
-          include: includes,
-      });
-      if (data) {
-          return res.status(200).json({ data });
-      }
-      return res.status(404).send({message: 'No existe Seguimiento con el id especificado'});
+      attributes: attributes,
+      include: includes,
+    });
+    if (data) {
+      return res.status(200).json({ data });
+    }
+    return res.status(404).send({ message: 'No existe Seguimiento con el id especificado' });
   } catch (error) {
-      return res.status(500).send({ error: error.message });
+    return res.status(500).send({ error: error.message });
   }
 }
 
 const update = async (req, res) => {
   try {
-      const { id } = req.params;
-      const [updated] = await Seguimiento.update(req.body, {
-          where: { id: id }
-      });
-      if (updated) {
-          const updatedData = await Seguimiento.findOne({ where: { id: id } });
-          return res.status(200).json({ data: updatedData });
-      }
-      throw new Error('Seguimiento not found');
+    const { id } = req.params;
+    const [updated] = await Seguimiento.update(req.body, {
+      where: { id: id }
+    });
+    if (updated) {
+      const updatedData = await Seguimiento.findOne({ where: { id: id } });
+      return res.status(200).json({ data: updatedData });
+    }
+    throw new Error('Seguimiento not found');
   } catch (error) {
-      return res.status(500).send({ error: error.message });
+    return res.status(500).send({ error: error.message });
   }
 };
 
 const destroy = async (req, res) => {
   try {
-      const { id } = req.params;
-      const deleted = await Seguimiento.destroy({
-          where: { id: id }
-      });
-      if (deleted) {
-          return res.status(204).send({ message: "Seguimiento eliminado" });
-      }
-      throw new Error("Seguimiento no encontrado");
+    const { id } = req.params;
+    const deleted = await Seguimiento.destroy({
+      where: { id: id }
+    });
+    if (deleted) {
+      return res.status(204).send({ message: "Seguimiento eliminado" });
+    }
+    throw new Error("Seguimiento no encontrado");
   } catch (error) {
-      return res.status(500).send({ error: error.message });
+    return res.status(500).send({ error: error.message });
   }
 };
 
 const getByOrientadorId = async (req, res) => {
   try {
-      const { orientador_id } = req.params;
-      const data = await Seguimiento.findAll({
-          where: { orientador_id: orientador_id }
-      });
-      if (data) {
-          return res.status(200).json({ data });
-      }
-      return res.status(404).send({message: 'No existe Seguimiento con el orientador especificado'});
+    const { orientador_id } = req.params;
+    const data = await Seguimiento.findAll({
+      where: { orientador_id: orientador_id }
+    });
+    if (data) {
+      return res.status(200).json({ data });
+    }
+    return res.status(404).send({ message: 'No existe Seguimiento con el orientador especificado' });
   } catch (error) {
-      return res.status(500).send({ error: error.message });
+    return res.status(500).send({ error: error.message });
   }
 }
 
 const getBySeguimientoId = async (req, res) => {
   try {
-      const { id } = req.params;
-      const data = await Seguimiento.findOne({
-          where: { id: id },
-          attributes: attributes,
-          include: includes
-      });
-      if (data) {
-          return res.status(200).json({ data });
-      }
-      return res.status(404).send({message: 'No existe Seguimiento con el id especificado'});
+    const { id } = req.params;
+    const data = await Seguimiento.findOne({
+      where: { id: id },
+      attributes: attributes,
+      include: includes
+    });
+    if (data) {
+      return res.status(200).json({ data });
+    }
+    return res.status(404).send({ message: 'No existe Seguimiento con el id especificado' });
   } catch (error) {
-      return res.status(500).send({ error: error.message });
+    return res.status(500).send({ error: error.message });
   }
 }
 
