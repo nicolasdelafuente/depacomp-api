@@ -9,5 +9,5 @@ module.exports = {
   ROUTES: path.join(__dirname, 'app', 'routes'),
   SERVICES: path.join(__dirname, 'services'),
   CONFIG: path.join(__dirname, 'config'),
-  TESTS: path.join(__dirname, 'tests'),
+  TESTS: path.join(__dirname, 'tests'),
 };
