@@ -15,32 +15,32 @@ module.exports = (sequelize, DataTypes) => {
 
     Persona.belongsTo(models.Rol, {
       as: "Rol",
-      foreignKey: "id",
+      foreignKey: "rol_id",
     });
 
     Persona.belongsTo(models.Genero, {
       as: "Genero",
-      foreignKey: "id",
+      foreignKey: "genero_id",
     });
 
     Persona.belongsTo(models.DocumentoTipo, {
       as: "DocumentoTipo",
-      foreignKey: "id",
+      foreignKey: "documento_id",
     });
 
     Persona.belongsTo(models.Localidad, {
       as: "Localidad",
-      foreignKey: "id",
+      foreignKey: "localidad_id",
     });
 
     Persona.belongsTo(models.Provincia, {
       as: "Provincia",
-      foreignKey: "id",
+      foreignKey: "provincia_id",
     });
 
     Persona.belongsTo(models.Pais, {
       as: "Pais",
-      foreignKey: "id",
+      foreignKey: "pais_id",
     });
 
   };

@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Provincia.hasMany(models.Localidad, {
-      foreignKey: "id",
+      foreignKey: "localidad_id",
     });
 
   };

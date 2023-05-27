@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     
     Seguimiento.belongsTo(models.Persona, {
       as: "entrevistador",
-      foreignKey: "id",
+      foreignKey: "entrevistador_id",
     });
   };
   return Entrevista;
