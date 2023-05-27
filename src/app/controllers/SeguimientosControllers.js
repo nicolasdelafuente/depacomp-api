@@ -1,5 +1,5 @@
 const path = require('../../paths');
-const { Seguimiento, Categoria, Estado, SeguimientoTipo, Persona, Entrevista } = require(`${path.DATABASE}/db`);
+const { Seguimiento, Categoria, Estado, SeguimientoTipo, Persona, Entrevista, Genero, DocumentoTipo } = require(`${path.DATABASE}/db`);
 const attributes = [
   "id",
   "motivo",
@@ -12,19 +12,34 @@ const includes = [{
     attributes: ["id", "nombre"]
   },{
     model: Estado, as: 'estado',
-    attibutes: ["id", "nombre", "color"]
+    attributes: ["id", "nombre", "color"]
   },{
     model: SeguimientoTipo, as: 'seguimientoTipo',
     attributes: ["id", "nombre"]
   },{
     model: Persona, as: 'orientador',
-    attibutes: ["id", "nombre"]
+    attributes: ["id", "nombre"]
   },{
     model: Persona, as: 'derivador',
-    attibutes: ["id", "nombre"]
+    attributes: ["id", "nombre"]
   },{
     model: Persona, as: 'entrevistado',
-    attibutes: ["id", "nombre"]
+    attributes: ["id", "nombre", "apellido"],
+    include: [{
+      model:Genero,
+      as: "Genero",
+      attributes: ["id", "nombre"]
+   },
+   {
+    model: DocumentoTipo,
+    as: "DocumentoTipo",
+    attributes: ["id", "nombre"]
+ },
+
+
+
+  ]
+   
   }]
 
 
@@ -59,11 +74,8 @@ const getById = async (req, res) => {
       const data = await Seguimiento.findOne({
           where: { id: id },
 
-          attributes: [
-            "id",
-            "created_at",
-            "updated_at"
-          ],
+          attributes: attributes,
+          include: includes,
       });
       if (data) {
           return res.status(200).json({ data });
