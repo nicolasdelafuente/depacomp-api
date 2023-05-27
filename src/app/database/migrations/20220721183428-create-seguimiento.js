@@ -20,7 +20,7 @@ module.exports = {
         references: {
           model: 'Categorias',
           key: 'id',
-          as: 'categoria_Id',
+          as: 'categoria_id',
         }
       },
       estado_id: {
@@ -30,7 +30,7 @@ module.exports = {
         references: {
           model: 'Estados',
           key: 'id',
-          as: 'estado_Id',
+          as: 'estado_id',
         }
       },
       seguimiento_tipo_id: {
@@ -40,7 +40,7 @@ module.exports = {
         references: {
           model: 'SeguimientoTipos',
           key: 'id',
-          as: 'seguimientotipo_id',
+          as: 'seguimiento_tipo_id',
         }
       },
       orientador_id: {

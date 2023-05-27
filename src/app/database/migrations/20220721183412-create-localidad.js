@@ -20,7 +20,7 @@ module.exports = {
         references: {
           model: 'Provincias',
           key: 'id',
-          as: 'provincia_Id',
+          as: 'provincia_id',
         }
       },
       created_at: {

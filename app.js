@@ -1,18 +1,17 @@
 require('dotenv').config();
 const path = require('./src/paths');
-const express = require('express');
-const cors = require('cors')
 
+const express = require('express');
+const app = express();
 const { connection } = require(`${path.DATABASE}/db`);
 const routes = require(`${path.ROUTES}`);
-const { logger } = require(`${path.SERVICES}/logger`);
+const cors = require('cors')
+
 const { swaggerDocs } = require(`${path.ROUTES}/swagger`)
 
-const app = express();
-
-const PORT = process.env.PORT || 4000;
-const ROUTE = process.env.Route || '/depacomp-api';
-const VERSION = process.env.VERSION || '/v1';
+const PORT      = process.env.PORT || 4000;
+const ROUTE     = process.env.Route || '/depacomp-api';
+const VERSION   = process.env.VERSION || '/v1';
 const WHITELIST = process.env.WHITELIST || ['http://localhost:3000'];
 
 
@@ -28,10 +27,11 @@ app.use(`${ROUTE}${VERSION}`, routes);
 
 // Arranque Servidor
 const server = app.listen(PORT, function () {
+    console.log(`La app ha arrancado en http://localhost:${PORT}`);
+
     // TRUE dropea todo
     connection.sync({ force: false }).then(() => {
-        //logger.info(`La app ha arrancado en http://localhost:${PORT}`);
-        console.log(`La app ha arrancado en http://localhost:${PORT}`);
+        console.log("Se ha establecido la conexión");
         swaggerDocs(app, PORT);
     })
 });
