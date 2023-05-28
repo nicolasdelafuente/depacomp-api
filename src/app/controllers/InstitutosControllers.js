@@ -1,5 +1,8 @@
 const path = require('../../paths');
+const { handleErrors } = require(`${path.SERVICES}/logger`);
 const { Instituto } = require(`${path.DATABASE}/db`);
+
+const nameController = "Instituto"
 
 const attributes = [
   "id",
@@ -15,6 +18,7 @@ const create = async (req, res) => {
           data,
       });
   } catch (error) {
+      handleErrors(error, 'create', nameController);
       return res.status(500).json({ error: error.message })
   }
 }
@@ -24,10 +28,10 @@ const get = async (_, res) => {
     let data = await Instituto.findAll({
       attributes: attributes
     });
-
     return res.status(200).json({ data });
     
-  } catch (error) {      
+  } catch (error) {
+    handleErrors(error,'get', nameController);  
     return res.status(500).json({ error: error.message })
   }
 }
@@ -45,6 +49,7 @@ const getById = async (req, res) => {
       }
       return res.status(404).send({message: 'No existe Instituto con el id especificado'});
   } catch (error) {
+      handleErrors(error, 'getById', nameController);
       return res.status(500).send({ error: error.message });
   }
 }
@@ -61,6 +66,7 @@ const update = async (req, res) => {
       }
       throw new Error('Instituto not found');
   } catch (error) {
+      handleErrors(error, 'update', nameController);
       return res.status(500).send({ error: error.message });
   }
 };
@@ -76,6 +82,7 @@ const destroy = async (req, res) => {
       }
       throw new Error("Instituto no encontrado");
   } catch (error) {
+      handleErrors(error, 'destroy', nameController);
       return res.status(500).send({ error: error.message });
   }
 };

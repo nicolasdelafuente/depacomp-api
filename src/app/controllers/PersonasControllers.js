@@ -1,5 +1,5 @@
 const path = require('../../paths');
-const { handleErrors } = require(`${path.SERVICES}/logger`)
+const { handleErrors } = require(`${path.SERVICES}/logger`);
 const { Persona, Genero, DocumentoTipo, Rol, Pais, Provincia, Localidad } = require(`${path.DATABASE}/db`);
 
 const nameController = "Persona"
