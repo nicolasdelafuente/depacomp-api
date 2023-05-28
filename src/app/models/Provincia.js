@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   Provincia.associate = function(models) {
     
     Provincia.belongsTo(models.Pais, {
-      as: "Pais",
+      as: "pais",
       foreignKey: "pais_id",
     });
 
