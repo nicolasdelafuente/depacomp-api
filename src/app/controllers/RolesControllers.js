@@ -1,5 +1,8 @@
 const path = require('../../paths');
+const { handleErrors } = require(`${path.SERVICES}/logger`)
 const { Rol } = require(`${path.DATABASE}/db`);
+
+const nameController = "Rol"
 
 const attributes = [
   "id",
@@ -15,12 +18,14 @@ const create = async (req, res) => {
           data,
       });
   } catch (error) {
+      handleErrors(error, 'create', nameController);
       return res.status(500).json({ error: error.message })
   }
 }
 
 const get = async (_, res) => {
   try {
+    throw new Error("Este es un error forzado");
     let data = await Rol.findAll({
       attributes: attributes
     });
@@ -28,6 +33,7 @@ const get = async (_, res) => {
     return res.status(200).json({ data });
 
   } catch (error) {
+    handleErrors(error,'get', nameController);
     return res.status(500).json({ error: error.message })
   }
 }
@@ -45,6 +51,7 @@ const getById = async (req, res) => {
       }
       return res.status(404).send({message: 'No existe Rol con el id especificado'});
   } catch (error) {
+      handleErrors(error, 'getById', nameController);
       return res.status(500).send({ error: error.message });
   }
 }
@@ -61,6 +68,7 @@ const update = async (req, res) => {
       }
       throw new Error('Rol not found');
   } catch (error) {
+      handleErrors(error, 'update', nameController);
       return res.status(500).send({ error: error.message });
   }
 };
@@ -76,6 +84,7 @@ const destroy = async (req, res) => {
       }
       throw new Error("Rol no encontrado");
   } catch (error) {
+      handleErrors(error, 'destroy', nameController);
       return res.status(500).send({ error: error.message });
   }
 };
