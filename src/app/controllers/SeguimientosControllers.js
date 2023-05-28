@@ -30,12 +30,12 @@ const includes = [
     include: [
       {
         model: Genero,
-        as: "Genero",
+        as: "genero",
         attributes: ["id", "nombre"]
       },
       {
         model: DocumentoTipo,
-        as: "DocumentoTipo",
+        as: "documentoTipo",
         attributes: ["id", "nombre"]
       }, //agregar persona
     ]
