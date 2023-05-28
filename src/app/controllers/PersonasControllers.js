@@ -18,32 +18,32 @@ const attributes = [
 const includes = [
   {
     model: Genero,
-    as: "Genero",
+    as: "genero",
     attributes: ["id", "nombre"]
   },
   {
     model: DocumentoTipo,
-    as: "DocumentoTipo",
+    as: "documentoTipo",
     attributes: ["id", "nombre"]
   },
   {
     model: Rol,
-    as: "Rol",
+    as: "rol",
     attributes: ["id", "nombre"]
   },
   {
     model: Pais,
-    as: "Pais",
+    as: "pais",
     attributes: ["id", "nombre"]
   },
   {
     model: Provincia,
-    as: "Provincia",
+    as: "provincia",
     attributes: ["id", "nombre"]
   },
   {
     model: Localidad,
-    as: "Localidad",
+    as: "localidad",
     attributes: ["id", "nombre"]
   },
 ]
