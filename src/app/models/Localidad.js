@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     
     Localidad.belongsTo(models.Provincia, {
       foreignKey: "provincia_id",
-      as: "Provincia"
+      as: "provincia"
     });
 
   };
