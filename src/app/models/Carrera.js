@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   Carrera.associate = function(models) {
     
     Carrera.belongsTo(models.Instituto, {
-      as:"Instituto",
+      as:"instituto",
       foreignKey: "instituto_id",
     });
 

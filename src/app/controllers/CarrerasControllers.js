@@ -72,7 +72,7 @@ const getByInstituto = async (req, res) => {
       ],
       include: {
         model: Instituto,
-        as:"Instituto",
+        as:"instituto",
         where: {
           id: id,
         },
