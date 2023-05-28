@@ -1,6 +1,14 @@
 const path = require('../../paths');
 const { Estado } = require(`${path.DATABASE}/db`);
 
+const attributes = [
+  "id",
+  "nombre",
+  "color",
+  "created_at",
+  "updated_at"
+]
+
 const create = async (req, res) => {
   try {
       const data = await Estado.create(req.body);
@@ -15,13 +23,7 @@ const create = async (req, res) => {
 const get = async (_, res) => {
   try {
     let data = await Estado.findAll({
-      attributes: [
-        "id",
-        "nombre",
-        "color",
-        "created_at",
-        "updated_at"
-      ]
+      attributes: attributes
     });
 
     return res.status(200).json({ data });
@@ -37,13 +39,7 @@ const getById = async (req, res) => {
       const data = await Estado.findOne({
           where: { id: id },
 
-          attributes: [
-            "id",
-            "nombre",
-            "color",
-            "created_at",
-            "updated_at"
-          ]
+          attributes: attributes
       });
       if (data) {
           return res.status(200).json({ data });

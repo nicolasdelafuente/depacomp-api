@@ -1,6 +1,13 @@
 const path = require('../../paths');
 const { Carrera, Instituto } = require(`${path.DATABASE}/db`);
 
+const attributes = [
+  "id",
+  "nombre",
+  "created_at",
+  "updated_at"
+]
+
 const create = async (req, res) => {
   try {
       const data = await Carrera.create(req.body);
@@ -15,12 +22,7 @@ const create = async (req, res) => {
 const get = async (_, res) => {
   try {
     let data = await Carrera.findAll({
-      attributes: [
-        "id",
-        "nombre",
-        "created_at",
-        "updated_at"
-      ],
+      attributes: attributes,
 
       include: {
         association: "Instituto",
@@ -41,16 +43,11 @@ const getById = async (req, res) => {
       const data = await Carrera.findOne({
           where: { id: id },
 
-          attributes: [
-            "id",
-            "nombre",
-            "created_at",
-            "updated_at"
-          ],
+          attributes: attributes,
     
           include: {
             association: "Instituto",
-            attributes: ["id", "nombre","created_at","updated_at"]
+            attributes: ["id","nombre"]
           },  
 
       });

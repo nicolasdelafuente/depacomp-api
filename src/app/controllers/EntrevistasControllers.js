@@ -1,6 +1,16 @@
 const path = require('../../paths');
 const { Entrevista, Persona } = require(`${path.DATABASE}/db`);
 
+const attributes = [
+  "id",
+  "observaciones",
+  "acciones",
+  "seguimiento_id",
+  "entrevistador_id",
+  "created_at",
+  "updated_at"
+]
+
 const create = async (req, res) => {
   try {
       const data = await Entrevista.create(req.body);
@@ -15,15 +25,7 @@ const create = async (req, res) => {
 const get = async (_, res) => {
   try {
     let data = await Entrevista.findAll({
-      attributes: [
-        "id",
-        "observaciones",
-        "acciones",
-        "seguimiento_id",
-        "entrevistador_id",
-        "created_at",
-        "updated_at"
-      ]
+      attributes: attributes
     });
 
     return res.status(200).json({ data });
@@ -39,15 +41,8 @@ const getById = async (req, res) => {
       const data = await Entrevista.findOne({
           where: { id: id },
 
-          attributes: [
-            "id",
-            "observaciones",
-            "acciones",
-            "seguimiento_id",
-            "entrevistador_id",
-            "created_at",
-            "updated_at"
-          ],
+          attributes: attributes
+
           //Tratando de que ande
           //attibutes: [
           //    "id",

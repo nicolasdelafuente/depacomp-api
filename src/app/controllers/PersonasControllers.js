@@ -2,7 +2,7 @@ const path = require('../../paths');
 const { handleErrors } = require(`${path.SERVICES}/logger`)
 const { Persona, Genero, DocumentoTipo, Rol, Pais, Provincia, Localidad } = require(`${path.DATABASE}/db`);
 
-
+const nameController = "Persona"
 
 const attributes = [
   "id",
@@ -55,7 +55,7 @@ const create = async (req, res) => {
       data,
     });
   } catch (error) {
-    handleErrors(error, 'create', 'Persona');
+    handleErrors(error, 'create', nameController);
     return res.status(500).json({ error: error.message })
   }
 }
@@ -69,7 +69,7 @@ const get = async (_, res) => {
     return res.status(200).json({ data });
 
   } catch (error) {
-    handleErrors(error, 'get', 'Persona');
+    handleErrors(error,'get', nameController);
     return res.status(500).json({ error: error.message })
   }
 }
@@ -88,7 +88,7 @@ const getById = async (req, res) => {
     }
     return res.status(404).send({ message: 'No existe Persona con el id especificado' });
   } catch (error) {
-    handleErrors(error, 'getById', 'Persona');
+    handleErrors(error, 'getById', nameController);
     return res.status(500).send({ error: error.message });
   }
 }
@@ -105,7 +105,7 @@ const update = async (req, res) => {
     }
     throw new Error('Persona not found');
   } catch (error) {
-    handleErrors(error, 'update', 'Persona');
+    handleErrors(error, 'update', nameController);
     return res.status(500).send({ error: error.message });
   }
 };
@@ -121,7 +121,7 @@ const destroy = async (req, res) => {
     }
     throw new Error("Persona no encontrada");
   } catch (error) {
-    handleErrors(error, 'destroy', 'Persona');
+    handleErrors(error, 'destroy', nameController);
     return res.status(500).send({ error: error.message });
   }
 };

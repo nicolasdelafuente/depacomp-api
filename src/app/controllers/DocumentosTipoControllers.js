@@ -1,6 +1,13 @@
 const path = require('../../paths');
 const { DocumentoTipo } = require(`${path.DATABASE}/db`);
 
+const attributes = [
+  "id",
+  "nombre",
+  "created_at",
+  "updated_at"
+]
+
 const create = async (req, res) => {
   try {
       const data = await DocumentoTipo.create(req.body);
@@ -15,12 +22,7 @@ const create = async (req, res) => {
 const get = async (_, res) => {
   try {
     let data = await DocumentoTipo.findAll({
-      attributes: [
-        "id",
-        "nombre",
-        "created_at",
-        "updated_at"
-      ]
+      attributes: attributes
     });
 
     return res.status(200).json({ data });
@@ -36,12 +38,7 @@ const getById = async (req, res) => {
       const data = await DocumentoTipo.findOne({
           where: { id: id },
 
-          attributes: [
-            "id",
-            "nombre",
-            "created_at",
-            "updated_at"
-          ]
+          attributes: attributes
       });
       if (data) {
           return res.status(200).json({ data });
