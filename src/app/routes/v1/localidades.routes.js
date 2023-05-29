@@ -6,6 +6,7 @@ const LocalidadController = require(`${path.CONTROLLERS}/LocalidadesControllers`
 router.post('/', LocalidadController.create);
 router.get('/', LocalidadController.get);
 router.get('/:id', LocalidadController.getById);
+router.get('/provincias/:id', LocalidadController.getByProvincia);
 router.put('/:id', LocalidadController.update);
 router.delete('/:id', LocalidadController.destroy);
 

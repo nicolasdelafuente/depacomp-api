@@ -1,6 +1,6 @@
 const path = require('../../paths');
 const { handleErrors } = require(`${path.SERVICES}/logger`);
-const { Localidad } = require(`${path.DATABASE}/db`);
+const { Localidad, Provincia } = require(`${path.DATABASE}/db`);
 
 const nameController = "Localidad"
 
@@ -53,6 +53,35 @@ const getById = async (req, res) => {
   }
 }
 
+//Crear endpoint que me devuelva todas las localidade por el id de provincia puesto
+const getByProvincia = async (req, res) => {
+  try {
+    const { id } = req.params; // Obtener el ID del provincia de los parámetros de la solicitud
+
+    let data = await Localidad.findAll({
+      attributes: [
+        "id",
+        "nombre",
+        "provincia_id"
+      ],
+      include: {
+        model: Provincia,
+        as:"provincia",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo Provincia  
+      },  
+    });
+
+    return res.status(200).json({ data });
+    
+  } catch (error) {
+    handleErrors(error, 'getByProvincia', nameController);   
+    return res.status(500).json({ error: error.message })
+  }
+}
+
 const update = async (req, res) => {
   try {
       const { id } = req.params;
@@ -91,6 +120,7 @@ module.exports = {
   create,
   get,
   getById,
+  getByProvincia,
   update,
   destroy
 }

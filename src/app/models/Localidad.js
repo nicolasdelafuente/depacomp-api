@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
   Localidad.associate = function(models) {
     
     Localidad.belongsTo(models.Provincia, {
-      foreignKey: "provincia_id",
-      as: "provincia"
+      as: "provincia",
+      foreignKey: "provincia_id"
     });
 
   };
