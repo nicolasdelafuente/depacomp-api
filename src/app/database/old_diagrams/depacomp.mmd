@@ -26,7 +26,6 @@ erDiagram
         varchar observaciones 
         varchar acciones 
         int seguimiento_id FK
-        int entrevistador_id FK
         datetime created_at 
         datetime updated_at 
     }
@@ -90,7 +89,7 @@ erDiagram
     provincias {
         int id PK
         varchar nombre 
-        int pais_id FK
+        int pais_Id FK
         datetime created_at 
         datetime updated_at 
     }
@@ -104,11 +103,12 @@ erDiagram
 
     seguimientos {
         int id PK
-        text motivo 
+        varchar motivo 
+        int orientador_id 
         int categoria_id FK
         int estado_id FK
         int seguimiento_tipo_id FK
-        int orientador_id 
+        int entrevistador_id FK
         int derivador_id FK
         int entrevistado_id FK
         datetime created_at 
@@ -120,6 +120,10 @@ erDiagram
         varchar nombre 
         datetime created_at 
         datetime updated_at 
+    }
+
+    sequelizemeta {
+        varchar name PK
     }
 
     usuarios {
@@ -137,15 +141,15 @@ erDiagram
     seguimientos }o--|| categorias : "categoria_id"
     personas }o--|| documentotipos : "documento_id"
     entrevistas }o--|| seguimientos : "seguimiento_id"
-    entrevistas }o--|| personas : "entrevistador_id"
     seguimientos }o--|| estados : "estado_id"
     personas }o--|| generos : "genero_id"
     localidades }o--|| provincias : "provincia_id"
     personas }o--|| localidades : "localidad_id"
     personas }o--|| paises : "pais_id"
-    provincias }o--|| paises : "pais_id"
+    provincias }o--|| paises : "pais_Id"
     personas }o--|| roles : "rol_id"
     personas }o--|| provincias : "provincia_id"
+    seguimientos }o--|| personas : "entrevistador_id"
     seguimientos }o--|| personas : "derivador_id"
     seguimientos }o--|| personas : "entrevistado_id"
     seguimientos }o--|| seguimientotipos : "seguimiento_tipo_id"
