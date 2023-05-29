@@ -25,11 +25,9 @@ const create = async (req, res) => {
 
 const get = async (_, res) => {
   try {
-    throw new Error("Este es un error forzado");
     let data = await Rol.findAll({
-      attributes: attributes
+      attributes: attributes,
     });
-
     return res.status(200).json({ data });
 
   } catch (error) {

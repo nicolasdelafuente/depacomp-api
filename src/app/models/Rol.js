@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   Rol.associate = function(models) {
     
     Rol.hasMany(models.Persona, {
+      as: "rol",
       foreignKey: "rol_id",
     });
 

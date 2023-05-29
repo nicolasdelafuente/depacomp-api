@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   Estado.associate = function(models) {
     
     Estado.hasMany(models.Seguimiento, {
+      as: "estado",
       foreignKey: "estado_id",
     });
     
