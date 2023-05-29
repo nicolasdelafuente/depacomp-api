@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   Entrevista.associate = function(models) {
     
     Entrevista.belongsTo(models.Seguimiento, {
+      as: "seguimiento",
       foreignKey: "seguimiento_id",
     });
   };

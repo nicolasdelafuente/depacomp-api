@@ -1,6 +1,6 @@
 const path = require('../../paths');
 const { handleErrors } = require(`${path.SERVICES}/logger`);
-const { Entrevista, Persona } = require(`${path.DATABASE}/db`);
+const { Entrevista, Seguimiento } = require(`${path.DATABASE}/db`);
 
 const nameController = "Entrevista"
 
@@ -44,26 +44,7 @@ const getById = async (req, res) => {
       const { id } = req.params;
       const data = await Entrevista.findOne({
           where: { id: id },
-
           attributes: attributes
-
-          //Tratando de que ande
-          //attibutes: [
-          //    "id",
-          //    "observaciones",
-          //    "acciones",
-          //    "seguimiento_id",
-          //    "created_at",
-          //    "updated_at"
-          //],
-          //include: {
-          //  model: Persona,
-          //  as:"entrevistador",
-            //where: {
-            //  id: id,
-            //},
-          //  attributes: ["id", "nombre"], // Excluir los atributos del modelo Instituto  
-          //},
       });
       if (data) {
           return res.status(200).json({ data });
@@ -72,6 +53,37 @@ const getById = async (req, res) => {
   } catch (error) {
       handleErrors(error, 'getById', nameController);
       return res.status(500).send({ error: error.message });
+  }
+}
+
+//Crear endpoint que me devuelva todas las entrevistas por el id de seguimiento puesto
+const getBySeguimiento = async (req, res) => {
+  try {
+    const { id } = req.params; // Obtener el ID del Seguimiento de los parámetros de la solicitud
+
+    let data = await Entrevista.findAll({
+      attributes: [
+        "id",
+        "observaciones",
+        "acciones",
+        "seguimiento_id",
+        "entrevistador_id"
+      ],
+      include: {
+        model: Seguimiento,
+        as:"seguimiento",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo Seguimiento  
+      },  
+    });
+
+    return res.status(200).json({ data });
+    
+  } catch (error) {
+    handleErrors(error, 'getByInstituto', nameController);   
+    return res.status(500).json({ error: error.message })
   }
 }
 
@@ -113,6 +125,7 @@ module.exports = {
   create,
   get,
   getById,
+  getBySeguimiento,
   update,
   destroy
 }
