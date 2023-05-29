@@ -29,7 +29,7 @@ const includes = [
     attributes: ["id", "nombre"]
   }, {
     model: Persona, as: 'entrevistado',
-    attributes: ["id", "nombre", "apellido"],
+    attributes: ["id", "nombre", "apellido", "documento"],
     include: [
       {
         model: Genero,
@@ -40,7 +40,7 @@ const includes = [
         model: DocumentoTipo,
         as: "documentoTipo",
         attributes: ["id", "nombre"]
-      }, //agregar persona
+      },//agregar persona
     ]
   }
 ];
