@@ -32,8 +32,8 @@ const get = async (_, res) => {
       attributes: attributes
     });
     return res.status(200).json({ data });
-    
-  } catch (error) { 
+
+  } catch (error) {
     handleErrors(error,'get', nameController);
     return res.status(500).json({ error: error.message })
   }
@@ -75,17 +75,49 @@ const getBySeguimiento = async (req, res) => {
         where: {
           id: id,
         },
-        attributes: [], // Excluir los atributos del modelo Seguimiento  
-      },  
+        attributes: [], // Excluir los atributos del modelo Seguimiento
+      },
     });
 
     return res.status(200).json({ data });
-    
+
   } catch (error) {
-    handleErrors(error, 'getByInstituto', nameController);   
+    handleErrors(error, 'getByInstituto', nameController);
     return res.status(500).json({ error: error.message })
   }
 }
+
+
+const getCountBySeguimiento  = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    let data = await Entrevista.findAndCountAll({
+      attributes: [
+        "id",
+        "observaciones",
+        "acciones",
+        "seguimiento_id",
+        "entrevistador_id"
+      ],
+      include: {
+        model: Seguimiento,
+        as:"seguimiento",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo Seguimiento
+      },
+    });
+
+    return res.status(200).json({ count: data.count });
+
+  } catch (error) {
+    handleErrors(error, 'getCountBySeguimiento', nameController);
+    return res.status(500).json({ error: error.message })
+  }
+}
+
 
 const update = async (req, res) => {
   try {
@@ -126,6 +158,7 @@ module.exports = {
   get,
   getById,
   getBySeguimiento,
+  getCountBySeguimiento,
   update,
   destroy
 }
