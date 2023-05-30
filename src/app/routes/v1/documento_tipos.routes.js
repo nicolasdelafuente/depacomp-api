@@ -1,13 +1,13 @@
 const path = require('../../../paths');
 const express = require('express');
 const router = express.Router();
-const DocumentosTipoController  = require(`${path.CONTROLLERS}/DocumentosTipoControllers`);
+const DocumentoTiposController  = require(`${path.CONTROLLERS}/DocumentoTiposControllers`);
 
 /**Schemas
  * @swagger
  * components:
  *      schemas:
- *          Documentos Tipo:
+ *          Documento Tipos:
  *              required:
  *                  - nombre
  *              type: object
@@ -30,10 +30,10 @@ const DocumentosTipoController  = require(`${path.CONTROLLERS}/DocumentosTipoCon
 
 /**
  * @swagger
- * /documentos_tipo:
+ * /documento_tipos:
  *  post:
  *      tags:
- *          - Documentos Tipo
+ *          - Documento Tipos
  *      summary: Agregar un nuevo Tipo de Documento
  *      description: Agregar un nuevo Tipo de Documento
  *      operationId: create
@@ -55,19 +55,19 @@ const DocumentosTipoController  = require(`${path.CONTROLLERS}/DocumentosTipoCon
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/Documentos Tipo'
+ *                          $ref: '#/components/schemas/Documento Tipos'
  *          '405':
  *              description: Invalid input
  */
 
-router.post('/', DocumentosTipoController.create);
+router.post('/', DocumentoTiposController.create);
 
 /**
  * @swagger
- * /documentos_tipo:
+ * /documento_tipos:
  *  get:
  *      tags:
- *        - Documentos Tipo
+ *        - Documento Tipos
  *      summary: Lista los Tipo de Documentos existentes
  *      description: Lista los Tipo de Documentos existentes
  *      operationId: get
@@ -82,7 +82,7 @@ router.post('/', DocumentosTipoController.create);
  *                  data:
  *                      type: array 
  *                      items: 
- *                          $ref: '#/components/schemas/Documentos Tipo'
+ *                          $ref: '#/components/schemas/Documento Tipos'
  *      responses:
  *          '200':
  *              description: Se listaron todos los Tipos de Documentos con exito
@@ -97,7 +97,7 @@ router.post('/', DocumentosTipoController.create);
  *                              data:
  *                                  type: array 
  *                                  items: 
- *                                      $ref: "#/components/schemas/Documentos Tipo"
+ *                                      $ref: "#/components/schemas/Documento Tipos"
  *          '404':
  *              description: No se encontraron
  *              content:
@@ -132,14 +132,14 @@ router.post('/', DocumentosTipoController.create);
  *                                          example: "FAILED"
  */
 
-router.get('/', DocumentosTipoController.get);
+router.get('/', DocumentoTiposController.get);
 
 /**
  * @swagger
- * /documentos_tipo/{Id}:
+ * /documento_tipos/{Id}:
  *  get:
  *     tags:
- *       - Documentos Tipo
+ *       - Documento Tipos
  *     summary: Buscar Tipo de Documento por ID
  *     description: Buscar Tipo de Documento
  *     operationId: getById
@@ -157,21 +157,21 @@ router.get('/', DocumentosTipoController.get);
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/Documentos Tipo'
+ *                          $ref: '#/components/schemas/Documento Tipos'
  *          '400':
  *              description: ID suministrado invalido
  *          '404':
  *              description: No existe el Tipo de Documento del id especificado
  */
 
-router.get('/:id', DocumentosTipoController.getById);
+router.get('/:id', DocumentoTiposController.getById);
 
 /**
  * @swagger
- * /documentos_tipo/{Id}:
+ * /documento_tipos/{Id}:
  *  put:
  *      tags:
- *          - Documentos Tipo
+ *          - Documento Tipos
  *      summary: Update de un Tipo de Documento existente
  *      description: Actualizacion de un Tipo de Documento por Id
  *      operationId: update
@@ -201,7 +201,7 @@ router.get('/:id', DocumentosTipoController.getById);
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/Documentos Tipo'
+ *                          $ref: '#/components/schemas/Documento Tipos'
  *          '400':
  *              description: El ID sumistrado es incorrecto
  *          '404':
@@ -210,14 +210,14 @@ router.get('/:id', DocumentosTipoController.getById);
  *              description: Validation exception
  */
 
-router.put('/:id', DocumentosTipoController.update);
+router.put('/:id', DocumentoTiposController.update);
 
 /**
  * @swagger
- * /documentos_tipo/{Id}:
+ * /documento_tipos/{Id}:
  *  delete:
  *      tags:
- *          - Documentos Tipo
+ *          - Documento Tipos
  *      summary: Elimina un Tipo de Documento
  *      description: Borra el Tipo de Documento
  *      operationId: destroy
@@ -236,6 +236,6 @@ router.put('/:id', DocumentosTipoController.update);
  *              description: Tipo de Documento incorrecto
  */
 
-router.delete('/:id', DocumentosTipoController.destroy);
+router.delete('/:id', DocumentoTiposController.destroy);
 
 module.exports = router;
