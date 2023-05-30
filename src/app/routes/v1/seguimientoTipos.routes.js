@@ -1,13 +1,13 @@
 const path = require('../../../paths');
 const express = require('express');
 const router = express.Router();
-const DocumentoTiposController  = require(`${path.CONTROLLERS}/DocumentoTiposControllers`);
+const SeguimientoTipoController  = require(`${path.CONTROLLERS}/SeguimientoTiposControllers`);
 
 /**Schemas
  * @swagger
  * components:
  *      schemas:
- *          Documento Tipos:
+ *          Seguimiento Tipos:
  *              required:
  *                  - nombre
  *              type: object
@@ -19,7 +19,7 @@ const DocumentoTiposController  = require(`${path.CONTROLLERS}/DocumentoTiposCon
  *                  nombre: 
  *                      type: string
  *                      format: binary
- *                      example: DNI 
+ *                      example: Entrevista 
  *                  created_at:
  *                      type: string
  *                      example: 2023-02-21 23:47:20
@@ -30,15 +30,15 @@ const DocumentoTiposController  = require(`${path.CONTROLLERS}/DocumentoTiposCon
 
 /**
  * @swagger
- * /documento_tipos:
+ * /seguimientoTipos:
  *  post:
  *      tags:
- *          - Documento Tipos
- *      summary: Agregar un nuevo Tipo de Documento
- *      description: Agregar un nuevo Tipo de Documento
+ *          - Seguimiento Tipos
+ *      summary: Agregar un nuevo Tipo de Seguimiento
+ *      description: Agregar un nuevo Tipo de Seguimiento
  *      operationId: create
  *      requestBody:
- *          description: Agregar un nuevo Tipo de Documento
+ *          description: Agregar un nuevo Tipo de Seguimiento
  *          content:
  *              application/json:
  *                  schema:
@@ -47,29 +47,29 @@ const DocumentoTiposController  = require(`${path.CONTROLLERS}/DocumentoTiposCon
  *                          nombre:
  *                              type: string
  *                              format: binary
- *                              example: DNI
+ *                              example: Entrevista
  *          required: true
  *      responses:
  *          '200':
- *              description: Tipo de documento agregado con exito
+ *              description: Tipo de Seguimiento agregado con exito
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/Documento Tipos'
+ *                          $ref: '#/components/schemas/Seguimiento Tipos'
  *          '405':
  *              description: Invalid input
  */
 
-router.post('/', DocumentoTiposController.create);
+router.post('/', SeguimientoTipoController.create);
 
 /**
  * @swagger
- * /documento_tipos:
+ * /seguimientoTipos:
  *  get:
  *      tags:
- *        - Documento Tipos
- *      summary: Lista los Tipo de Documentos existentes
- *      description: Lista los Tipo de Documentos existentes
+ *        - Seguimiento Tipos
+ *      summary: Lista los Tipo de Seguimiento existentes
+ *      description: Lista los Tipo de Seguimiento existentes
  *      operationId: get
  *      content:
  *          application/json:
@@ -82,10 +82,10 @@ router.post('/', DocumentoTiposController.create);
  *                  data:
  *                      type: array 
  *                      items: 
- *                          $ref: '#/components/schemas/Documento Tipos'
+ *                          $ref: '#/components/schemas/Seguimiento Tipos'
  *      responses:
  *          '200':
- *              description: Se listaron todos los Tipos de Documentos con exito
+ *              description: Se listaron todos los Tipos de Seguimiento con exito
  *              content:
  *                  application/json:
  *                      schema:
@@ -97,7 +97,7 @@ router.post('/', DocumentoTiposController.create);
  *                              data:
  *                                  type: array 
  *                                  items: 
- *                                      $ref: "#/components/schemas/Documento Tipos"
+ *                                      $ref: "#/components/schemas/Seguimiento Tipos"
  *          '404':
  *              description: No se encontraron
  *              content:
@@ -132,59 +132,59 @@ router.post('/', DocumentoTiposController.create);
  *                                          example: "FAILED"
  */
 
-router.get('/', DocumentoTiposController.get);
+router.get('/', SeguimientoTipoController.get);
 
 /**
  * @swagger
- * /documento_tipos/{Id}:
+ * /seguimientoTipos/{Id}:
  *  get:
  *     tags:
- *       - Documento Tipos
- *     summary: Buscar Tipo de Documento por ID
- *     description: Buscar Tipo de Documento
+ *       - Seguimiento Tipos
+ *     summary: Buscar Tipo de Seguimiento por ID
+ *     description: Buscar Tipo de Seguimiento
  *     operationId: getById
  *     parameters:
  *       - name: Id
  *         in: path
- *         description: ID de Tipo de Documento a devolver
+ *         description: ID de Tipo de Seguimiento a devolver
  *         required: true
  *         schema:
  *             type: integer
  *             format: int32
  *     responses:
  *          '200':
- *              description: Se encontro el Tipo de Documento por ID solicitado
+ *              description: Se encontro el Tipo de Seguimiento por ID solicitado
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/Documento Tipos'
+ *                          $ref: '#/components/schemas/Seguimiento Tipos'
  *          '400':
  *              description: ID suministrado invalido
  *          '404':
- *              description: No existe el Tipo de Documento del id especificado
+ *              description: No existe el Tipo de Seguimiento del id especificado
  */
 
-router.get('/:id', DocumentoTiposController.getById);
+router.get('/:id', SeguimientoTipoController.getById);
 
 /**
  * @swagger
- * /documento_tipos/{Id}:
+ * /seguimientoTipos/{Id}:
  *  put:
  *      tags:
- *          - Documento Tipos
- *      summary: Update de un Tipo de Documento existente
- *      description: Actualizacion de un Tipo de Documento por Id
+ *          - Seguimiento Tipos
+ *      summary: Update de un Tipo de Seguimiento existente
+ *      description: Actualizacion de un Tipo de Seguimiento por Id
  *      operationId: update
  *      parameters:
  *        - name: Id
  *          in: path
- *          description: ID de Tipo de Documento para ser modficado
+ *          description: ID de Tipo de Seguimiento para ser modficado
  *          required: true
  *          schema:
  *              type: integer
  *              format: int64
  *      requestBody:
- *          description: Actualizar un Tipo de Documento de los existentes
+ *          description: Actualizar un Tipo de Seguimiento de los existentes
  *          content:
  *              application/json:
  *                  schema:
@@ -193,49 +193,49 @@ router.get('/:id', DocumentoTiposController.getById);
  *                          nombre:
  *                              type: string
  *                              format: binary
- *                              example: DNI
+ *                              example: Entrevista
  *          required: true
  *      responses:
  *          '200':
- *              description: Se actualizo el documento existente
+ *              description: Se actualizo el Seguimiento existente
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/Documento Tipos'
+ *                          $ref: '#/components/schemas/Seguimiento Tipos'
  *          '400':
  *              description: El ID sumistrado es incorrecto
  *          '404':
- *              description: El Tipo de Documento no existe
+ *              description: El Tipo de Seguimiento no existe
  *          '405':
  *              description: Validation exception
  */
 
-router.put('/:id', DocumentoTiposController.update);
+router.put('/:id', SeguimientoTipoController.update);
 
 /**
  * @swagger
- * /documento_tipos/{Id}:
+ * /seguimientoTipos/{Id}:
  *  delete:
  *      tags:
- *          - Documento Tipos
- *      summary: Elimina un Tipo de Documento
- *      description: Borra el Tipo de Documento
+ *          - Seguimiento Tipos
+ *      summary: Elimina un Tipo de Seguimiento
+ *      description: Borra el Tipo de Seguimiento
  *      operationId: destroy
  *      parameters:
  *        - name: Id
  *          in: path
- *          description: ID de Tipo de Documento para ser borrado
+ *          description: ID de Tipo de Seguimiento para ser borrado
  *          required: true
  *          schema:
  *              type: integer
  *              format: int64
  *      responses:
  *          '204':
- *              description: El Tipo de Documento fue eliminado correctamente
+ *              description: El Tipo de Seguimiento fue eliminado correctamente
  *          '400':
- *              description: Tipo de Documento incorrecto
+ *              description: Tipo de Seguimiento incorrecto
  */
 
-router.delete('/:id', DocumentoTiposController.destroy);
+router.delete('/:id', SeguimientoTipoController.destroy);
 
 module.exports = router;
