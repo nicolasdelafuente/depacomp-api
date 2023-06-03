@@ -62,7 +62,7 @@ const ProvinciaController = require(`${path.CONTROLLERS}/ProvinciasControllers`)
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref: '#/components/schemas/Provincia'
+ *                          $ref: '#/components/schemas/Provincias'
  *          '405':
  *              description: Invalid input
  */
@@ -146,7 +146,7 @@ const ProvinciaController = require(`${path.CONTROLLERS}/ProvinciasControllers`)
   * /provincias/{Id}:
   *  get:
   *     tags:
-  *       - Provincia
+  *       - Provincias
   *     summary: Buscar Provincia por ID
   *     description: Buscar Provincia
   *     operationId: getById
@@ -208,6 +208,74 @@ const ProvinciaController = require(`${path.CONTROLLERS}/ProvinciasControllers`)
   */
  
  router.get('/:id', ProvinciaController.getById);
+
+/**
+ * @swagger
+ * /provincias/paises/{Id}:
+ *  get:
+ *     tags:
+ *       - Provincias
+ *     summary: Buscar Provincia por ID de Pais
+ *     description: Buscar Provincia
+ *     operationId: getByPais
+ *     parameters:
+ *       - name: Id
+ *         in: path
+ *         description: Provincias a devolver por ID de Pais
+ *         required: true
+ *         schema:
+ *             type: integer
+ *             format: int32
+ *     responses:
+ *          '200':
+ *              description: Se listaron las provincias por ID de Pais
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              status:
+ *                                  type: string
+ *                                  example: OK
+ *                              data:
+ *                                  type: array 
+ *                                  items: 
+ *                                      $ref: "#/components/schemas/Provincias"
+ *          '404':
+ *              description: No se encontraron las Provincias por ID de Paises
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              status:
+ *                                  type: string
+ *                                  example: NOT FOUND
+ *                              data:
+ *                                  type: object
+ *                                  properties:
+ *                                      error:
+ *                                          type: string 
+ *                                          example: "No se encontro"
+ *          '500':
+ *              description: FAILED
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                              status:
+ *                                  type: string
+ *                                  example: FAILED
+ *                              data:
+ *                                  type: object
+ *                                  properties:
+ *                                      error:
+ *                                          type: string 
+ *                                          example: "FAILED"
+ */
+
+ router.get('/paises/:id', ProvinciaController.getByPais);
 
  
  /**

@@ -65,6 +65,34 @@ const getById = async (req, res) => {
   }
 }
 
+//Crear endpoint que me devuelva todas las carreras por el id de instituto puesto
+const getByPais = async (req, res) => {
+  try {
+    const { id } = req.params; // Obtener el ID del pais de los parámetros de la solicitud
+
+    let data = await Provincia.findAll({
+      attributes: [
+        "id",
+        "nombre"
+      ],
+      include: {
+        model: Pais,
+        as:"pais",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo Pais
+      },  
+    });
+
+    return res.status(200).json({ data });
+    
+  } catch (error) {
+    handleErrors(error, 'getByPais', nameController);   
+    return res.status(500).json({ error: error.message })
+  }
+}
+
 const update = async (req, res) => {
   try {
       const { id } = req.params;
@@ -103,6 +131,7 @@ module.exports = {
   create,
   get,
   getById,
+  getByPais,
   update,
   destroy
 }

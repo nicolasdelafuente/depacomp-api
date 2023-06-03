@@ -65,6 +65,7 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
  *                          $ref: '#/components/schemas/Paises'
  *          '405':
  *              description: Invalid input
+ * 
  */
 
  router.post('/', PaisController.create);
@@ -172,7 +173,7 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
   *                              data:
   *                                  type: array 
   *                                  items: 
-  *                                      $ref: "#/components/schemas/Pais"
+  *                                      $ref: "#/components/schemas/Paises"
   *          '404':
   *              description: No se encontro el Pais por ID
   *              content:
@@ -248,7 +249,7 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
   *              content:
   *                  application/json:
   *                      schema:
-  *                          $ref: '#/components/schemas/Pais'
+  *                          $ref: '#/components/schemas/Paises'
   *          '400':
   *              description: El ID sumistrado es incorrecto
   *          '404':
@@ -278,9 +279,9 @@ router.put('/:id', PaisController.update);
   *              format: int64
   *      responses:
   *          '204':
-  *              description: El Pais fue eliminada correctamente
+  *              description: El Pais fue eliminado correctamente
   *          '400':
-  *              description: El Pais es incorrecta
+  *              description: El Pais es incorrecto
   */
  
 router.delete('/:id', PaisController.destroy);
