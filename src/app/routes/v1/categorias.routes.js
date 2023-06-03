@@ -50,10 +50,7 @@ const CategoriaController = require(`${path.CONTROLLERS}/CategoriasControllers`)
  *                              type: string
  *                              format: binary
  *                              example: Discapacidad
- *                          instituto_id:
- *                              type: integer
- *                              format: int64
- *                              example: 1
+ *                         
  *          required: true
  *      responses:
  *          '200':

@@ -15,10 +15,10 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
  *              properties:
  *                  id: 
  *                      type: integer
- *                      example: 1
+ *                      example: 9
  *                  nombre: 
  *                      type: string
- *                      example: Afganistán,
+ *                      example: Argentina
  *                  created_at:
  *                      type: string
  *                      example: 2023-02-21 23:47:20
@@ -193,7 +193,7 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
   *                          nombre:
   *                              type: string
   *                              format: binary
-  *                              example: Afganistan
+  *                              example: Argentina
   *          required: true
   *      responses:
   *          '200':
