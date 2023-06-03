@@ -277,7 +277,6 @@ const ProvinciaController = require(`${path.CONTROLLERS}/ProvinciasControllers`)
 
  router.get('/paises/:id', ProvinciaController.getByPais);
 
- 
  /**
   * @swagger
   * /provincias/{Id}:

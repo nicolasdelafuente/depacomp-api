@@ -65,7 +65,7 @@ const getById = async (req, res) => {
   }
 }
 
-//Crear endpoint que me devuelva todas las carreras por el id de instituto puesto
+//Crear endpoint que me devuelva todas las provincias por el id de pais puesto
 const getByPais = async (req, res) => {
   try {
     const { id } = req.params; // Obtener el ID del pais de los parámetros de la solicitud

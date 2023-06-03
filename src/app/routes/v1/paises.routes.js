@@ -13,24 +13,20 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
  *                  - nombre
  *              type: object
  *              properties:
- *                  id:
+ *                  id: 
  *                      type: integer
- *                      format: int64
  *                      example: 1
- *                  nombre:
+ *                  nombre: 
  *                      type: string
- *                      format: binary
- *                      example: Afganistán 
+ *                      example: Afganistán,
  *                  created_at:
  *                      type: string
  *                      example: 2023-02-21 23:47:20
  *                  updated_at: 
  *                      type: string
  *                      example: 2023-02-21 23:47:20
- *             
  */
 
-// Hay que ver como se agrega con el schema bien hecho
 /**
  * @swagger
  * /paises:
@@ -51,10 +47,6 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
  *                              type: string
  *                              format: binary
  *                              example: Afganistán
- *                          pais_id:
- *                              type: integer
- *                              format: int64
- *                              example: 1
  *          required: true
  *      responses:
  *          '200':
@@ -65,7 +57,6 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
  *                          $ref: '#/components/schemas/Paises'
  *          '405':
  *              description: Invalid input
- * 
  */
 
  router.post('/', PaisController.create);
@@ -76,8 +67,8 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
   *  get:
   *      tags:
   *        - Paises
-  *      summary: Lista todos los Paises existentes
-  *      description: Lista todos los Paises existentes
+  *      summary: Lista todos los paises existentes
+  *      description: Lista todos los paises existentes
   *      operationId: get
   *      content:
   *          application/json:
@@ -93,7 +84,7 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
   *                          $ref: "#/components/schemas/Paises"
   *      responses:
   *          '200':
-  *              description: Se listaron todos los Paises con exito
+  *              description: Se todos los paises existentes con exito
   *              content:
   *                  application/json:
   *                      schema:
@@ -140,6 +131,7 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
   *                                          example: "FAILED"
   */
  
+ 
  router.get('/', PaisController.get);
  
  /**
@@ -161,51 +153,15 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
   *             format: int32
   *     responses:
   *          '200':
-  *              description: Se listo la Pais por ID
+  *              description: Se encontro el Pais por ID solicitado
   *              content:
   *                  application/json:
   *                      schema:
-  *                          type: object
-  *                          properties:
-  *                              status:
-  *                                  type: string
-  *                                  example: OK
-  *                              data:
-  *                                  type: array 
-  *                                  items: 
-  *                                      $ref: "#/components/schemas/Paises"
+  *                          $ref: '#/components/schemas/Paises'
+  *          '400':
+  *              description: ID suministrado invalido
   *          '404':
-  *              description: No se encontro el Pais por ID
-  *              content:
-  *                  application/json:
-  *                      schema:
-  *                          type: object
-  *                          properties:
-  *                              status:
-  *                                  type: string
-  *                                  example: NOT FOUND
-  *                              data:
-  *                                  type: object
-  *                                  properties:
-  *                                      error:
-  *                                          type: string 
-  *                                          example: "No se encontro"
-  *          '500':
-  *              description: FAILED
-  *              content:
-  *                  application/json:
-  *                      schema:
-  *                          type: object
-  *                          properties:
-  *                              status:
-  *                                  type: string
-  *                                  example: FAILED
-  *                              data:
-  *                                  type: object
-  *                                  properties:
-  *                                      error:
-  *                                          type: string 
-  *                                          example: "FAILED"
+  *              description: No existe el Pais del id especificado
   */
  
  router.get('/:id', PaisController.getById);
@@ -217,18 +173,18 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
   *      tags:
   *          - Paises
   *      summary: Update de un Pais existente
-  *      description: Actualizacion de una Pais por Id
+  *      description: Actualizacion de un Pais por Id
   *      operationId: update
   *      parameters:
   *        - name: Id
   *          in: path
-  *          description: ID de un Pais para ser modficado
+  *          description: ID de Pais para ser modficado
   *          required: true
   *          schema:
   *              type: integer
   *              format: int64
   *      requestBody:
-  *          description: Actualizacion de un Pais por id
+  *          description: Actualizar un Pais de los existentes
   *          content:
   *              application/json:
   *                  schema:
@@ -237,11 +193,7 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
   *                          nombre:
   *                              type: string
   *                              format: binary
-  *                              example: Buenos Aires
-  *                          pais_id:
-  *                              type: integer
-  *                              format: int64
-  *                              example: 1
+  *                              example: Afganistan
   *          required: true
   *      responses:
   *          '200':
@@ -258,16 +210,16 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
   *              description: Validation exception
   */
  
-router.put('/:id', PaisController.update);
+ router.put('/:id', PaisController.update);
  
  /**
   * @swagger
-  * /pais/{Id}:
+  * /paises/{Id}:
   *  delete:
   *      tags:
   *          - Paises
-  *      summary: Elimina un Pais por el id
-  *      description: Borra el Pais segun el id enviado
+  *      summary: Elimina un Pais
+  *      description: Borra el Pais
   *      operationId: destroy
   *      parameters:
   *        - name: Id
@@ -281,7 +233,7 @@ router.put('/:id', PaisController.update);
   *          '204':
   *              description: El Pais fue eliminado correctamente
   *          '400':
-  *              description: El Pais es incorrecto
+  *              description: Pais incorrecto
   */
  
 router.delete('/:id', PaisController.destroy);
