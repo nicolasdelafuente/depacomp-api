@@ -92,6 +92,168 @@ const getById = async (req, res) => {
     return res.status(500).send({ error: error.message });
   }
 }
+//Crear endpoint que me devuelva la persona por el id de documento puesto
+const getByDocumentoTipo = async (req, res) => {
+  try {
+    const { id } = req.params; // Obtener el ID del documento de los parámetros de la solicitud
+
+    let data = await Persona.findAll({
+      attributes: [
+        "id",
+        "nombre"
+      ],
+      include: {
+        model: DocumentoTipo,
+        as:"documentoTipo",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo documento 
+      },  
+    });
+
+    return res.status(200).json({ data });
+    
+  } catch (error) {
+    handleErrors(error, 'getByDocumentoTipo', nameController);   
+    return res.status(500).json({ error: error.message })
+  }
+}
+
+const getByGenero = async (req, res) => {
+  try {
+    const { id } = req.params; // Obtener el ID del genero de los parámetros de la solicitud
+
+    let data = await Persona.findAll({
+      attributes: [
+        "id",
+        "nombre"
+      ],
+      include: {
+        model: Genero,
+        as:"genero",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo  
+      },  
+    });
+
+    return res.status(200).json({ data });
+    
+  } catch (error) {
+    handleErrors(error, 'getByGenero', nameController);   
+    return res.status(500).json({ error: error.message })
+  }
+}
+
+const getByRol = async (req, res) => {
+  try {
+    const { id } = req.params; // Obtener el ID del rol de los parámetros de la solicitud
+
+    let data = await Persona.findAll({
+      attributes: [
+        "id",
+        "nombre"
+      ],
+      include: {
+        model: Rol,
+        as:"rol",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo rol 
+      },  
+    });
+
+    return res.status(200).json({ data });
+    
+  } catch (error) {
+    handleErrors(error, 'getByRol', nameController);   
+    return res.status(500).json({ error: error.message })
+  }
+}
+
+const getByPais = async (req, res) => {
+  try {
+    const { id } = req.params; // Obtener el ID del pais de los parámetros de la solicitud
+
+    let data = await Persona.findAll({
+      attributes: [
+        "id",
+        "nombre"
+      ],
+      include: {
+        model: Pais,
+        as:"pais",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo pais 
+      },  
+    });
+
+    return res.status(200).json({ data });
+    
+  } catch (error) {
+    handleErrors(error, 'getByPais', nameController);   
+    return res.status(500).json({ error: error.message })
+  }
+}
+
+const getByProvincia = async (req, res) => {
+  try {
+    const { id } = req.params; // Obtener el ID de la provincia de los parámetros de la solicitud
+
+    let data = await Persona.findAll({
+      attributes: [
+        "id",
+        "nombre"
+      ],
+      include: {
+        model: Provincia,
+        as:"provincia",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo provincia
+      },  
+    });
+
+    return res.status(200).json({ data });
+    
+  } catch (error) {
+    handleErrors(error, 'getByProvincia', nameController);   
+    return res.status(500).json({ error: error.message })
+  }
+}
+
+const getByLocalidad = async (req, res) => {
+  try {
+    const { id } = req.params; // Obtener el ID de la localidad de los parámetros de la solicitud
+
+    let data = await Persona.findAll({
+      attributes: [
+        "id",
+        "nombre"
+      ],
+      include: {
+        model: Localidad,
+        as:"localidad",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo localidad
+      },  
+    });
+
+    return res.status(200).json({ data });
+    
+  } catch (error) {
+    handleErrors(error, 'getByLocalidad', nameController);   
+    return res.status(500).json({ error: error.message })
+  }
+}
 
 const update = async (req, res) => {
   try {
@@ -131,6 +293,12 @@ module.exports = {
   create,
   get,
   getById,
+  getByDocumentoTipo,
+  getByGenero,
+  getByRol,
+  getByPais,
+  getByProvincia,
+  getByLocalidad,
   update,
   destroy
 }

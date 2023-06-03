@@ -37,11 +37,11 @@ const ProvinciaController = require(`${path.CONTROLLERS}/ProvinciasControllers`)
  *  post:
  *      tags:
  *          - Provincias
- *      summary: Agregar una nueva provincia
- *      description: Agregar una nueva provincia
+ *      summary: Agregar una nueva Provincia
+ *      description: Agregar una nueva Provincia
  *      operationId: create
  *      requestBody:
- *          description: Agregar una nueva provincia
+ *          description: Agregar una nueva Provincia
  *          content:
  *              application/json:
  *                  schema:
@@ -160,7 +160,7 @@ const ProvinciaController = require(`${path.CONTROLLERS}/ProvinciasControllers`)
   *             format: int32
   *     responses:
   *          '200':
-  *              description: Se listo la provincia por ID
+  *              description: Se listo la Provincia por ID
   *              content:
   *                  application/json:
   *                      schema:
@@ -174,7 +174,7 @@ const ProvinciaController = require(`${path.CONTROLLERS}/ProvinciasControllers`)
   *                                  items: 
   *                                      $ref: "#/components/schemas/Provincias"
   *          '404':
-  *              description: No se encontro la carrera por ID
+  *              description: No se encontro la Provincia por ID
   *              content:
   *                  application/json:
   *                      schema:
@@ -228,7 +228,7 @@ const ProvinciaController = require(`${path.CONTROLLERS}/ProvinciasControllers`)
  *             format: int32
  *     responses:
  *          '200':
- *              description: Se listaron las provincias por ID de Pais
+ *              description: Se listaron las Provincias por ID de Pais
  *              content:
  *                  application/json:
  *                      schema:
@@ -320,7 +320,7 @@ const ProvinciaController = require(`${path.CONTROLLERS}/ProvinciasControllers`)
   *          '400':
   *              description: El ID sumistrado es incorrecto
   *          '404':
-  *              description: La Carrera no existe
+  *              description: La Provincia no existe
   *          '405':
   *              description: Validation exception
   */
