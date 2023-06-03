@@ -8,6 +8,8 @@ const InstitutoController = require(`${path.CONTROLLERS}/InstitutosControllers`)
  * components:
  *      schemas:
  *          Institutos:
+ *              required:
+ *                  - nombre
  *              type: object
  *              properties:
  *                  id: 
