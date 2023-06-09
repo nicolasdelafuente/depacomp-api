@@ -3,6 +3,8 @@ const express = require('express');
 const router = express.Router();
 const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
 
+// getByGenero,, getByRol, getByPais, getByProvincia, getByLocalidad,getByDocumentoTipo,
+
 /**Schemas
  * @swagger
  * components:
@@ -53,6 +55,8 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
  *                      $ref: '#/components/schemas/Provincias'
  *                  Localidades:
  *                      $ref: '#/components/schemas/Localidades'
+ *                  DocumentoTipos:
+ *                      $ref: '#/components/schemas/Documento Tipos'
  */
 
 // Hay que ver como se agrega con el schema bien hecho
@@ -334,143 +338,6 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
  
  router.get('/generos/:id', PersonaController.getByGenero);
 
-
- /**
-  * @swagger
-  * /personas/generos/{Id}:
-  *  get:
-  *     tags:
-  *       - Personas
-  *     summary: Buscar Personas por ID de Generos
-  *     description: Buscar Personas
-  *     operationId: getByGenero
-  *     parameters:
-  *       - name: Id
-  *         in: path
-  *         description: Personas a devolver por ID de Genero
-  *         required: true
-  *         schema:
-  *             type: integer
-  *             format: int32
-  *     responses:
-  *          '200':
-  *              description: Se listaron las Personas por ID de Genero
-  *              content:
-  *                  application/json:
-  *                      schema:
-  *                          type: object
-  *                          properties:
-  *                              status:
-  *                                  type: string
-  *                                  example: OK
-  *                              data:
-  *                                  type: array 
-  *                                  items: 
-  *                                      $ref: "#/components/schemas/Personas"
-  *          '404':
-  *              description: No se encontraron las Personas por ID de Generos
-  *              content:
-  *                  application/json:
-  *                      schema:
-  *                          type: object
-  *                          properties:
-  *                              status:
-  *                                  type: string
-  *                                  example: NOT FOUND
-  *                              data:
-  *                                  type: object
-  *                                  properties:
-  *                                      error:
-  *                                          type: string 
-  *                                          example: "No se encontro"
-  *          '500':
-  *              description: FAILED
-  *              content:
-  *                  application/json:
-  *                      schema:
-  *                          type: object
-  *                          properties:
-  *                              status:
-  *                                  type: string
-  *                                  example: FAILED
-  *                              data:
-  *                                  type: object
-  *                                  properties:
-  *                                      error:
-  *                                          type: string 
-  *                                          example: "FAILED"
-  */
- 
-  router.get('/generos/:id', PersonaController.getByGenero);
- 
- /**
-  * @swagger
-  * /personas/generos/{Id}:
-  *  get:
-  *     tags:
-  *       - Personas
-  *     summary: Buscar Personas por ID de Generos
-  *     description: Buscar Personas
-  *     operationId: getByGenero
-  *     parameters:
-  *       - name: Id
-  *         in: path
-  *         description: Personas a devolver por ID de Genero
-  *         required: true
-  *         schema:
-  *             type: integer
-  *             format: int32
-  *     responses:
-  *          '200':
-  *              description: Se listaron las Personas por ID de Genero
-  *              content:
-  *                  application/json:
-  *                      schema:
-  *                          type: object
-  *                          properties:
-  *                              status:
-  *                                  type: string
-  *                                  example: OK
-  *                              data:
-  *                                  type: array 
-  *                                  items: 
-  *                                      $ref: "#/components/schemas/Personas"
-  *          '404':
-  *              description: No se encontraron las Personas por ID de Generos
-  *              content:
-  *                  application/json:
-  *                      schema:
-  *                          type: object
-  *                          properties:
-  *                              status:
-  *                                  type: string
-  *                                  example: NOT FOUND
-  *                              data:
-  *                                  type: object
-  *                                  properties:
-  *                                      error:
-  *                                          type: string 
-  *                                          example: "No se encontro"
-  *          '500':
-  *              description: FAILED
-  *              content:
-  *                  application/json:
-  *                      schema:
-  *                          type: object
-  *                          properties:
-  *                              status:
-  *                                  type: string
-  *                                  example: FAILED
-  *                              data:
-  *                                  type: object
-  *                                  properties:
-  *                                      error:
-  *                                          type: string 
-  *                                          example: "FAILED"
-  */
- 
-  router.get('/generos/:id', PersonaController.getByGenero);
-
  /**
   * @swagger
   * /personas/roles/{Id}:
@@ -539,6 +406,278 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
  
   router.get('/roles/:id', PersonaController.getByRol); 
 
+  /**
+  * @swagger
+  * /personas/paises/{Id}:
+  *  get:
+  *     tags:
+  *       - Personas
+  *     summary: Buscar Personas por ID de Pais
+  *     description: Buscar Personas
+  *     operationId: getByPais
+  *     parameters:
+  *       - name: Id
+  *         in: path
+  *         description: Personas a devolver por ID de Pais
+  *         required: true
+  *         schema:
+  *             type: integer
+  *             format: int32
+  *     responses:
+  *          '200':
+  *              description: Se listaron las Personas por ID de Pais
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: OK
+  *                              data:
+  *                                  type: array 
+  *                                  items: 
+  *                                      $ref: "#/components/schemas/Personas"
+  *          '404':
+  *              description: No se encontraron las Personas por ID de Paises
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: NOT FOUND
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "No se encontro"
+  *          '500':
+  *              description: FAILED
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: FAILED
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "FAILED"
+  */
+ 
+   router.get('/paises/:id', PersonaController.getByPais);
+
+   /**
+  * @swagger
+  * /personas/provincias/{Id}:
+  *  get:
+  *     tags:
+  *       - Personas
+  *     summary: Buscar Personas por ID de Provincia
+  *     description: Buscar Personas
+  *     operationId: getByProvincia
+  *     parameters:
+  *       - name: Id
+  *         in: path
+  *         description: Personas a devolver por ID Provincia
+  *         required: true
+  *         schema:
+  *             type: integer
+  *             format: int32
+  *     responses:
+  *          '200':
+  *              description: Se listaron las Personas por ID de Provincia
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: OK
+  *                              data:
+  *                                  type: array 
+  *                                  items: 
+  *                                      $ref: "#/components/schemas/Personas"
+  *          '404':
+  *              description: No se encontraron las Personas por ID de Provincia
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: NOT FOUND
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "No se encontro"
+  *          '500':
+  *              description: FAILED
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: FAILED
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "FAILED"
+  */
+ 
+  router.get('/provincias/:id', PersonaController.getByProvincia);
+
+  /**
+  * @swagger
+  * /personas/localidades/{Id}:
+  *  get:
+  *     tags:
+  *       - Personas
+  *     summary: Buscar Personas por ID de Localidad
+  *     description: Buscar Personas
+  *     operationId: getByLocalidad
+  *     parameters:
+  *       - name: Id
+  *         in: path
+  *         description: Personas a devolver por ID de Localidad
+  *         required: true
+  *         schema:
+  *             type: integer
+  *             format: int32
+  *     responses:
+  *          '200':
+  *              description: Se listaron las Personas por ID de Localidad
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: OK
+  *                              data:
+  *                                  type: array 
+  *                                  items: 
+  *                                      $ref: "#/components/schemas/Personas"
+  *          '404':
+  *              description: No se encontraron las Personas por ID de Localidad
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: NOT FOUND
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "No se encontro"
+  *          '500':
+  *              description: FAILED
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: FAILED
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "FAILED"
+  */
+ 
+   router.get('/localidades/:id', PersonaController.getByLocalidad); 
+
+  /**
+  * @swagger
+  * /personas/documentoTipos/{Id}:
+  *  get:
+  *     tags:
+  *       - Personas
+  *     summary: Buscar Personas por ID de Documento Tipo
+  *     description: Buscar Personas
+  *     operationId: getByDocumentoTipo
+  *     parameters:
+  *       - name: Id
+  *         in: path
+  *         description: Personas a devolver por ID de Documento Tipo
+  *         required: true
+  *         schema:
+  *             type: integer
+  *             format: int32
+  *     responses:
+  *          '200':
+  *              description: Se listaron las Personas por ID de Documento Tipo
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: OK
+  *                              data:
+  *                                  type: array 
+  *                                  items: 
+  *                                      $ref: "#/components/schemas/Personas"
+  *          '404':
+  *              description: No se encontraron las Personas por ID de Documento Tipo
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: NOT FOUND
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "No se encontro"
+  *          '500':
+  *              description: FAILED
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: FAILED
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "FAILED"
+  */
+ 
+   router.get('/documentoTipos/:id', PersonaController.getByDocumentoTipo); 
+
  /**
   * @swagger
   * /personas/{Id}:
@@ -591,6 +730,22 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
   *                              type: integer
   *                              format: int64
   *                              example: 1
+  *                          pais_id:
+  *                              type: integer
+  *                              format: int64
+  *                              example: 1
+  *                          provincia_id:
+  *                              type: integer
+  *                              format: int64
+  *                              example: 1
+  *                          localidad_id:
+  *                              type: integer
+  *                              format: int64
+  *                              example: 1
+  *                          documento_id:
+  *                              type: integer
+  *                              format: int64
+  *                              example: 1            
   *          required: true
   *      responses:
   *          '200':
