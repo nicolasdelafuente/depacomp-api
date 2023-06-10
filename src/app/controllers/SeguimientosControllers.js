@@ -159,12 +159,101 @@ const getBySeguimientoId = async (req, res) => {
   }
 }
 
+const getByCategoria = async (req, res) => {
+  try {
+    const { id } = req.params; // Obtener el ID de la Categoria de los parámetros de la solicitud
+
+    let data = await Categoria.findAll({
+      attributes: [
+        "id",
+        "nombre",
+        "categoria_id"
+      ],
+      include: {
+        model: Categoria,
+        as:"categoria",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo Categoria 
+      },  
+    });
+
+    return res.status(200).json({ data });
+    
+  } catch (error) {
+    handleErrors(error, 'getByCategoria', nameController);   
+    return res.status(500).json({ error: error.message })
+  }
+}
+
+const getByEstado = async (req, res) => {
+  try {
+    const { id } = req.params; // Obtener el ID del Estado de los parámetros de la solicitud
+
+    let data = await Estado.findAll({
+      attributes: [
+        "id",
+        "nombre",
+        "estado_id"
+      ],
+      include: {
+        model: Estado,
+        as:"estado",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo Estado
+      },  
+    });
+
+    return res.status(200).json({ data });
+    
+  } catch (error) {
+    handleErrors(error, 'getByEstado', nameController);   
+    return res.status(500).json({ error: error.message })
+  }
+}
+
+
+const getByEntrevista = async (req, res) => {
+  try {
+    const { id } = req.params; // Obtener el ID de la Entrevista de los parámetros de la solicitud
+
+    let data = await Entrevista.findAll({
+      attributes: [
+        "id",
+        "observaciones",
+        "entrevista_id"
+      ],
+      include: {
+        model: Entrevista,
+        as:"entrevista",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo Entrevista 
+      },  
+    });
+
+    return res.status(200).json({ data });
+    
+  } catch (error) {
+    handleErrors(error, 'getByEntrevista', nameController);   
+    return res.status(500).json({ error: error.message })
+  }
+}
+
+
 module.exports = {
   create,
   get,
   getById,
   update,
   destroy,
+  getByEstado,
   getByOrientadorId,
-  getBySeguimientoId
+  getBySeguimientoId,
+  getByEntrevista,
+  getByCategoria
 }

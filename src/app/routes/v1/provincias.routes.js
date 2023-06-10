@@ -26,7 +26,7 @@ const ProvinciaController = require(`${path.CONTROLLERS}/ProvinciasControllers`)
  *                  updated_at: 
  *                      type: string
  *                      example: 2023-02-21 23:47:20
- *                  Paises:
+ *                 Paises:
  *                      $ref: '#/components/schemas/Paises'
  */
 
@@ -275,7 +275,7 @@ const ProvinciaController = require(`${path.CONTROLLERS}/ProvinciasControllers`)
  *                                          example: "FAILED"
  */
 
- router.get('/paises/:id', ProvinciaController.getByPais);
+ router.get('/provincias/paises/:id', ProvinciaController.getByPais);
 
  /**
   * @swagger

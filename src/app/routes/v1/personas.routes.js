@@ -55,11 +55,10 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
  *                      $ref: '#/components/schemas/Provincias'
  *                  Localidades:
  *                      $ref: '#/components/schemas/Localidades'
- *                  DocumentoTipos:
+ *                  Documento Tipos:
  *                      $ref: '#/components/schemas/Documento Tipos'
  */
 
-// Hay que ver como se agrega con el schema bien hecho
 /**
  * @swagger
  * /personas:
@@ -116,6 +115,11 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
  *                              type: integer
  *                              format: int64
  *                              example: 1
+ *                          documento_tipo_id:
+ *                              type: integer
+ *                              format: int64
+ *                              example: 1
+ *                           
  *          required: true
  *      responses:
  *          '200':
@@ -742,7 +746,7 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
   *                              type: integer
   *                              format: int64
   *                              example: 1
-  *                          documento_id:
+  *                          documento_tipo_id:
   *                              type: integer
   *                              format: int64
   *                              example: 1            
