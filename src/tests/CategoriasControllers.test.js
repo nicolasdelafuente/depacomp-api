@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const path = require('../../paths');
+const path = require('../paths');
 const BaseControllerTest = require(`${path.TESTS}/baseControllerTest.js`);
 
 const ROUTE     = process.env.Route || '/depacomp-api';

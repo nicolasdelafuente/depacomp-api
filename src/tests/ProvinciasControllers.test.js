@@ -6,9 +6,9 @@ const BaseControllerTest = require(`${path.TESTS}/baseControllerTest.js`);
 const ROUTE     = process.env.Route || '/depacomp-api';
 const VERSION   = process.env.VERSION || '/v1';
 
-const route = `${ROUTE}${VERSION}/institutos`;
-const controllerName = 'Institutos';
-const singularName = 'Instituto';
+const route = `${ROUTE}${VERSION}/provincias`;
+const controllerName = 'Provincias';
+const singularName = 'Provincia';
 
 
 const generoControllerTest = new BaseControllerTest(route);
