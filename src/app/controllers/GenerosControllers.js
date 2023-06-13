@@ -10,10 +10,10 @@ const attributes = [
   "updated_at"
 ]
 
-class GeneroController extends Controller {
-  constructor() {
-    super(Genero, 'Genero', attributes);
+class GeneroControllers extends Controller {
+  constructor(){
+    super(Genero, 'Genero', attributes)
   }
 }
 
-module.exports = new GeneroController();
+module.exports = new GeneroControllers();

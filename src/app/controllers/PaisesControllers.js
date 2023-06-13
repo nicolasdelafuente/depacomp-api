@@ -12,10 +12,10 @@ const attributes = [
   "updated_at"
 ]
 
-class PaisController extends Controller {
-  constructor() {
-    super(Pais, 'Pais',attributes);
+class PaisControllers extends Controller{
+  constructor(){
+    super(Pais, 'Pais', attributes)
   }
 }
 
-module.exports = new PaisController();
+module.exports = new PaisControllers();

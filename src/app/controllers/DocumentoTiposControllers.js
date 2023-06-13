@@ -1,7 +1,7 @@
 const Controller = require('./Controller');
 const path = require('../../paths');
 const { handleErrors } = require(`${path.SERVICES}/logger`);
-const { Categoria } = require(`${path.DATABASE}/db`);
+const { DocumentoTipo } = require(`${path.DATABASE}/db`);
 
 const attributes = [
   "id",
@@ -10,10 +10,10 @@ const attributes = [
   "updated_at"
 ]
 
-class CategoriaControllers extends Controller {
+class DocumentoTipoControllers extends Controller {
   constructor(){
-    super(Categoria, 'Categoria', attributes)
+    super(DocumentoTipo, 'DocumentoTipo', attributes)
   }
 }
 
-module.exports = new CategoriaControllers();
+module.exports = new DocumentoTipoControllers();

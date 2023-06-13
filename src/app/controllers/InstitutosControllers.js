@@ -10,10 +10,10 @@ const attributes = [
   "updated_at"
 ]
 
-class InstitutoController extends Controller {
-  constructor() {
-    super(Instituto, 'Instituto',attributes);
+class InstitutoControllers extends Controller {
+  constructor(){
+    super(Instituto, 'Instituto', attributes)
   }
 }
 
-module.exports = new InstitutoController();
+module.exports = new InstitutoControllers();
