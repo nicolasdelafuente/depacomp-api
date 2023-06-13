@@ -210,7 +210,7 @@ const GeneroController = require(`${path.CONTROLLERS}/GenerosControllers`);
  *  put:
  *      tags:
  *          - Generos
- *      summary: Update de un Genero existente
+ *      summary: Modificacion de un Genero existente
  *      description: Actualizacion de un Genero por Id
  *      operationId: update
  *      parameters:

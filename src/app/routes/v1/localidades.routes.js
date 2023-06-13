@@ -283,7 +283,7 @@ const LocalidadController = require(`${path.CONTROLLERS}/LocalidadesControllers`
   *  put:
   *      tags:
   *          - Localidades
-  *      summary: Update de una Localidad existente
+  *      summary: Modificacion de una Localidad existente
   *      description: Actualizacion de una Localidad por Id
   *      operationId: update
   *      parameters:

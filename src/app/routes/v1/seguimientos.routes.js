@@ -435,7 +435,7 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
   *  put:
   *      tags:
   *          - Seguimientos
-  *      summary: Update de un Seguimiento existente
+  *      summary: Modificacion de un Seguimiento existente
   *      description: Actualizacion de un Seguimiento por Id
   *      operationId: update
   *      parameters:

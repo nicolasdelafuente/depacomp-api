@@ -172,7 +172,7 @@ router.get('/:id', SeguimientoTipoController.getById);
  *  put:
  *      tags:
  *          - Seguimiento Tipos
- *      summary: Update de un Tipo de Seguimiento existente
+ *      summary: Modificacion de un Tipo de Seguimiento existente
  *      description: Actualizacion de un Tipo de Seguimiento por Id
  *      operationId: update
  *      parameters:

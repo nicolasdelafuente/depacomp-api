@@ -172,7 +172,7 @@ router.get('/:id', DocumentoTipoController.getById);
  *  put:
  *      tags:
  *          - Documento Tipos
- *      summary: Update de un Tipo de Documento existente
+ *      summary: Modificacion de un Tipo de Documento existente
  *      description: Actualizacion de un Tipo de Documento por Id
  *      operationId: update
  *      parameters:

@@ -236,7 +236,7 @@ router.get('/:id', UsuarioController.getById);
  *  put:
  *      tags:
  *          - Usuarios
- *      summary: Update de un Usuario existente
+ *      summary: Modificacion de un Usuario existente
  *      description: Actualizacion de un Usuario por Id
  *      operationId: update
  *      parameters:

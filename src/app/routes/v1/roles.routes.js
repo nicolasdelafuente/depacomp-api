@@ -208,7 +208,7 @@ router.get('/:id', RolController.getById);
  *  put:
  *      tags:
  *          - Roles
- *      summary: Update de un Rol existente
+ *      summary: Modificacion de un Rol existente
  *      description: Actualizacion de un Rol por Id
  *      operationId: update
  *      parameters:

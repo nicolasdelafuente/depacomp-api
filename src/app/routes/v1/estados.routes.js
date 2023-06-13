@@ -215,7 +215,7 @@ const EstadoController = require(`${path.CONTROLLERS}/EstadosControllers.js`);
  *  put:
  *      tags:
  *          - Estados
- *      summary: Update de un Estado existente
+ *      summary: Modificacion de un Estado existente
  *      description: Actualizacion de un Estado por Id
  *      operationId: update
  *      parameters:

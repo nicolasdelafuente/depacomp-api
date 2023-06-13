@@ -172,7 +172,7 @@ const PaisController = require(`${path.CONTROLLERS}/PaisesControllers`);
   *  put:
   *      tags:
   *          - Paises
-  *      summary: Update de un Pais existente
+  *      summary: Modificacion de un Pais existente
   *      description: Actualizacion de un Pais por Id
   *      operationId: update
   *      parameters:

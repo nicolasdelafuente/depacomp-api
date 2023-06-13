@@ -691,7 +691,7 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
   *  put:
   *      tags:
   *          - Personas
-  *      summary: Update de una Persona existente
+  *      summary: Modificacion de una Persona existente
   *      description: Actualizacion de una Persona por Id
   *      operationId: update
   *      parameters:

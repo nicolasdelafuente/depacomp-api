@@ -30,18 +30,18 @@ const CarreraController = require(`${path.CONTROLLERS}/CarrerasControllers`);
  *                      $ref: '#/components/schemas/Institutos'
  */
 
-// Hay que ver como se agrega con el schema bien hecho
+
 /**
  * @swagger
  * /carreras:
  *  post:
  *      tags:
  *          - Carreras
- *      summary: Agregar una nueva carrera
- *      description: Agregar una nueva carrera
+ *      summary: Agregar una nueva Carrera
+ *      description: Agregar una nueva Carrera
  *      operationId: create
  *      requestBody:
- *          description: Agregar una nueva carrera
+ *          description: Agregar una nueva Carrera
  *          content:
  *              application/json:
  *                  schema:
@@ -92,7 +92,7 @@ router.post('/', CarreraController.create);
  *                          $ref: "#/components/schemas/Carreras"
  *      responses:
  *          '200':
- *              description: Se listaron todas las carreras con exito
+ *              description: Se listaron todas las Carreras con exito
  *              content:
  *                  application/json:
  *                      schema:
@@ -160,7 +160,7 @@ router.get('/', CarreraController.get);
  *             format: int32
  *     responses:
  *          '200':
- *              description: Se listo la carrera por ID
+ *              description: Se listo la Carrera por ID
  *              content:
  *                  application/json:
  *                      schema:
@@ -174,7 +174,7 @@ router.get('/', CarreraController.get);
  *                                  items: 
  *                                      $ref: "#/components/schemas/Carreras"
  *          '404':
- *              description: No se encontro la carrera por ID
+ *              description: No se encontro la Carrera por ID
  *              content:
  *                  application/json:
  *                      schema:
@@ -228,7 +228,7 @@ router.get('/:id', CarreraController.getById);
  *             format: int32
  *     responses:
  *          '200':
- *              description: Se listaron las carreras por ID de Instituto
+ *              description: Se listaron las Carreras por ID de Instituto
  *              content:
  *                  application/json:
  *                      schema:
@@ -283,7 +283,7 @@ router.get('/institutos/:id', CarreraController.getByInstituto);
  *  put:
  *      tags:
  *          - Carreras
- *      summary: Update de una Carrera existente
+ *      summary: Modificacion de una Carrera existente
  *      description: Actualizacion de una Carrera por Id
  *      operationId: update
  *      parameters:

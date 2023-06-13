@@ -282,7 +282,7 @@ router.get('/paises/:id', ProvinciaController.getByPais);
  *  put:
  *      tags:
  *          - Provincias
- *      summary: Update de una Provincia existente
+ *      summary: Modificacion de una Provincia existente
  *      description: Actualizacion de una Provincia por Id
  *      operationId: update
  *      parameters:

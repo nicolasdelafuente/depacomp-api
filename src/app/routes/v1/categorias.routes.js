@@ -211,7 +211,7 @@ const CategoriaController = require(`${path.CONTROLLERS}/CategoriasControllers`)
   *  put:
   *      tags:
   *          - Categorias
-  *      summary: Update de una Categoria existente
+  *      summary: Modificacion de una Categoria existente
   *      description: Actualizacion de una Categoria por Id
   *      operationId: update
   *      parameters:

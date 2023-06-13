@@ -296,7 +296,7 @@ const EntrevistaController = require(`${path.CONTROLLERS}/EntrevistasControllers
   *  put:
   *      tags:
   *          - Entrevistas
-  *      summary: Update de una Entrevista existente
+  *      summary: Modificacion de una Entrevista existente
   *      description: Actualizacion de una Entrevista por Id
   *      operationId: update
   *      parameters:

@@ -171,7 +171,7 @@ router.get('/:id', InstitutoController.getById);
  *  put:
  *      tags:
  *          - Institutos
- *      summary: Update de un Instituto existente
+ *      summary: Modificacion de un Instituto existente
  *      description: Actualizacion de un Instituto por Id
  *      operationId: update
  *      parameters:
