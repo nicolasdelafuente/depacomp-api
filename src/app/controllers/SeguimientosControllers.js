@@ -21,11 +21,7 @@ const includes = [
   }, {
     model: SeguimientoTipo, as: 'seguimientoTipo',
     attributes: ["id", "nombre"]
-  },{
-    model: Entrevista, as: 'entrevista',
-    attributes: ["id", "observaciones","acciones"]
-  },
-   {
+  }, {
     model: Persona, as: 'orientador',
     attributes: ["id", "nombre"]
   }, {
@@ -93,6 +89,92 @@ const getById = async (req, res) => {
   } catch (error) {
     handleErrors(error, 'getById', nameController);
     return res.status(500).send({ error: error.message });
+  }
+}
+const getByCategoria = async (req, res) => {
+  try {
+    const { id } = req.params; 
+
+    let data = await Seguimiento.findAll({
+      attributes: [
+        "id",
+        "motivo"
+      ],
+      include: {
+        model: Categoria,
+        as:"categoria",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo  
+      },  
+    });
+    if (data) {
+      return res.status(200).json({ data });
+  }
+  return res.status(404).send({message: 'No existe Seguimiento con el id de Categoria especificado'});
+    
+  } catch (error) {
+    handleErrors(error, 'getByCategoria', nameController);   
+    return res.status(500).json({ error: error.message })
+  }
+}
+
+const getByEstado = async (req, res) => {
+  try {
+    const { id } = req.params; 
+
+    let data = await Seguimiento.findAll({
+      attributes: [
+        "id",
+        "motivo"
+      ],
+      include: {
+        model: Estado,
+        as:"estado",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo  
+      },  
+    });
+    if (data) {
+      return res.status(200).json({ data });
+  }
+  return res.status(404).send({message: 'No existe Seguimiento con el id de Estado especificado'});
+    
+  } catch (error) {
+    handleErrors(error, 'getByEstado', nameController);   
+    return res.status(500).json({ error: error.message })
+  }
+}
+
+const getBySeguimientoTipo = async (req, res) => {
+  try {
+    const { id } = req.params; 
+
+    let data = await Seguimiento.findAll({
+      attributes: [
+        "id",
+        "motivo"
+      ],
+      include: {
+        model: SeguimientoTipo,
+        as:"seguimientoTipo",
+        where: {
+          id: id,
+        },
+        attributes: [], // Excluir los atributos del modelo  
+      },  
+    });
+    if (data) {
+      return res.status(200).json({ data });
+  }
+  return res.status(404).send({message: 'No existe Seguimiento con el id de Tipo especificado'});
+    
+  } catch (error) {
+    handleErrors(error, 'getBySeguimientoTipo', nameController);   
+    return res.status(500).json({ error: error.message })
   }
 }
 
@@ -163,98 +245,15 @@ const getBySeguimientoId = async (req, res) => {
   }
 }
 
-const getByCategoria = async (req, res) => {
-  try {
-    const { id } = req.params; // Obtener el ID de la Categoria de los parámetros de la solicitud
-
-    let data = await Categoria.findAll({
-      attributes: [
-        "id",
-        "motivo"
-      ],
-      include: {
-        model: Categoria,
-        as:"categoria",
-        where: {
-          id: id,
-        },
-        attributes: [], // Excluir los atributos del modelo Categoria 
-      },  
-    });
-
-    return res.status(200).json({ data });
-    
-  } catch (error) {
-    handleErrors(error, 'getByCategoria', nameController);   
-    return res.status(500).json({ error: error.message })
-  }
-}
-
-const getByEstado = async (req, res) => {
-  try {
-    const { id } = req.params; // Obtener el ID del Estado de los parámetros de la solicitud
-
-    let data = await Estado.findAll({
-      attributes: [
-        "id",
-        "motivo"
-      ],
-      include: {
-        model: Estado,
-        as:"estado",
-        where: {
-          id: id,
-        },
-        attributes: [], // Excluir los atributos del modelo Estado
-      },  
-    });
-
-    return res.status(200).json({ data });
-    
-  } catch (error) {
-    handleErrors(error, 'getByEstado', nameController);   
-    return res.status(500).json({ error: error.message })
-  }
-}
-
-
-const getByEntrevista = async (req, res) => {
-  try {
-    const { id } = req.params; // Obtener el ID de la Entrevista de los parámetros de la solicitud
-
-    let data = await Entrevista.findAll({
-      attributes: [
-        "id",
-        "motivo"
-      ],
-      include: {
-        model: Entrevista,
-        as:"entrevista",
-        where: {
-          id: id,
-        },
-        attributes: [], // Excluir los atributos del modelo Entrevista 
-      },  
-    });
-
-    return res.status(200).json({ data });
-    
-  } catch (error) {
-    handleErrors(error, 'getByEntrevista', nameController);   
-    return res.status(500).json({ error: error.message })
-  }
-}
-
-
 module.exports = {
   create,
   get,
   getById,
   update,
   destroy,
-  getByEstado,
   getByOrientadorId,
+  getByCategoria,
   getBySeguimientoId,
-  getByEntrevista,
-  getByCategoria
+  getByEstado,
+  getBySeguimientoTipo
 }

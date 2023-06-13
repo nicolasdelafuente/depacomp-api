@@ -6,6 +6,7 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
 //router.get('/orientador/:orientador_id/seguimientos', SeguimientoController.getByOrientadorId);
 //router.get('/:id', SeguimientoController.getById);
 
+
 /**Schemas
  * @swagger
  * components:
@@ -22,7 +23,7 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
  *                  motivo:
  *                      type: string
  *                      format: binary
- *                      example: Motivo_1: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+ *                      example: Derivacion 
  *                  created_at:
  *                      type: string
  *                      example: 2023-02-21 23:47:20
@@ -33,8 +34,6 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
  *                      $ref: '#/components/schemas/Categorias'
  *                  Estados:
  *                      $ref: '#/components/schemas/Estados'
- *                  Entrevistas:
- *                      $ref: '#/components/schemas/Entrevistas'
  */
 
 /**
@@ -56,7 +55,7 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
  *                          motivo:
  *                              type: string
  *                              format: binary
- *                              example: Motivo_1: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+ *                              example: Derivacion
  *                          categoria_id:
  *                              type: integer
  *                              format: int64
@@ -65,10 +64,11 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
  *                              type: integer
  *                              format: int64
  *                              example: 1
- *                          entrevista_id:
+ *                          seguimiento_tipo_id:
  *                              type: integer
  *                              format: int64
  *                              example: 1
+ *           
  *          required: true
  *      responses:
  *          '200':
@@ -76,7 +76,7 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
  *              content:
  *                  application/json:
  *                      schema:
- *                          $ref:'#/components/schemas/Seguimientos'
+ *                          $ref: '#/components/schemas/Seguimientos'
  *          '405':
  *              description: Invalid input
  */
@@ -152,7 +152,7 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
   *                                          type: string 
   *                                          example: "FAILED"
   */
- 
+
  router.get('/', SeguimientoController.get);
  
  /**
@@ -221,9 +221,214 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
   *                                          example: "FAILED"
   */
  
+ 
  router.get('/:id', SeguimientoController.getById);
  
+ 
+ 
+ /**
+  * @swagger
+  * /seguimientos/categorias/{Id}:
+  *  get:
+  *     tags:
+  *       - Seguimientos
+  *     summary: Buscar Seguimientos por ID de Categoria
+  *     description: Buscar Seguimiento
+  *     operationId: getByCategoria
+  *     parameters:
+  *       - name: Id
+  *         in: path
+  *         description: Seguimientos a devolver por ID de Categoria
+  *         required: true
+  *         schema:
+  *             type: integer
+  *             format: int32
+  *     responses:
+  *          '200':
+  *              description: Se listaron los Seguimientos por ID de Categoria
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: OK
+  *                              data:
+  *                                  type: array 
+  *                                  items: 
+  *                                      $ref: "#/components/schemas/Seguimientos"
+  *          '404':
+  *              description: No se encontraron los Seguimientos por ID de Categoria
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: NOT FOUND
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "No se encontro"
+  *          '500':
+  *              description: FAILED
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: FAILED
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "FAILED"
+  */
+ 
+ router.get('/categorias/:id', SeguimientoController.getByCategoria);
 
+ /**
+  * @swagger
+  * /seguimientos/estados/{Id}:
+  *  get:
+  *     tags:
+  *       - Seguimientos
+  *     summary: Buscar Seguimientos por ID de Estado
+  *     description: Buscar Seguimiento
+  *     operationId: getByEstado
+  *     parameters:
+  *       - name: Id
+  *         in: path
+  *         description: Seguimientos a devolver por ID de Estado
+  *         required: true
+  *         schema:
+  *             type: integer
+  *             format: int32
+  *     responses:
+  *          '200':
+  *              description: Se listaron los Seguimientos por ID de Estado
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: OK
+  *                              data:
+  *                                  type: array 
+  *                                  items: 
+  *                                      $ref: "#/components/schemas/Seguimientos"
+  *          '404':
+  *              description: No se encontraron los Seguimientos por ID de Estado
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: NOT FOUND
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "No se encontro"
+  *          '500':
+  *              description: FAILED
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: FAILED
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "FAILED"
+  */
+ 
+  router.get('/estados/:id', SeguimientoController.getByEstado);
+
+ /**
+  * @swagger
+  * /seguimientos/seguimientoTipos/{Id}:
+  *  get:
+  *     tags:
+  *       - Seguimientos
+  *     summary: Buscar Seguimientos por ID de Seguimiento Tipo
+  *     description: Buscar Seguimiento
+  *     operationId: getBySeguimientoTipo
+  *     parameters:
+  *       - name: Id
+  *         in: path
+  *         description: Seguimientos a devolver por ID de Seguimiento Tipo
+  *         required: true
+  *         schema:
+  *             type: integer
+  *             format: int32
+  *     responses:
+  *          '200':
+  *              description: Se listaron los Seguimientos por ID de Seguimiento Tipo
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: OK
+  *                              data:
+  *                                  type: array 
+  *                                  items: 
+  *                                      $ref: "#/components/schemas/Seguimientos"
+  *          '404':
+  *              description: No se encontraron los Seguimientos por ID de Seguimiento Tipo
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: NOT FOUND
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "No se encontro"
+  *          '500':
+  *              description: FAILED
+  *              content:
+  *                  application/json:
+  *                      schema:
+  *                          type: object
+  *                          properties:
+  *                              status:
+  *                                  type: string
+  *                                  example: FAILED
+  *                              data:
+  *                                  type: object
+  *                                  properties:
+  *                                      error:
+  *                                          type: string 
+  *                                          example: "FAILED"
+  */
+ 
+  router.get('/seguimientoTipos/:id', SeguimientoController.getBySeguimientoTipo);
  /**
   * @swagger
   * /seguimientos/{Id}:
@@ -251,7 +456,7 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
   *                          motivo:
   *                              type: string
   *                              format: binary
-  *                              example: jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+  *                              example: Derivacion
   *                          categoria_id:
   *                              type: integer
   *                              format: int64
@@ -260,14 +465,14 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
   *                              type: integer
   *                              format: int64
   *                              example: 1
-  *                          entrevista_id:
+  *                          seguimiento_tipo_id:
   *                              type: integer
   *                              format: int64
   *                              example: 1
   *          required: true
   *      responses:
   *          '200':
-  *              description: Se actualizo de un Seguimiento existente
+  *              description: Se actualizo el Seguimiento existente
   *              content:
   *                  application/json:
   *                      schema:
@@ -279,6 +484,7 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
   *          '405':
   *              description: Validation exception
   */
+
  
  router.put('/:id', SeguimientoController.update);
  
@@ -288,7 +494,7 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
   *  delete:
   *      tags:
   *          - Seguimientos
-  *      summary: Elimina el Seguimiento por id
+  *      summary: Elimina un Seguimiento por el id
   *      description: Borra el Seguimiento segun el id enviado
   *      operationId: destroy
   *      parameters:
@@ -305,7 +511,7 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
   *          '400':
   *              description: El Seguimiento es incorrecto
   */
- 
+
  router.delete('/:id', SeguimientoController.destroy);
 
 module.exports = router;
