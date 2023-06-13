@@ -33,6 +33,8 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
  *                      $ref: '#/components/schemas/Categorias'
  *                  Estados:
  *                      $ref: '#/components/schemas/Estados'
+ *                  Entrevistas:
+ *                      $ref: '#/components/schemas/Entrevistas'
  */
 
 /**
@@ -60,6 +62,10 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
  *                              format: int64
  *                              example: 1
  *                          estado_id:
+ *                              type: integer
+ *                              format: int64
+ *                              example: 1
+ *                          entrevista_id:
  *                              type: integer
  *                              format: int64
  *                              example: 1
@@ -251,6 +257,10 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
   *                              format: int64
   *                              example: 1
   *                          estado_id:
+  *                              type: integer
+  *                              format: int64
+  *                              example: 1
+  *                          entrevista_id:
   *                              type: integer
   *                              format: int64
   *                              example: 1

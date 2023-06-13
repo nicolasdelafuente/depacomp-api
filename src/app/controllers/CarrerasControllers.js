@@ -33,7 +33,10 @@ const get = async (_, res) => {
         attributes: ["id", "nombre"]
       },  
     });
-    return res.status(200).json({ data });
+    if (data) {
+      return res.status(200).json({ data });
+  }
+  return res.status(404).send({message: 'No existe carrera con el id especificado'});
     
   } catch (error) {
     handleErrors(error,'get', nameController);
@@ -65,7 +68,7 @@ const getById = async (req, res) => {
   }
 }
 
-//Crear endpoint que me devuelva todas las carreras por el id de instituto puesto
+
 const getByInstituto = async (req, res) => {
   try {
     const { id } = req.params; // Obtener el ID del instituto de los parámetros de la solicitud
@@ -84,8 +87,10 @@ const getByInstituto = async (req, res) => {
         attributes: [], // Excluir los atributos del modelo Instituto  
       },  
     });
-
-    return res.status(200).json({ data });
+    if (data) {
+      return res.status(200).json({ data });
+  }
+  return res.status(404).send({message: 'No existe carrera con el id especificado'});
     
   } catch (error) {
     handleErrors(error, 'getByInstituto', nameController);   

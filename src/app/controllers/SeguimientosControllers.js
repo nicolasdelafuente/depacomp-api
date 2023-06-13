@@ -21,7 +21,11 @@ const includes = [
   }, {
     model: SeguimientoTipo, as: 'seguimientoTipo',
     attributes: ["id", "nombre"]
-  }, {
+  },{
+    model: Entrevista, as: 'entrevista',
+    attributes: ["id", "observaciones","acciones"]
+  },
+   {
     model: Persona, as: 'orientador',
     attributes: ["id", "nombre"]
   }, {
@@ -166,8 +170,7 @@ const getByCategoria = async (req, res) => {
     let data = await Categoria.findAll({
       attributes: [
         "id",
-        "nombre",
-        "categoria_id"
+        "motivo"
       ],
       include: {
         model: Categoria,
@@ -194,8 +197,7 @@ const getByEstado = async (req, res) => {
     let data = await Estado.findAll({
       attributes: [
         "id",
-        "nombre",
-        "estado_id"
+        "motivo"
       ],
       include: {
         model: Estado,
@@ -223,8 +225,7 @@ const getByEntrevista = async (req, res) => {
     let data = await Entrevista.findAll({
       attributes: [
         "id",
-        "observaciones",
-        "entrevista_id"
+        "motivo"
       ],
       include: {
         model: Entrevista,

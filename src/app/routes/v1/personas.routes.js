@@ -13,6 +13,9 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
  *              required:
  *                  - nombre
  *                  - apellido
+ *                  - email
+ *                  - password
+ *                  - documento
  *              type: object
  *              properties:
  *                  id:
@@ -107,7 +110,7 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
  *                              type: integer
  *                              format: int64
  *                              example: 1
- *                         provincia_id:
+ *                          provincia_id:
  *                              type: integer
  *                              format: int64
  *                              example: 1

@@ -10,6 +10,7 @@ const EstadoController = require(`${path.CONTROLLERS}/EstadosControllers.js`);
  *          Estados:
  *              required:
  *                  - nombre
+ *                  - color
  *              type: object
  *              properties:
  *                  id:

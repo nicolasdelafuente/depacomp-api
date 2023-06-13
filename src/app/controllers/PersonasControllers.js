@@ -92,7 +92,7 @@ const getById = async (req, res) => {
     return res.status(500).send({ error: error.message });
   }
 }
-//Crear endpoint que me devuelva la persona por el id de documento puesto
+
 const getByDocumentoTipo = async (req, res) => {
   try {
     const { id } = req.params; // Obtener el ID del documento de los parámetros de la solicitud
@@ -100,7 +100,10 @@ const getByDocumentoTipo = async (req, res) => {
     let data = await Persona.findAll({
       attributes: [
         "id",
-        "nombre"
+        "nombre",
+        "apellido",
+        "email",
+        "documento"
       ],
       include: {
         model: DocumentoTipo,
@@ -112,7 +115,10 @@ const getByDocumentoTipo = async (req, res) => {
       },  
     });
 
-    return res.status(200).json({ data });
+    if (data) {
+      return res.status(200).json({ data });
+    }
+    return res.status(404).send({ message: 'No existe Persona con el id especificado' });
     
   } catch (error) {
     handleErrors(error, 'getByDocumentoTipo', nameController);   
@@ -127,7 +133,10 @@ const getByGenero = async (req, res) => {
     let data = await Persona.findAll({
       attributes: [
         "id",
-        "nombre"
+        "nombre",
+        "apellido",
+        "email",
+        "documento"
       ],
       include: {
         model: Genero,
@@ -139,7 +148,10 @@ const getByGenero = async (req, res) => {
       },  
     });
 
-    return res.status(200).json({ data });
+    if (data) {
+      return res.status(200).json({ data });
+    }
+    return res.status(404).send({ message: 'No existe Persona con el id especificado' });
     
   } catch (error) {
     handleErrors(error, 'getByGenero', nameController);   
@@ -154,7 +166,10 @@ const getByRol = async (req, res) => {
     let data = await Persona.findAll({
       attributes: [
         "id",
-        "nombre"
+        "nombre",
+        "apellido",
+        "email",
+        "documento"
       ],
       include: {
         model: Rol,
@@ -166,7 +181,10 @@ const getByRol = async (req, res) => {
       },  
     });
 
-    return res.status(200).json({ data });
+    if (data) {
+      return res.status(200).json({ data });
+    }
+    return res.status(404).send({ message: 'No existe Persona con el id especificado' });
     
   } catch (error) {
     handleErrors(error, 'getByRol', nameController);   
@@ -181,7 +199,10 @@ const getByPais = async (req, res) => {
     let data = await Persona.findAll({
       attributes: [
         "id",
-        "nombre"
+        "nombre",
+        "apellido",
+        "email",
+        "documento"
       ],
       include: {
         model: Pais,
@@ -193,7 +214,10 @@ const getByPais = async (req, res) => {
       },  
     });
 
-    return res.status(200).json({ data });
+    if (data) {
+      return res.status(200).json({ data });
+    }
+    return res.status(404).send({ message: 'No existe Persona con el id especificado' });
     
   } catch (error) {
     handleErrors(error, 'getByPais', nameController);   
@@ -208,7 +232,10 @@ const getByProvincia = async (req, res) => {
     let data = await Persona.findAll({
       attributes: [
         "id",
-        "nombre"
+        "nombre",
+        "apellido",
+        "email",
+        "documento"
       ],
       include: {
         model: Provincia,
@@ -220,7 +247,10 @@ const getByProvincia = async (req, res) => {
       },  
     });
 
-    return res.status(200).json({ data });
+    if (data) {
+      return res.status(200).json({ data });
+    }
+    return res.status(404).send({ message: 'No existe Persona con el id especificado' });
     
   } catch (error) {
     handleErrors(error, 'getByProvincia', nameController);   
@@ -235,7 +265,10 @@ const getByLocalidad = async (req, res) => {
     let data = await Persona.findAll({
       attributes: [
         "id",
-        "nombre"
+        "nombre",
+        "apellido",
+        "email",
+        "documento"
       ],
       include: {
         model: Localidad,
@@ -247,7 +280,10 @@ const getByLocalidad = async (req, res) => {
       },  
     });
 
-    return res.status(200).json({ data });
+    if (data) {
+      return res.status(200).json({ data });
+    }
+    return res.status(404).send({ message: 'No existe Persona con el id especificado' });
     
   } catch (error) {
     handleErrors(error, 'getByLocalidad', nameController);   

@@ -55,7 +55,6 @@ const getById = async (req, res) => {
   }
 }
 
-//Crear endpoint que me devuelva todas las localidade por el id de provincia puesto
 const getByProvincia = async (req, res) => {
   try {
     const { id } = req.params; // Obtener el ID del provincia de los parámetros de la solicitud

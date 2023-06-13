@@ -1,6 +1,6 @@
 const path = require('../../paths');
 const { handleErrors } = require(`${path.SERVICES}/logger`);
-const { Provincia } = require(`${path.DATABASE}/db`);
+const { Provincia, Pais } = require(`${path.DATABASE}/db`);
 
 const nameController = "Provincia"
 
@@ -65,10 +65,9 @@ const getById = async (req, res) => {
   }
 }
 
-//Crear endpoint que me devuelva todas las provincias por el id de pais puesto
 const getByPais = async (req, res) => {
   try {
-    const { id } = req.params; // Obtener el ID del pais de los parámetros de la solicitud
+    const { id } = req.params; // Obtener el ID del Pais de los parámetros de la solicitud
 
     let data = await Provincia.findAll({
       attributes: [
@@ -81,11 +80,13 @@ const getByPais = async (req, res) => {
         where: {
           id: id,
         },
-        attributes: [], // Excluir los atributos del modelo Pais
+        attributes: [], // Excluir los atributos del modelo Pais  
       },  
     });
-
-    return res.status(200).json({ data });
+    if (data) {
+      return res.status(200).json({ data });
+  }
+  return res.status(404).send({message: 'No existe Provincia con el id especificado'});
     
   } catch (error) {
     handleErrors(error, 'getByPais', nameController);   

@@ -68,7 +68,7 @@ const update = async (req, res) => {
       throw new Error('SeguimientoTipo not found');
   } catch (error) {
       handleErrors(error, 'update', nameController);
-      return res.status(500).send({ error: "gfhfdghhgfh" });
+      return res.status(500).send({ error: "SeguimientoTipo no encontrado" });
   }
 };
 

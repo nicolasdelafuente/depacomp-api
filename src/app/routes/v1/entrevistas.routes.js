@@ -21,6 +21,10 @@ const EntrevistaController = require(`${path.CONTROLLERS}/EntrevistasControllers
  *                      type: string
  *                      format: binary
  *                      example: 'Un exito'
+ *                  acciones:
+ *                      type: string
+ *                      format: binary
+ *                      example: 'Un exito'
  *                  created_at:
  *                      type: string
  *                      example: 2023-02-21 23:47:20
@@ -52,7 +56,15 @@ const EntrevistaController = require(`${path.CONTROLLERS}/EntrevistasControllers
  *                              type: string
  *                              format: binary
  *                              example: Un exito
+ *                          acciones:
+ *                              type: string
+ *                              format: binary
+ *                              example: Un exito
  *                          seguimiento_id:
+ *                              type: integer
+ *                              format: int64
+ *                              example: 1
+ *                          entrevistador_id:
  *                              type: integer
  *                              format: int64
  *                              example: 1
@@ -277,74 +289,7 @@ const EntrevistaController = require(`${path.CONTROLLERS}/EntrevistasControllers
   */
  router.get('/seguimientos/:id', EntrevistaController.getBySeguimiento);
 
- 
- /**
-  * @swagger
-  * /seguimientos/count{Id}:
-  *  get:
-  *     tags:
-  *       - Entrevistas
-  *     summary: Buscar Entrevista por ID de Seguimiento
-  *     description: Buscar Entrevistas
-  *     operationId: getCountBySeguimiento
-  *     parameters:
-  *       - name: Id
-  *         in: path
-  *         description: Entrevistas a devolver por ID de Seguimiento
-  *         required: true
-  *         schema:
-  *             type: integer
-  *             format: int32
-  *     responses:
-  *          '200':
-  *              description: Se listaron las Entrevistas por ID de Seguimiento
-  *              content:
-  *                  application/json:
-  *                      schema:
-  *                          type: object
-  *                          properties:
-  *                              status:
-  *                                  type: string
-  *                                  example: OK
-  *                              data:
-  *                                  type: array 
-  *                                  items: 
-  *                                      $ref: "#/components/schemas/Entrevistas"
-  *          '404':
-  *              description: No se encontraron las Entrevistas por ID de Seguimiento
-  *              content:
-  *                  application/json:
-  *                      schema:
-  *                          type: object
-  *                          properties:
-  *                              status:
-  *                                  type: string
-  *                                  example: NOT FOUND
-  *                              data:
-  *                                  type: object
-  *                                  properties:
-  *                                      error:
-  *                                          type: string 
-  *                                          example: "No se encontro"
-  *          '500':
-  *              description: FAILED
-  *              content:
-  *                  application/json:
-  *                      schema:
-  *                          type: object
-  *                          properties:
-  *                              status:
-  *                                  type: string
-  *                                  example: FAILED
-  *                              data:
-  *                                  type: object
-  *                                  properties:
-  *                                      error:
-  *                                          type: string 
-  *                                          example: "FAILED"
-  */
-router.get('/seguimientos/count/:id', EntrevistaController.getCountBySeguimiento);
- 
+
  /**
   * @swagger
   * /entrevistas/{Id}:
@@ -373,6 +318,10 @@ router.get('/seguimientos/count/:id', EntrevistaController.getCountBySeguimiento
   *                              type: string
   *                              format: binary
   *                              example: Un exito
+  *                          acciones:
+  *                              type: string
+  *                              format: binary
+  *                              example: nueva visita la semana que viene
   *                          seguimiento_id:
   *                              type: integer
   *                              format: int64

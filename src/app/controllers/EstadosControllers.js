@@ -2,6 +2,8 @@ const path = require('../../paths');
 const { handleErrors } = require(`${path.SERVICES}/logger`);
 const { Estado } = require(`${path.DATABASE}/db`);
 
+const nameController = "Estado"
+
 const attributes = [
   "id",
   "nombre",
