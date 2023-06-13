@@ -1,7 +1,7 @@
 const Controller = require('./Controller');
 const path = require('../../paths');
 const { handleErrors } = require(`${path.SERVICES}/logger`);
-const { Categoria } = require(`${path.DATABASE}/db`);
+const { DocumentoTipo } = require(`${path.DATABASE}/db`);
 
 const attributes = [
   "id",
@@ -10,9 +10,9 @@ const attributes = [
   "updated_at"
 ]
 
-class CategoriaController extends Controller {
+class DocumentoTipoController extends Controller {
   constructor() {
-    super(Categoria, 'Categoria');
+    super(DocumentoTipo, 'DocumentoTipo');
   }
 
   get = async (_, res) => {
@@ -24,7 +24,7 @@ class CategoriaController extends Controller {
       return res.status(200).json({ data });
       
     } catch (error) {
-      handleErrors(error,'get', this.name); 
+      handleErrors(error,'get', this.name);  
       return res.status(500).json({ error: error.message })
     }
   }
@@ -40,7 +40,7 @@ class CategoriaController extends Controller {
         if (data) {
             return res.status(200).json({ data });
         }
-        return res.status(404).send({message: 'No existe Categoria con el id especificado'});
+        return res.status(404).send({message: 'No existe el DocumentoTipo con el id especificado'});
     } catch (error) {
         handleErrors(error, 'getById', this.name);
         return res.status(500).send({ error: error.message });
@@ -48,4 +48,4 @@ class CategoriaController extends Controller {
   }
 }
 
-module.exports = new CategoriaController();
+module.exports = new DocumentoTipoController();
