@@ -43,11 +43,11 @@ class EntrevistaControllers extends Controller {
       if (data) {
         return res.status(200).json({ data });
       }
-      return res.status(404).send({message: 'No existe Seguimiento con el id especificado'});
+      return res.status(404).send({message: `No existe ${this.name} con el id especificado`});
   
     } catch (error) {
       handleErrors(error, 'getBySeguimiento', this.name);
-      return res.status(500).json({ error: error.message })
+      return res.status(500).json({error: error.message})
     }
   }
 }

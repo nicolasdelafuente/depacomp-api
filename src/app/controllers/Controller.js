@@ -44,7 +44,7 @@ class Controller {
         if (data) {
             return res.status(200).json({ data });
         }
-        return res.status(404).send({message: 'No existe Genero con el id especificado'});
+        return res.status(404).send({message: `No existe ${this.name} con el id especificado`});
     } catch (error) {
         handleErrors(error, 'getById', this.name);
         return res.status(500).send({ error: error.message });
@@ -71,9 +71,9 @@ class Controller {
       const { id } = req.params;
       const deleted = await this.model.destroy({ where: { id: id } });
       if (deleted) {
-        return res.status(204).send({ message: `${this.name} eliminada` });
+        return res.status(204).send({ message: `${this.name} eliminada/o` });
       }
-      throw new Error(`${this.name} no encontrada`);
+      throw new Error(`${this.name} no encontrada/o`);
     } catch (error) {
       handleErrors(error, 'destroy', this.name);
       return res.status(500).send({ error: error.message });
