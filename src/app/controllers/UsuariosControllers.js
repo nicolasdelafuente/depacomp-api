@@ -14,10 +14,10 @@ const attributes = [
   "updated_at"
 ]
 
-class UsuarioController extends Controller {
+class UsuarioControllers extends Controller {
   constructor() {
     super(Usuario, 'Usuario', attributes);
   }
 }
 
-module.exports = new UsuarioController();
+module.exports = new UsuarioControllers();

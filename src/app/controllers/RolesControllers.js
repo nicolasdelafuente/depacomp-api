@@ -10,10 +10,10 @@ const attributes = [
   "updated_at"
 ]
 
-class RolController extends Controller {
+class RolControllers extends Controller {
   constructor(){
     super(Rol, 'Rol', attributes)
   }
 }
 
-module.exports = new RolController();
+module.exports = new RolControllers();

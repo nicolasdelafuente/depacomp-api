@@ -10,7 +10,7 @@ const attributes = [
   "updated_at"
 ]
 
-class LocalidadController extends Controller {
+class LocalidadControllers extends Controller {
   constructor(){
     super(Localidad, 'Localidad', attributes);
   }
@@ -45,4 +45,4 @@ class LocalidadController extends Controller {
   }
 }
 
-module.exports = new LocalidadController();
+module.exports = new LocalidadControllers();

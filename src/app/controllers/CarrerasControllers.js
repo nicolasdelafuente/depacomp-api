@@ -10,7 +10,7 @@ const attributes = [
   "updated_at"
 ]
 
-class CarreraController extends Controller {
+class CarreraControllers extends Controller {
   constructor(){
     super(Carrera, 'Carrera');
   }
@@ -90,4 +90,4 @@ class CarreraController extends Controller {
   }
 }
 
-module.exports = new CarreraController();
+module.exports = new CarreraControllers();
