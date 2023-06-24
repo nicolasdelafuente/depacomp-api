@@ -42,6 +42,11 @@ module.exports = (sequelize, DataTypes) => {
       as: "pais",
       foreignKey: "pais_id",
     });
+    
+    Persona.belongsTo(models.Carrera, {
+      as: "carrera",
+      foreignKey: "carrera_id",
+    });
 
   };
 
