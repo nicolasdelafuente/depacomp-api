@@ -83,6 +83,16 @@ module.exports = {
           as: 'pais_id',
         }
       },
+      carrera_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        allowNull: true,
+        references: {
+          model: 'Carreras',
+          key: 'id',
+          as: 'carrera_id',
+        }
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

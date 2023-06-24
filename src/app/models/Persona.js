@@ -45,6 +45,7 @@ module.exports = (sequelize, DataTypes) => {
     
     Persona.belongsTo(models.Carrera, {
       as: "carrera",
+      allowNull: true,
       foreignKey: "carrera_id",
     });
 

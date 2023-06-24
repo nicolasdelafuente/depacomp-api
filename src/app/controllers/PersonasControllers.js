@@ -45,6 +45,11 @@ const includes = [
     as: "localidad",
     attributes: ["id", "nombre"]
   },
+  //{
+  //  model: Carrera,
+  //  as: "carrera",
+  //  attributes: ["id", "nombre"]
+  //},
 ]
 
 class PersonaControllers extends Controller {

@@ -16,6 +16,7 @@ module.exports = {
           localidad_id: 1,
           provincia_id: 2,
           pais_id: 9,
+          carrera_id: 1,
           created_at: new Date(),
           updated_at: new Date()
         },
@@ -31,6 +32,7 @@ module.exports = {
           localidad_id: 1,
           provincia_id: 2,
           pais_id: 9,
+          carrera_id: 1,
           created_at: new Date(),
           updated_at: new Date()
         },
@@ -46,6 +48,7 @@ module.exports = {
           localidad_id: 1,
           provincia_id: 2,
           pais_id: 9,
+          carrera_id: 1,
           created_at: new Date(),
           updated_at: new Date()
         },
@@ -61,6 +64,7 @@ module.exports = {
           localidad_id: 1,
           provincia_id: 2,
           pais_id: 9,
+          carrera_id: 1,
           created_at: new Date(),
           updated_at: new Date()
         },
@@ -76,6 +80,7 @@ module.exports = {
           localidad_id: 1,
           provincia_id: 2,
           pais_id: 9,
+          carrera_id: 2,
           created_at: new Date(),
           updated_at: new Date()
         },
@@ -91,6 +96,7 @@ module.exports = {
           localidad_id: 1,
           provincia_id: 2,
           pais_id: 9,
+          carrera_id: 2,
           created_at: new Date(),
           updated_at: new Date()
         },

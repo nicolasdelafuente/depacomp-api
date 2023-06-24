@@ -39,7 +39,12 @@ const includes = [
         model: DocumentoTipo,
         as: "documentoTipo",
         attributes: ["id", "nombre"]
-      },//agregar persona
+      },
+      //{
+      //  model: Carrera,
+      //  as: "carrera",
+      //  attributes: ["id", "nombre"]
+      //},//agregar persona
     ]
   }
 ];
