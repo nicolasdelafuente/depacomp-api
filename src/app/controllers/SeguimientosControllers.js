@@ -22,10 +22,10 @@ const includes = [
     attributes: ["id", "nombre"]
   }, {
     model: Persona, as: 'orientador',
-    attributes: ["id", "nombre"]
+    attributes: ["id", "nombre","apellido"]
   }, {
     model: Persona, as: 'derivador',
-    attributes: ["id", "nombre"]
+    attributes: ["id", "nombre","apellido"]
   }, {
     model: Persona, as: 'entrevistado',
     attributes: ["id", "nombre", "apellido", "documento"],
