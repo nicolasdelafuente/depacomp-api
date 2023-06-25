@@ -1,7 +1,7 @@
 const Controller = require('./Controller');
 const path = require('../../paths');
 const { handleErrors } = require(`${path.SERVICES}/logger`);
-const { Persona, Genero, DocumentoTipo, Rol, Pais, Provincia, Localidad } = require(`${path.DATABASE}/db`);
+const { Persona, Genero, DocumentoTipo, Rol, Pais, Provincia, Localidad, Carrera } = require(`${path.DATABASE}/db`);
 
 const attributes = [
   "id",
@@ -45,11 +45,11 @@ const includes = [
     as: "localidad",
     attributes: ["id", "nombre"]
   },
-  //{
-  //  model: Carrera,
-  //  as: "carrera",
-  //  attributes: ["id", "nombre"]
-  //},
+  {
+    model: Carrera,
+    as: "carrera",
+    attributes: ["id", "nombre"]
+  },
 ]
 
 class PersonaControllers extends Controller {
