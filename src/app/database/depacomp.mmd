@@ -1,0 +1,151 @@
+erDiagram
+    carreras {
+        int id PK
+        varchar nombre 
+        int instituto_id FK
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    categorias {
+        int id PK
+        varchar nombre 
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    documentotipos {
+        int id PK
+        varchar nombre 
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    entrevistas {
+        int id PK
+        varchar observaciones 
+        varchar acciones 
+        int seguimiento_id FK
+        int entrevistador_id FK
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    estados {
+        int id PK
+        varchar nombre 
+        varchar color 
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    generos {
+        int id PK
+        varchar nombre 
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    institutos {
+        int id PK
+        varchar nombre 
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    localidades {
+        int id PK
+        varchar nombre 
+        int provincia_id FK
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    paises {
+        int id PK
+        varchar nombre 
+        varchar nacionalidad 
+        varchar iso 
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    personas {
+        int id PK
+        varchar nombre 
+        varchar apellido 
+        varchar email 
+        varchar password 
+        varchar documento 
+        int rol_id FK
+        int genero_id FK
+        int documento_id FK
+        int localidad_id FK
+        int provincia_id FK
+        int pais_id FK
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    provincias {
+        int id PK
+        varchar nombre 
+        int pais_id FK
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    roles {
+        int id PK
+        varchar nombre 
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    seguimientos {
+        int id PK
+        text motivo 
+        int categoria_id FK
+        int estado_id FK
+        int seguimiento_tipo_id FK
+        int orientador_id 
+        int derivador_id FK
+        int entrevistado_id FK
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    seguimientotipos {
+        int id PK
+        varchar nombre 
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    usuarios {
+        int id PK
+        varchar nombre 
+        varchar password 
+        varchar email 
+        varchar token 
+        tinyint confirmado 
+        datetime created_at 
+        datetime updated_at 
+    }
+
+    carreras }o--|| institutos : "instituto_id"
+    seguimientos }o--|| categorias : "categoria_id"
+    personas }o--|| documentotipos : "documento_id"
+    entrevistas }o--|| seguimientos : "seguimiento_id"
+    entrevistas }o--|| personas : "entrevistador_id"
+    seguimientos }o--|| estados : "estado_id"
+    personas }o--|| generos : "genero_id"
+    localidades }o--|| provincias : "provincia_id"
+    personas }o--|| localidades : "localidad_id"
+    personas }o--|| paises : "pais_id"
+    provincias }o--|| paises : "pais_id"
+    personas }o--|| roles : "rol_id"
+    personas }o--|| provincias : "provincia_id"
+    seguimientos }o--|| personas : "derivador_id"
+    seguimientos }o--|| personas : "entrevistado_id"
+    seguimientos }o--|| seguimientotipos : "seguimiento_tipo_id"
