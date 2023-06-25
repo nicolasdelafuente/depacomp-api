@@ -1,6 +1,7 @@
 const winston = require('winston');
 const { createLogger, transports, format } = winston;
 const path = require('../paths');
+const moment = require('moment-timezone');
 
 const logger = createLogger({
   transports: [
@@ -9,7 +10,10 @@ const logger = createLogger({
   ],
   format: format.combine(
     format.timestamp(),
-    format.json()
+    format.printf(info => {
+      const timestamp = moment(info.timestamp).tz('America/Argentina/Buenos_Aires').format('YYYY-MM-DD HH:mm:ss');
+      return `${timestamp} ${info.level}: ${info.message}`;
+    })
   )
 });
 
