@@ -27,8 +27,8 @@ const includes = [
     model: Persona, as: 'derivador',
     attributes: ["id", "nombre","apellido"]
   }, {
-    model: Persona, as: 'entrevistado',
-    attributes: ["id", "nombre", "apellido", "documento"],
+    model: Persona, as: 'orientado',
+    attributes: ["id", "nombre", "apellido", "documento","email","telefono"],
     include: [
       {
         model: Genero,
@@ -55,6 +55,28 @@ class SeguimientoControllers extends Controller {
     super(Seguimiento, 'Seguimiento'); 
   }
 
+  create = async (req, res) => {
+    try {
+      let data = req.body;
+      let message = '';
+      let status = '422';
+  
+      if (data.orientador_id === data.orientado_id) {
+        message = 'Un orientador no puede orientarse a sí mismo.';
+      } else if (data.derivador_id === data.orientado_id) {
+        message = 'Un derivador no puede derivarse a sí mismo.';
+      } else {
+        data = await this.model.create(data);
+        message = 'Datos guardados correctamente.';
+        status = 201;
+      }
+  
+      return res.status(status).json({ data: data, status: res.statusCode, message: message});
+    } catch (error) {
+      handleErrors(error, 'create', this.name);
+      return res.status(500).json({ error: error.message, status: res.statusCode });
+    }
+  }
   get = async (_, res) => {
     try {
       let data = await this.model.findAll({

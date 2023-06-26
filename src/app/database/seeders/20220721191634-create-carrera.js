@@ -39,7 +39,6 @@ module.exports = {
         { nombre: 'Licenciatura en Informática', instituto_id: 4, created_at: new Date(), updated_at: new Date() },
         { nombre: 'Técnico/a Universitario/a en Informática', instituto_id: 4, created_at: new Date(), updated_at: new Date() },
         { nombre: 'Tecnicatura Universitaria en Mantenimiento Industrial', instituto_id: 4, created_at: new Date(), updated_at: new Date() },
-        { nombre: 'El usuario no es estudiante de una Carrera', instituto_id: 5, created_at: new Date(), updated_at: new Date() },
       ];
 
       return queryInterface.bulkInsert('Carreras', data ,{});

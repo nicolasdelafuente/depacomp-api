@@ -64,7 +64,7 @@ const EntrevistaController = require(`${path.CONTROLLERS}/EntrevistasControllers
  *                              type: integer
  *                              format: int64
  *                              example: 1
- *                          entrevistador_id:
+ *                          orientador_id:
  *                              type: integer
  *                              format: int64
  *                              example: 1

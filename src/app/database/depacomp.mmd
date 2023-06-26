@@ -26,7 +26,7 @@ erDiagram
         varchar observaciones 
         varchar acciones 
         int seguimiento_id FK
-        int entrevistador_id FK
+        int orientador_id FK
         datetime created_at 
         datetime updated_at 
     }
@@ -75,6 +75,7 @@ erDiagram
         varchar nombre 
         varchar apellido 
         varchar email 
+        int telefono
         varchar password 
         varchar documento 
         int rol_id FK
@@ -110,7 +111,7 @@ erDiagram
         int seguimiento_tipo_id FK
         int orientador_id 
         int derivador_id FK
-        int entrevistado_id FK
+        int orientado_id FK
         datetime created_at 
         datetime updated_at 
     }
@@ -137,7 +138,7 @@ erDiagram
     seguimientos }o--|| categorias : "categoria_id"
     personas }o--|| documentotipos : "documento_id"
     entrevistas }o--|| seguimientos : "seguimiento_id"
-    entrevistas }o--|| personas : "entrevistador_id"
+    entrevistas }o--|| personas : "orientador_id"
     seguimientos }o--|| estados : "estado_id"
     personas }o--|| generos : "genero_id"
     localidades }o--|| provincias : "provincia_id"
@@ -147,5 +148,5 @@ erDiagram
     personas }o--|| roles : "rol_id"
     personas }o--|| provincias : "provincia_id"
     seguimientos }o--|| personas : "derivador_id"
-    seguimientos }o--|| personas : "entrevistado_id"
+    seguimientos }o--|| personas : "orientado_id"
     seguimientos }o--|| seguimientotipos : "seguimiento_tipo_id"

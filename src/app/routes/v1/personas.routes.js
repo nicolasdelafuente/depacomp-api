@@ -14,6 +14,7 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
  *                  - nombre
  *                  - apellido
  *                  - email
+ *                  - telefono
  *                  - password
  *                  - documento
  *              type: object
@@ -34,6 +35,10 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
  *                      type: string
  *                      format: binary
  *                      example: juanaLzrz@gmail.com
+ *                  telefono:
+ *                      type: integer
+ *                      format: binary
+ *                      example: 09876543
  *                  password:
  *                      type: string
  *                      format: binary
@@ -90,6 +95,10 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
  *                              type: string
  *                              format: binary
  *                              example: Juanqhyr@gmail.com
+ *                          telefono:
+ *                              type: integer
+ *                              format: binary
+ *                              example: 098765432
  *                          password:
  *                              type: string
  *                              format: binary
@@ -721,6 +730,10 @@ const PersonaController = require(`${path.CONTROLLERS}/PersonasControllers`);
   *                              type: string
   *                              format: binary
   *                              example: Juanqhyr@gmail.com
+  *                          telefono:
+  *                              type: integer
+  *                              format: binary
+  *                              example: 098765432
   *                          password:
   *                              type: string
   *                              format: binary

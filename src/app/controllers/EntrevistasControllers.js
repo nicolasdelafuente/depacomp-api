@@ -8,7 +8,7 @@ const attributes = [
   "observaciones",
   "acciones",
   "seguimiento_id",
-  "entrevistador_id",
+  "orientador_id",
   "created_at",
   "updated_at"
 ]
@@ -28,7 +28,7 @@ class EntrevistaControllers extends Controller {
           "observaciones",
           "acciones",
           "seguimiento_id",
-          "entrevistador_id"
+          "orientador_id"
         ],
         include: {
           model: Seguimiento,

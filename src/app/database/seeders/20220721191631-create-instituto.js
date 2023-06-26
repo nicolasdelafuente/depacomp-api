@@ -8,7 +8,6 @@ module.exports = {
         { nombre: 'Instituto de Educación', created_at: new Date(), updated_at: new Date() },
         { nombre: 'Instituto de Salud Comunitaria', created_at: new Date(), updated_at: new Date() },
         { nombre: 'Instituto de Tecnología e Ingenieria', created_at: new Date(), updated_at: new Date() },
-        { nombre: 'El usuario no forma parte de un Instituto', created_at: new Date(), updated_at: new Date() },
       ];
 
       return queryInterface.bulkInsert('Institutos', data ,{});

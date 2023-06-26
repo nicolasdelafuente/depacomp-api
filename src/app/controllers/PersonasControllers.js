@@ -8,6 +8,7 @@ const attributes = [
   "nombre",
   "apellido",
   "email",
+  "telefono",
   "password",
   "documento",
   "created_at",
@@ -100,6 +101,7 @@ class PersonaControllers extends Controller {
           "nombre",
           "apellido",
           "email",
+          "telefono",
           "documento"
         ],
         include: {
@@ -133,6 +135,7 @@ class PersonaControllers extends Controller {
           "nombre",
           "apellido",
           "email",
+          "telefono",
           "documento"
         ],
         include: {
@@ -166,6 +169,7 @@ class PersonaControllers extends Controller {
           "nombre",
           "apellido",
           "email",
+          "telefono",
           "documento"
         ],
         include: {
@@ -199,6 +203,7 @@ class PersonaControllers extends Controller {
           "nombre",
           "apellido",
           "email",
+          "telefono",
           "documento"
         ],
         include: {
@@ -232,6 +237,7 @@ class PersonaControllers extends Controller {
           "nombre",
           "apellido",
           "email",
+          "telefono",
           "documento"
         ],
         include: {
@@ -265,6 +271,7 @@ class PersonaControllers extends Controller {
           "nombre",
           "apellido",
           "email",
+          "telefono",
           "documento"
         ],
         include: {

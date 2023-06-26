@@ -57,14 +57,14 @@ module.exports = {
           as: 'derivador_id',
         }
       },
-      entrevistado_id: {
+      orientado_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
           model: 'Personas',
           key: 'id',
-          as: 'entrevistado_id',
+          as: 'orientado_id',
         }
       },
       created_at: {
