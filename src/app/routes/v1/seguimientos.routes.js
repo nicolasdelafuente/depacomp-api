@@ -24,6 +24,18 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
  *                      type: string
  *                      format: binary
  *                      example: Derivacion 
+ *                  orientador_id:
+ *                      type: integer
+ *                      format: int64
+ *                      example: 1
+ *                  derivador_id:
+ *                      type: integer
+ *                      format: int64
+ *                      example: 1
+ *                  orientado_id:
+ *                      type: integer
+ *                      format: int64
+ *                      example: 1
  *                  created_at:
  *                      type: string
  *                      example: 2023-02-21 23:47:20
@@ -68,7 +80,18 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
  *                              type: integer
  *                              format: int64
  *                              example: 1
- *           
+ *                          orientador_id:
+ *                              type: integer
+ *                              format: int64
+ *                              example: 1
+ *                          derivador_id:
+ *                              type: integer
+ *                              format: int64
+ *                              example: 1
+ *                          orientado_id:
+ *                              type: integer
+ *                              format: int64
+ *                              example: 1
  *          required: true
  *      responses:
  *          '200':
@@ -466,6 +489,18 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
   *                              format: int64
   *                              example: 1
   *                          seguimiento_tipo_id:
+  *                              type: integer
+  *                              format: int64
+  *                              example: 1
+  *                          orientador_id:
+  *                              type: integer
+  *                              format: int64
+  *                              example: 1
+  *                          derivador_id:
+  *                              type: integer
+  *                              format: int64
+  *                              example: 1
+  *                          orientado_id:
   *                              type: integer
   *                              format: int64
   *                              example: 1
