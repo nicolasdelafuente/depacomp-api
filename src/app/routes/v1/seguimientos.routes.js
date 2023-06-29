@@ -315,7 +315,7 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
   *                                          example: "FAILED"
   */
  
- router.get('/categorias/:id', SeguimientoController.getByCategoria);
+ //router.get('/categorias/:id', SeguimientoController.getByCategoria);
 
  /**
   * @swagger
@@ -383,7 +383,7 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
   *                                          example: "FAILED"
   */
  
-  router.get('/estados/:id', SeguimientoController.getByEstado);
+  //router.get('/estados/:id', SeguimientoController.getByEstado);
 
  /**
   * @swagger
@@ -451,7 +451,7 @@ const SeguimientoController = require(`${path.CONTROLLERS}/SeguimientosControlle
   *                                          example: "FAILED"
   */
  
-  router.get('/seguimientoTipos/:id', SeguimientoController.getBySeguimientoTipo);
+  //router.get('/seguimientoTipos/:id', SeguimientoController.getBySeguimientoTipo);
  /**
   * @swagger
   * /seguimientos/{Id}:
