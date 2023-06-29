@@ -27,8 +27,8 @@ const includes = [
     model: Persona, as: 'derivador',
     attributes: ["id", "nombre","apellido"]
   }, {
-    model: Persona, as: 'entrevistado',
-    attributes: ["id", "nombre", "apellido", "documento"],
+    model: Persona, as: 'orientado',
+    attributes: ["id", "nombre", "apellido", "documento","email","telefono"],
     include: [
       {
         model: Genero,
@@ -54,21 +54,22 @@ class SeguimientoControllers extends Controller {
   constructor(){
     super(Seguimiento, 'Seguimiento'); 
   }
+}
 
-  get = async (_, res) => {
-    try {
-      let data = await this.model.findAll({
-        attributes: attributes,
-        include: includes,
-      });
-  
-      return res.status(200).json({ data });
-  
-    } catch (error) {
-      handleErrors(error,'get', this.name);
-      return res.status(500).json({ error: error.message })
-    }
+const get = async (_, res) => {
+  try {
+    let data = await Seguimiento.findAll({
+      attributes: attributes,
+      include: includes,
+    });
+
+    return res.status(200).json({ data });
+
+  } catch (error) {
+    handleErrors(error,'get', nameController);
+    return res.status(500).json({ error: error.message })
   }
+}
 
   getById = async (req, res) => {
     try {
@@ -209,6 +210,6 @@ class SeguimientoControllers extends Controller {
       return res.status(500).send({ error: error.message });
     }
   }
-}
+
 
 module.exports = new SeguimientoControllers();

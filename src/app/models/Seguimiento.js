@@ -30,12 +30,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "entrevista_id",
     });
 
-    //Se saco por que se saco de la tabla de Seguimiento
-    //Seguimiento.belongsTo(models.Persona, {
-    //  as: "entrevistador",
-    //  foreignKey: "id",
-    //});
-
     Seguimiento.belongsTo(models.Persona, {
       as: "orientador",
       foreignKey: "orientador_id",
@@ -47,8 +41,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Seguimiento.belongsTo(models.Persona, {
-      as: "entrevistado",
-      foreignKey: "entrevistado_id",
+      as: "orientado",
+      foreignKey: "orientado_id",
     });
   };
 
